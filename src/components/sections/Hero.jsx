@@ -102,7 +102,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                             initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
                             className="orbit-icon"
                         >
-                            <span className="material-symbols-outlined">{item.icon}</span>
+                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">{item.icon}</span>
                         </motion.div>
                     ))}
 
@@ -130,7 +130,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         style={{ cursor: "pointer" }}
                         title="Googleで「Tanasuke」を検索"
                     >
-                        <span className="material-symbols-outlined search-icon">search</span>
+                        <span className="material-symbols-outlined notranslate " translate="no">search</span>
 
                         <h1 className="hero-title">
                             <span className="google-gradient-text">{typedText}</span>
@@ -138,8 +138,8 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         </h1>
 
                         <div className="search-icons-right">
-                            <span className="material-symbols-outlined cursor-pointer hover:text-white transition-colors" title="音声検索">mic</span>
-                            <span className="material-symbols-outlined cursor-pointer hover:text-white transition-colors" title="画像検索">center_focus_strong</span>
+                            <span className="material-symbols-outlined notranslate " translate="no" title="音声検索">mic</span>
+                            <span className="material-symbols-outlined notranslate " translate="no" title="画像検索">center_focus_strong</span>
                         </div>
                     </div>
 
@@ -153,7 +153,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            <span className="material-symbols-outlined">visibility</span>
+                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">visibility</span>
                             <span>作品を見る</span>
                         </motion.button>
 
@@ -166,7 +166,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                                 document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            <span className="material-symbols-outlined">description</span>
+                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">description</span>
                             <span>経歴を表示</span>
                         </motion.button>
                     </div>
@@ -199,7 +199,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                     />
                 </div>
-                <span className="material-symbols-outlined scroll-arrow">keyboard_arrow_down</span>
+                <span className="material-symbols-outlined notranslate " translate="no">keyboard_arrow_down</span>
             </motion.div>
         </section>
     );

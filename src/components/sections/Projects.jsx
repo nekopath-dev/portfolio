@@ -64,14 +64,14 @@ const Projects = () => {
                             >
                                 <Card className="project-card" hoverable={true}>
                                     <div className="project-image-container">
-                                        <span className="material-symbols-outlined">image</span>
+                                        <span className="material-symbols-outlined notranslate " translate="no" translate="no">image</span>
                                     </div>
                                     <div className="project-content">
                                         <div className="project-header">
                                             <h3 className="project-title">{project.title}</h3>
                                             <div className="project-links">
                                                 <a href={project.link} target="_blank" rel="noreferrer">
-                                                    <span className="material-symbols-outlined text-[20px]">arrow_outward</span>
+                                                    <span className="material-symbols-outlined notranslate " translate="no">arrow_outward</span>
                                                 </a>
                                             </div>
                                         </div>

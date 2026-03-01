@@ -51,8 +51,7 @@ function App() {
         <div className="footer-top">
           <h2 className="footer-title">Let's Connect</h2>
           <p className="footer-subtitle">
-            お気軽にお問い合わせください。新しい機会、コラボレーション、あるいは技術やデザインについての雑談でも大歓迎です。
-          </p>
+            お気軽にお問ぁE��わせください。新しい機会、コラボレーション、あるいは技術やチE��インにつぁE��の雑諁E��も大歓迎です、E          </p>
           <a href="#contact" className="footer-fab" onClick={(e) => {
             e.preventDefault();
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -67,11 +66,11 @@ function App() {
           <div className="footer-row">
             <div className="footer-links">
               <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>日本</span>
-              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>Tanasuke について</span>
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>Tanasuke につぁE��</span>
 
               <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
                 confetti({ particleCount: 50, spread: 60, colors: ['#4285F4'], origin: { y: 0.8 } }); // Google Blue
-              }}>広告</span>
+              }}>庁E��</span>
 
               <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
                 confetti({ particleCount: 50, spread: 60, colors: ['#34A853'], origin: { y: 0.8 } }); // Google Green
@@ -95,11 +94,11 @@ function App() {
                 document.body.style.transition = "transform 1s ease-in-out";
                 document.body.style.transform = "rotate(360deg)";
                 setTimeout(() => document.body.style.transform = "none", 1000);
-              }}>規約</span>
+              }}>規紁E/span>
 
-              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => alert('設定モーダル表示（今後実装予定）')}>設定</span>
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => alert('設定モーダル表示�E�今後実裁E��定！E)}>設宁E/span>
             </div>
-            <div className="lucky-btn" title="インターネットがない？" onClick={() => {
+            <div className="lucky-btn" title="インターネットがなぁE��E onClick={() => {
               confetti({
                 particleCount: 100,
                 spread: 70,

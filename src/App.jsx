@@ -10,6 +10,7 @@ import './App.css';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
 
   // Simple scroll spy to update active nav link
   useEffect(() => {
@@ -38,9 +39,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Navigation activeSection={activeSection} setActiveSection={setActiveSection} isAppLoaded={isAppLoaded} />
       <main>
-        <Hero />
+        <Hero onAnimationComplete={() => setIsAppLoaded(true)} isAppLoaded={isAppLoaded} />
         <About />
         <Projects />
         <Skills />
@@ -65,10 +66,16 @@ function App() {
         <div className="footer-bottom">
           <div className="footer-row">
             <div className="footer-links">
-              <span className="footer-link">日本</span>
-              <span className="footer-link">Tanasuke について</span>
-              <span className="footer-link">広告</span>
-              <span className="footer-link">ビジネス</span>
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>日本</span>
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>Tanasuke について</span>
+
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
+                confetti({ particleCount: 50, spread: 60, colors: ['#4285F4'], origin: { y: 0.8 } }); // Google Blue
+              }}>広告</span>
+
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
+                confetti({ particleCount: 50, spread: 60, colors: ['#34A853'], origin: { y: 0.8 } }); // Google Green
+              }}>ビジネス</span>
             </div>
             <div className="footer-links">
               <a href="https://github.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="GitHub"><SiGithub size={24} /></a>
@@ -78,9 +85,19 @@ function App() {
           </div>
           <div className="footer-row">
             <div className="footer-links">
-              <span className="footer-link">プライバシー</span>
-              <span className="footer-link">規約</span>
-              <span className="footer-link">設定</span>
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
+                document.body.style.transition = "filter 0.5s";
+                document.body.style.filter = "blur(10px)";
+                setTimeout(() => document.body.style.filter = "none", 2000);
+              }}>プライバシー</span>
+
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => {
+                document.body.style.transition = "transform 1s ease-in-out";
+                document.body.style.transform = "rotate(360deg)";
+                setTimeout(() => document.body.style.transform = "none", 1000);
+              }}>規約</span>
+
+              <span className="footer-link cursor-pointer transition-colors hover:text-white" onClick={() => alert('設定モーダル表示（今後実装予定）')}>設定</span>
             </div>
             <div className="lucky-btn" title="インターネットがない？" onClick={() => {
               confetti({

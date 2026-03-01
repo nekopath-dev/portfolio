@@ -3,10 +3,11 @@ import { motion, useAnimation } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({ onAnimationComplete, isAppLoaded }) => {
     const fullText = "Hello, I'm Tanasuke.";
     const [typedText, setTypedText] = useState("");
     const controls = useAnimation();
+    const avatarControls = useAnimation();
     const [animationDone, setAnimationDone] = useState(false);
 
     // Array of icons to explode out
@@ -19,10 +20,10 @@ const Hero = () => {
 
     useEffect(() => {
         const sequence = async () => {
-            // Wait for initial avatar scale up
-            await new Promise(resolve => setTimeout(resolve, 800));
+            // 1. Avatar starts large and in center (done via initial props)
+            await new Promise(resolve => setTimeout(resolve, 500)); // Initial pause
 
-            // Explode out
+            // 2. Explode icons out
             await controls.start(i => ({
                 opacity: 1,
                 x: Math.cos((orbitIcons[i].angle * Math.PI) / 180) * orbitIcons[i].distance,
@@ -31,10 +32,10 @@ const Hero = () => {
                 transition: { type: "spring", stiffness: 200, damping: 15, delay: orbitIcons[i].delay }
             }));
 
-            // Hold briefly
+            // 3. Hold briefly
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            // Implode back in
+            // 4. Implode icons back in
             await controls.start(i => ({
                 opacity: 0,
                 x: 0,
@@ -43,11 +44,21 @@ const Hero = () => {
                 transition: { type: "spring", stiffness: 300, damping: 25, delay: orbitIcons[i].delay * 0.5 }
             }));
 
+            // 5. Move Avatar up to standard position
+            await avatarControls.start({
+                y: 0,
+                scale: 1,
+                transition: { duration: 0.8, ease: "easeInOut" }
+            });
+
             setAnimationDone(true);
+            if (onAnimationComplete) {
+                onAnimationComplete();
+            }
         };
 
         sequence();
-    }, [controls]);
+    }, [controls, avatarControls]);
 
     // Start typing animation only AFTER the explosion finishes
     useEffect(() => {
@@ -77,8 +88,11 @@ const Hero = () => {
 
             <div className="container hero-content">
                 {/* Profile Avatar and Orbit Wrapper */}
-                <div style={{ position: 'relative' }}>
-
+                <motion.div
+                    style={{ position: 'relative', zIndex: 20 }}
+                    initial={{ y: "25vh", scale: 1.2 }}
+                    animate={avatarControls}
+                >
                     {/* Orbiting Icons */}
                     {orbitIcons.map((item, index) => (
                         <motion.div
@@ -94,16 +108,15 @@ const Hero = () => {
 
                     <motion.div
                         className="hero-avatar-wrapper"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        style={{ zIndex: 2, position: 'relative' }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <div className="hero-avatar-inner">
                             <img src="/face.png" alt="Tanasuke Avatar" className="hero-avatar" />
                         </div>
                     </motion.div>
-                </div>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -111,7 +124,12 @@ const Hero = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="hero-text-wrapper"
                 >
-                    <div className="hero-search-bar">
+                    <div
+                        className="hero-search-bar"
+                        onClick={() => window.open("https://www.google.com/search?q=Tanasuke", "_blank")}
+                        style={{ cursor: "pointer" }}
+                        title="Googleで「Tanasuke」を検索"
+                    >
                         <span className="material-symbols-outlined search-icon">search</span>
 
                         <h1 className="hero-title">
@@ -125,24 +143,15 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    <div className="hero-tags">
-                        <span className="hero-tag">クリエイター</span>
-                        <span className="hero-tag-dot">•</span>
-                        <span className="hero-tag">エンジニア</span>
-                        <span className="hero-tag-dot">•</span>
-                        <span className="hero-tag">デザイナー</span>
-                    </div>
-
-                    <p className="hero-subtitle">
-                        機能と美しさを融合させた、モダンなデジタル体験を構築します。MD3の原則に基づき、UIデザインとフロントエンドエンジニアリングに情熱を注いでいます。
-                    </p>
-
                     <div className="hero-cta-group">
                         <motion.button
-                            className="hero-cta primary"
+                            className="hero-cta secondary"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
                             <span className="material-symbols-outlined">visibility</span>
                             <span>作品を見る</span>
@@ -152,18 +161,36 @@ const Hero = () => {
                             className="hero-cta secondary"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
                             <span className="material-symbols-outlined">description</span>
                             <span>経歴を表示</span>
                         </motion.button>
                     </div>
+
+                    <div className="hero-tags">
+                        <span className="hero-tag">クリエイター</span>
+                        <span className="hero-tag-dot">•</span>
+                        <span className="hero-tag">エンジニア</span>
+                        <span className="hero-tag-dot">•</span>
+                        <span className="hero-tag">デザイナー</span>
+                    </div>
+
+                    <p className="hero-subtitle" style={{ display: 'none' }}>
+                        機能と美しさを融合させた、モダンなデジタル体験を構築します。MD3の原則に基づき、UIデザインとフロントエンドエンジニアリングに情熱を注いでいます。
+                    </p>
                 </motion.div>
             </div>
 
-            <div
+            <motion.div
                 className="scroll-indicator-wrapper"
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                initial={{ opacity: 0 }}
+                animate={animationDone ? { opacity: 0.6 } : { opacity: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
             >
                 <div className="scroll-mouse">
                     <motion.div
@@ -173,7 +200,7 @@ const Hero = () => {
                     />
                 </div>
                 <span className="material-symbols-outlined scroll-arrow">keyboard_arrow_down</span>
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -280,17 +280,11 @@
 /* CTAs */
 .hero-cta-group {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 16px;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 8px;
     width: 100%;
     justify-content: center;
-}
-
-@media (min-width: 640px) {
-    .hero-cta-group {
-        flex-direction: row;
-    }
 }
 
 .hero-cta {
@@ -298,12 +292,13 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    height: 48px;
-    padding: 0 32px;
-    border-radius: var(--md-sys-shape-corner-full);
-    font-size: var(--font-size-body-large);
-    font-weight: 500;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: var(--md-sys-shape-corner-small);
+    font-size: 14px;
+    font-weight: 400;
     transition: all var(--md-sys-motion-duration-short) ease;
+    border: 1px solid transparent;
 }
 
 .hero-cta.primary {
@@ -317,14 +312,15 @@
 }
 
 .hero-cta.secondary {
-    border: 1px solid var(--md-sys-color-outline);
-    color: var(--md-sys-color-primary);
-    background-color: transparent;
+    background-color: #303134;
+    /* Google Dark Mode Button Gray */
+    color: #e8eaed;
+    border: 1px solid transparent;
 }
 
 .hero-cta.secondary:hover {
-    background-color: rgba(73, 69, 79, 0.2);
-    /* surface-variant/20 */
+    border: 1px solid #5f6368;
+    background-color: #303134;
 }
 
 /* Scroll Indicator */

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import './Navigation.css';
 
-const Navigation = ({ activeSection, setActiveSection }) => {
+const Navigation = ({ activeSection, setActiveSection, isAppLoaded }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const navLinks = [
@@ -24,7 +24,12 @@ const Navigation = ({ activeSection, setActiveSection }) => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-container">
+      <motion.div
+        className="navbar-container"
+        initial={{ opacity: 0, y: -72 }}
+        animate={isAppLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: -72 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className="navbar-logo" onClick={() => handleLinkClick('hero')}>
           <div className="logo-icon-wrapper">
             <img src="/face.png" alt="Tanasuke" className="nav-avatar" />
@@ -49,7 +54,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
         <div className="mobile-only hamburger" onClick={toggleMenu}>
           {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Menu */}
       <AnimatePresence>

@@ -1,0 +1,84 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMenu, FiX } from 'react-icons/fi';
+import './Navigation.css';
+
+const Navigation = ({ activeSection, setActiveSection }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const navLinks = [
+    { id: 'hero', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLinkClick = (id) => {
+    setActiveSection(id);
+    setIsOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-logo" onClick={() => handleLinkClick('hero')}>
+          <span className="logo-text">Tanasuke</span>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="navbar-links desktop-only">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+              onClick={() => handleLinkClick(link.id)}
+            >
+              {link.label}
+              {activeSection === link.id && (
+                <motion.div
+                  layoutId="navbar-indicator"
+                  className="nav-indicator"
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Hamburger Icon */}
+        <div className="mobile-only hamburger" onClick={toggleMenu}>
+          {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="mobile-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+          >
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                className={`mobile-link ${activeSection === link.id ? 'active' : ''}`}
+                onClick={() => handleLinkClick(link.id)}
+              >
+                {link.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+export default Navigation;

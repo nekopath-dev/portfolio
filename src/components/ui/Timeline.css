@@ -1,0 +1,91 @@
+.timeline-container {
+    padding: 24px 0;
+    max-width: 800px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+/* Vertical Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 2px;
+    height: 100%;
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Dot */
+.timeline-dot {
+    position: absolute;
+    top: 4px;
+    left: 17px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: var(--md-sys-color-surface-container);
+    padding: 20px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    transition: all var(--md-sys-motion-duration-short) ease;
+}
+
+.timeline-content:hover {
+    box-shadow: var(--md-sys-elevation-2);
+    border-color: var(--md-sys-color-primary);
+    transform: translateX(4px);
+}
+
+.timeline-date {
+    display: inline-block;
+    color: var(--md-sys-color-primary);
+    font-size: var(--font-size-label-large);
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    background-color: var(--md-sys-color-surface-container-high);
+    border-radius: var(--md-sys-shape-corner-full);
+}
+
+.timeline-title {
+    font-size: var(--font-size-title-medium);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.timeline-description {
+    font-size: var(--font-size-body-medium);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .timeline-title {
+        font-size: var(--font-size-title-large);
+    }
+
+    .timeline-description {
+        font-size: var(--font-size-body-large);
+    }
+}

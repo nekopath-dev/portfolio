@@ -1,0 +1,117 @@
+.section-title {
+    font-size: var(--font-size-display-small);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 48px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--md-sys-color-primary);
+    border-radius: 2px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+}
+
+@media (min-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.about-description {
+    font-size: var(--font-size-body-large);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.8;
+}
+
+.about-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--md-sys-color-primary);
+    opacity: 0;
+    transition: opacity var(--md-sys-motion-duration-short) ease;
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+.about-card-icon {
+    font-size: 32px;
+    color: var(--md-sys-color-primary);
+    margin-bottom: 16px;
+}
+
+.about-card h3 {
+    font-size: var(--font-size-title-large);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    font-size: var(--font-size-body-medium);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.highlight-text {
+    color: var(--md-sys-color-primary);
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.about-profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 24px;
+    border: 4px solid var(--md-sys-color-surface-container-highest);
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+@media (min-width: 900px) {
+    .about-profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+.timeline-section-wrapper {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.timeline-section-title {
+    font-size: var(--font-size-headline-medium);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 24px;
+    text-align: center;
+}

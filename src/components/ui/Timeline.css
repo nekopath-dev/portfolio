@@ -5,15 +5,27 @@
     position: relative;
 }
 
-/* Vertical Line */
-.timeline-container::before {
-    content: '';
+/* Static background line */
+.timeline-line-bg {
     position: absolute;
     top: 0;
     left: 24px;
     width: 2px;
     height: 100%;
-    background-color: var(--md-sys-color-surface-container-high);
+    background-color: var(--md-sys-color-surface-variant);
+    opacity: 0.3;
+}
+
+/* Dynamic filled line */
+.timeline-line-filled {
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 2px;
+    height: 100%;
+    /* Will be controlled by scaleY in JS */
+    background: linear-gradient(180deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary) 100%);
+    transform-origin: top;
 }
 
 .timeline-item {
@@ -29,17 +41,26 @@
 /* Dot */
 .timeline-dot {
     position: absolute;
-    top: 4px;
+    top: 0;
+    /* Align with content top */
     left: 17px;
     width: 16px;
     height: 16px;
     background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-surface-variant);
+    border: 2px solid var(--md-sys-color-surface-variant);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.timeline-dot.active {
+    color: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+    box-shadow: 0 0 12px rgba(208, 188, 255, 0.4);
 }
 
 .timeline-content {

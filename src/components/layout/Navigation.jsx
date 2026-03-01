@@ -27,7 +27,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
       <div className="navbar-container">
         <div className="navbar-logo" onClick={() => handleLinkClick('hero')}>
           <div className="logo-icon-wrapper">
-            <span className="material-symbols-outlined text-[24px]">auto_awesome</span>
+            <img src="/face.png" alt="Tanasuke" className="nav-avatar" />
           </div>
           <span className="logo-text">Tanasuke</span>
         </div>

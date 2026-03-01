@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBook, FiAward, FiStar } from 'react-icons/fi';
+import { SiGithub, SiX, SiZenn } from 'react-icons/si';
 import Card from '../ui/Card';
 import Timeline from '../ui/Timeline';
 import './About.css';
@@ -21,7 +21,7 @@ const About = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="profile-img-container">
-                                <img src="/avatar.png" alt="Profile" className="profile-img" />
+                                <img src="/face.png" alt="Profile" className="profile-img" />
                             </div>
                             <h3 className="profile-name">Tanasuke</h3>
 
@@ -36,14 +36,14 @@ const About = () => {
                             </p>
 
                             <div className="profile-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="profile-link">
-                                    <span className="material-symbols-outlined">code</span>
+                                <a href="https://github.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="GitHub">
+                                    <SiGithub size={20} />
                                 </a>
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="profile-link">
-                                    <span className="material-symbols-outlined">share</span>
+                                <a href="https://twitter.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="X (Twitter)">
+                                    <SiX size={20} />
                                 </a>
-                                <a href="https://zenn.dev" target="_blank" rel="noopener noreferrer" className="profile-link">
-                                    <span className="material-symbols-outlined">menu_book</span>
+                                <a href="https://zenn.dev/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="Zenn">
+                                    <SiZenn size={20} />
                                 </a>
                             </div>
                         </motion.div>
@@ -59,7 +59,7 @@ const About = () => {
                         >
                             <h2 className="section-title">自己紹介</h2>
                             <p className="about-text">
-                                現在、広島工業大学 情報学部 情報コミュニケーション学科にใน籍しており、
+                                現在、広島工業大学 情報学部 情報コミュニケーション学科に在籍しており、
                                 来る2026年4月より<strong>法政大学大学院 情報科学研究科</strong>へ進学予定です。<br /><br />
                                 大学入学時にVRソーシャルサークル「HIT Metaverse」を自ら設立し、代表として数多くのイベント企画や組織運営を経験しました。
                                 また、Google AI Student Ambassador としての活動を通じ、リーダーシップや最新AI技術の活用にも関心を深めています。

@@ -2,10 +2,11 @@
     position: relative;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
     padding-top: 72px;
+    padding-bottom: 24px;
     /* Offset for navbar */
     background-color: var(--md-sys-color-background);
 }
@@ -57,6 +58,36 @@
     justify-content: center;
     gap: 48px;
     width: 100%;
+    flex-grow: 1;
+    padding-bottom: 24px;
+}
+
+@keyframes google-gradient {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+.google-gradient-text {
+    background: linear-gradient(to right,
+            #4285F4,
+            #EA4335,
+            #FBBC05,
+            #34A853,
+            #4285F4,
+            #EA4335,
+            #FBBC05,
+            #34A853,
+            #4285F4);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: google-gradient 4s linear infinite;
 }
 
 /* Avatar glow wrapper */
@@ -89,11 +120,11 @@
     width: 128px;
     height: 128px;
     border-radius: 50%;
-    padding: 6px;
-    background: rgba(73, 69, 79, 0.3);
-    /* surface-variant/30 */
-    border: 1px solid rgba(147, 143, 153, 0.2);
-    /* outline/20 */
+    padding: 0;
+    /* Removed padding to allow a seamless circular crop */
+    background: var(--md-sys-color-surface-container);
+    border: 3px solid rgba(147, 143, 153, 0.3);
+    /* Slightly stronger outline */
     overflow: hidden;
     position: relative;
     z-index: 2;
@@ -110,7 +141,30 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: 50%;
+    display: block;
+    background-color: var(--md-sys-color-surface-container);
+}
+
+.orbit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    margin-left: -24px;
+    border-radius: 50%;
+    background-color: var(--md-sys-color-surface-container-high);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--md-sys-elevation-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-on-surface);
+    z-index: 1;
+    /* Below the main avatar */
 }
 
 .hero-text-wrapper {
@@ -121,51 +175,75 @@
     max-width: 800px;
 }
 
-/* Gemini Spark Animation */
-.gemini-spark {
-    position: relative;
-    display: inline-flex;
-    cursor: help;
+
+
+.hero-title {
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--md-sys-color-on-surface);
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
 }
 
-.gemini-spark::after {
-    content: "✨";
-    position: absolute;
-    top: -10px;
-    right: -14px;
-    font-size: 1.2rem;
-    background: var(--gemini-gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: spark-pulse 3s infinite ease-in-out;
-    filter: drop-shadow(0 0 4px rgba(142, 132, 245, 0.5));
+/* Search Bar Wrapper */
+.hero-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--md-sys-color-surface-container-high);
+    border-radius: var(--md-sys-shape-corner-full);
+    padding: 16px 32px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: var(--md-sys-elevation-1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--md-sys-motion-duration-medium) ease;
 }
 
-@keyframes spark-pulse {
-    0% {
-        transform: scale(0.8) rotate(0deg);
-        opacity: 0.6;
-    }
+.hero-search-bar:hover {
+    box-shadow: var(--md-sys-elevation-2);
+    background-color: var(--md-sys-color-surface-container-highest);
+}
 
-    50% {
-        transform: scale(1.1) rotate(15deg);
+.search-icon {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 28px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.search-icons-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+    padding-left: 20px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.1em;
+    background-color: var(--md-sys-color-on-surface);
+    vertical-align: middle;
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
         opacity: 1;
     }
 
-    100% {
-        transform: scale(0.8) rotate(0deg);
-        opacity: 0.6;
+    50% {
+        opacity: 0;
     }
-}
-
-.hero-title {
-    font-size: clamp(36px, 8vw, 72px);
-    font-weight: 400;
-    /* Medium to normal as per MD3 */
-    line-height: 1.1;
-    color: var(--md-sys-color-on-surface);
-    letter-spacing: -0.02em;
 }
 
 .hero-tags {
@@ -251,10 +329,6 @@
 
 /* Scroll Indicator */
 .scroll-indicator-wrapper {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,6 +336,7 @@
     opacity: 0.6;
     transition: opacity var(--md-sys-motion-duration-short) ease;
     cursor: pointer;
+    z-index: 10;
 }
 
 .scroll-indicator-wrapper:hover {

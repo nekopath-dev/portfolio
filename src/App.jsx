@@ -4,7 +4,8 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Projects from './components/sections/Projects';
 import Skills from './components/sections/Skills';
-import Contact from './components/sections/Contact';
+import confetti from 'canvas-confetti';
+import { SiGithub, SiX, SiZenn } from 'react-icons/si';
 import './App.css';
 
 function App() {
@@ -43,12 +44,11 @@ function App() {
         <About />
         <Projects />
         <Skills />
-        <Contact />
       </main>
 
-      <footer className="footer">
+      <footer id="contact" className="footer">
         <div className="footer-top">
-          <h2 className="footer-title">未来を一緒に創りましょう</h2>
+          <h2 className="footer-title">Let's Connect</h2>
           <p className="footer-subtitle">
             お気軽にお問い合わせください。新しい機会、コラボレーション、あるいは技術やデザインについての雑談でも大歓迎です。
           </p>
@@ -71,9 +71,9 @@ function App() {
               <span className="footer-link">ビジネス</span>
             </div>
             <div className="footer-links">
-              <a href="#" className="footer-link">GitHub</a>
-              <a href="#" className="footer-link">Twitter</a>
-              <a href="#" className="footer-link">Zenn</a>
+              <a href="https://github.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="GitHub"><SiGithub size={24} /></a>
+              <a href="https://twitter.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="X (Twitter)"><SiX size={24} /></a>
+              <a href="https://zenn.dev/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="Zenn"><SiZenn size={24} /></a>
             </div>
           </div>
           <div className="footer-row">
@@ -82,7 +82,13 @@ function App() {
               <span className="footer-link">規約</span>
               <span className="footer-link">設定</span>
             </div>
-            <div className="lucky-btn" title="インターネットがない？">
+            <div className="lucky-btn" title="インターネットがない？" onClick={() => {
+              confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+              });
+            }}>
               <span className="material-symbols-outlined">videogame_asset</span>
               <span>I'm Feeling Lucky</span>
             </div>

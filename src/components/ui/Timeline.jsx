@@ -1,9 +1,20 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { FiCircle } from 'react-icons/fi';
 import './Timeline.css';
 
 const Timeline = () => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
     const history = [
         {
             date: '2024年 4月', // 仮入力、大学入学年
@@ -43,19 +54,31 @@ const Timeline = () => {
     ];
 
     return (
-        <div className="timeline-container">
+        <div className="timeline-container" ref={containerRef}>
+            <div className="timeline-line-bg" />
+            <motion.div
+                className="timeline-line-filled"
+                style={{ scaleY }}
+            />
+
             {history.map((item, index) => (
                 <motion.div
                     key={index}
                     className="timeline-item"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
                 >
-                    <div className="timeline-dot">
-                        <FiCircle />
-                    </div>
+                    <motion.div
+                        className="timeline-dot active"
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    >
+                        <FiCircle size={10} />
+                    </motion.div>
                     <div className="timeline-content">
                         <span className="timeline-date">{item.date}</span>
                         <h4 className="timeline-title">{item.title}</h4>

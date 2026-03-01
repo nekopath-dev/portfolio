@@ -47,7 +47,47 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Tanasuke. Built with React & Framer Motion.</p>
+        <div className="footer-top">
+          <h2 className="footer-title">未来を一緒に創りましょう</h2>
+          <p className="footer-subtitle">
+            お気軽にお問い合わせください。新しい機会、コラボレーション、あるいは技術やデザインについての雑談でも大歓迎です。
+          </p>
+          <a href="#contact" className="footer-fab" onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection('contact');
+          }}>
+            <span className="material-symbols-outlined">edit</span>
+            <span>メールを送る</span>
+          </a>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="footer-row">
+            <div className="footer-links">
+              <span className="footer-link">日本</span>
+              <span className="footer-link">Tanasuke について</span>
+              <span className="footer-link">広告</span>
+              <span className="footer-link">ビジネス</span>
+            </div>
+            <div className="footer-links">
+              <a href="#" className="footer-link">GitHub</a>
+              <a href="#" className="footer-link">Twitter</a>
+              <a href="#" className="footer-link">Zenn</a>
+            </div>
+          </div>
+          <div className="footer-row">
+            <div className="footer-links">
+              <span className="footer-link">プライバシー</span>
+              <span className="footer-link">規約</span>
+              <span className="footer-link">設定</span>
+            </div>
+            <div className="lucky-btn" title="インターネットがない？">
+              <span className="material-symbols-outlined">videogame_asset</span>
+              <span>I'm Feeling Lucky</span>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

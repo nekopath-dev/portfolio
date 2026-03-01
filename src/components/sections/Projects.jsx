@@ -63,12 +63,16 @@ const Projects = () => {
                                 className={project.featured ? 'project-card-wrapper featured' : 'project-card-wrapper'}
                             >
                                 <Card className="project-card" hoverable={true}>
+                                    <div className="project-image-container">
+                                        <span className="material-symbols-outlined">image</span>
+                                    </div>
                                     <div className="project-content">
                                         <div className="project-header">
                                             <h3 className="project-title">{project.title}</h3>
                                             <div className="project-links">
-                                                {/* Example icons, functional links can be added later */}
-                                                <a href={project.link} target="_blank" rel="noreferrer"><FiExternalLink /></a>
+                                                <a href={project.link} target="_blank" rel="noreferrer">
+                                                    <span className="material-symbols-outlined text-[20px]">arrow_outward</span>
+                                                </a>
                                             </div>
                                         </div>
 

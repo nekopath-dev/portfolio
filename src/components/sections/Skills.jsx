@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiCode, FiPenTool, FiUsers, FiCpu } from 'react-icons/fi';
 import Chip from '../ui/Chip';
 import Card from '../ui/Card';
 import './Skills.css';
@@ -8,23 +7,23 @@ import './Skills.css';
 const Skills = () => {
     const skillCategories = [
         {
-            title: "Development",
-            icon: <FiCode />,
+            title: "開発",
+            icon: "code",
             skills: ["React", "JavaScript/TypeScript", "Android (Kotlin)", "HTML/CSS", "Python"]
         },
         {
-            title: "AI & Tools",
-            icon: <FiCpu />,
+            title: "AI & 機械学習",
+            icon: "smart_toy",
             skills: ["Claude Code", "Generative AI", "Cursor", "Git/GitHub", "Vite"]
         },
         {
-            title: "Design",
-            icon: <FiPenTool />,
+            title: "デザイン",
+            icon: "draw",
             skills: ["UI/UX", "Material Design", "Figma", "Poster Graphic Design"]
         },
         {
-            title: "Soft Skills",
-            icon: <FiUsers />,
+            title: "ソフトスキル",
+            icon: "groups",
             skills: ["Leadership", "Event Planning", "Public Relations", "Community Management"]
         }
     ];
@@ -38,7 +37,7 @@ const Skills = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="section-title">Skills & Expertise</h2>
+                    <h2 className="section-title">スキル</h2>
 
                     <div className="skills-grid">
                         {skillCategories.map((category, index) => (
@@ -49,9 +48,9 @@ const Skills = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: index * 0.1 }}
                             >
-                                <Card className="skill-card" hoverable={false}>
+                                <Card className="skill-card" hoverable={true}>
                                     <div className="skill-header">
-                                        <span className="skill-icon">{category.icon}</span>
+                                        <span className="skill-icon material-symbols-outlined">{category.icon}</span>
                                         <h3 className="skill-title">{category.title}</h3>
                                     </div>
                                     <div className="skill-chips">

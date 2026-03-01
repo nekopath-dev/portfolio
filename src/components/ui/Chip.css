@@ -2,20 +2,20 @@
     display: inline-flex;
     align-items: center;
     padding: 6px 16px;
-    background-color: var(--md-sys-color-surface-container-high);
+    background-color: transparent;
     color: var(--md-sys-color-on-surface);
-    border-radius: var(--md-sys-shape-corner-full);
+    border-radius: var(--md-sys-shape-corner-medium);
     font-size: var(--font-size-label-large);
     font-weight: 500;
-    border: 1px solid var(--md-sys-color-outline-variant);
+    border: 1px solid var(--md-sys-color-outline);
     transition: all var(--md-sys-motion-duration-short) ease;
     user-select: none;
+    cursor: default;
 }
 
 .material-chip:hover {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-    border-color: var(--md-sys-color-secondary);
+    background-color: rgba(226, 226, 230, 0.08);
+    /* on-surface/8 */
 }
 
 .chip-icon {
@@ -24,5 +24,5 @@
     justify-content: center;
     margin-right: 8px;
     font-size: 18px;
-    color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-surface-variant);
 }

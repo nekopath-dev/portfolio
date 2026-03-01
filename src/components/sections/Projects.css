@@ -1,3 +1,8 @@
+.projects-section {
+    padding: 100px 0;
+}
+
+/* Bento Box Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -22,6 +27,54 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0;
+    /* Override default card padding to allow full-width images */
+}
+
+/* Top Image Area */
+.project-image-container {
+    width: 100%;
+    height: 200px;
+    background: var(--md-sys-color-surface-container-highest);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured .project-image-container {
+    height: 300px;
+}
+
+.project-image-container .material-symbols-outlined {
+    font-size: 64px;
+    color: var(--md-sys-color-surface-variant);
+    transition: transform var(--md-sys-motion-duration-long) ease;
+}
+
+.project-card:hover .project-image-container .material-symbols-outlined {
+    transform: scale(1.1);
+    color: var(--md-sys-color-primary);
+}
+
+/* Image overlay gradient */
+.project-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--md-sys-color-surface-container), transparent);
+}
+
+/* Card Content Area */
+.project-content {
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-header {
@@ -29,29 +82,44 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 16px;
+    gap: 16px;
 }
 
 .project-title {
-    font-size: var(--font-size-title-large);
+    font-size: var(--font-size-headline-small);
     color: var(--md-sys-color-on-surface);
-    margin-right: 16px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.featured .project-title {
+    font-size: var(--font-size-headline-medium);
 }
 
 .project-links a {
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 20px;
-    transition: color var(--md-sys-motion-duration-short) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* border-white/5 */
+    color: var(--md-sys-color-on-surface);
+    transition: all var(--md-sys-motion-duration-short) ease;
 }
 
 .project-links a:hover {
-    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    transform: scale(1.05);
 }
 
 .project-description {
     font-size: var(--font-size-body-large);
     color: var(--md-sys-color-on-surface-variant);
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     flex-grow: 1;
 }
 
@@ -59,14 +127,24 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: auto;
 }
 
 .project-tag {
-    background-color: transparent !important;
-    border-color: var(--md-sys-color-outline-variant) !important;
+    background-color: rgba(73, 69, 79, 0.3) !important;
+    /* surface-variant/30 */
+    color: var(--md-sys-color-on-surface-variant) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: var(--md-sys-shape-corner-small);
+    font-weight: 500;
+    font-size: var(--font-size-label-large);
+    padding: 4px 12px;
 }
 
-.project-card:hover .project-tag {
-    border-color: var(--md-sys-color-primary) !important;
+.project-card.hoverable:hover .project-tag {
+    background-color: rgba(208, 188, 255, 0.1) !important;
+    /* primary/10 */
+    border-color: rgba(208, 188, 255, 0.3) !important;
+    /* primary/30 */
     color: var(--md-sys-color-primary) !important;
 }

@@ -26,6 +26,9 @@ const Navigation = ({ activeSection, setActiveSection }) => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo" onClick={() => handleLinkClick('hero')}>
+          <div className="logo-icon-wrapper">
+            <span className="material-symbols-outlined text-[24px]">auto_awesome</span>
+          </div>
           <span className="logo-text">Tanasuke</span>
         </div>
 
@@ -38,13 +41,6 @@ const Navigation = ({ activeSection, setActiveSection }) => {
               onClick={() => handleLinkClick(link.id)}
             >
               {link.label}
-              {activeSection === link.id && (
-                <motion.div
-                  layoutId="navbar-indicator"
-                  className="nav-indicator"
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                />
-              )}
             </button>
           ))}
         </div>

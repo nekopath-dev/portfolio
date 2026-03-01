@@ -18,8 +18,8 @@ const Projects = () => {
         {
             id: 2,
             title: 'Irodori - AI Wallpaper App',
-            description: 'Claude Codeを活用して開発した生成AI壁紙アプリ。ユーザーの好みに合わせたアートワークを生成。現在クローズドベータテスト中。',
-            tags: ['AI', 'App Development', 'Claude'],
+            description: '法人登記前の「Fuwalief」という名義で、Claude Codeを活用して開発した生成AI壁紙アプリ。ユーザーの好みに合わせたアートワークを生成。現在クローズドベータテスト中。',
+            tags: ['AI', 'App Development', 'Claude', 'Fuwalief'],
             link: '#',
             featured: false,
         },

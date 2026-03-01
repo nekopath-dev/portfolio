@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ポートフォリオ ヒーローセクション (日本語)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "md-sys-color-primary": "#D0BCFF",
+                "md-sys-color-on-primary": "#381E72",
+                "md-sys-color-primary-container": "#4F378B",
+                "md-sys-color-on-primary-container": "#EADDFF",
+                "md-sys-color-secondary": "#CCC2DC",
+                "md-sys-color-on-secondary": "#332D41",
+                "md-sys-color-secondary-container": "#4A4458",
+                "md-sys-color-on-secondary-container": "#E8DEF8",
+                "md-sys-color-tertiary": "#EFB8C8",
+                "md-sys-color-on-tertiary": "#492532",
+                "md-sys-color-tertiary-container": "#633B48",
+                "md-sys-color-on-tertiary-container": "#FFD8E4",
+                "md-sys-color-error": "#F2B8B5",
+                "md-sys-color-on-error": "#601410",
+                "md-sys-color-error-container": "#8C1D18",
+                "md-sys-color-on-error-container": "#F9DEDC",
+                "md-sys-color-background": "#1C1B1F",
+                "md-sys-color-on-background": "#E6E1E5",
+                "md-sys-color-surface": "#1C1B1F",
+                "md-sys-color-on-surface": "#E6E1E5",
+                "md-sys-color-surface-variant": "#49454F",
+                "md-sys-color-on-surface-variant": "#CAC4D0",
+                "md-sys-color-outline": "#938F99",
+                "md-ref-palette-neutral-variant20": "#322F37",
+                "md-ref-palette-neutral-variant30": "#49454F",
+                "gemini-blue": "#4aa5f0",
+                "gemini-purple": "#8e84f5",
+                "gemini-pink": "#e0889e",
+              },
+              fontFamily: {
+                "display": ["'Google Sans'", "'Noto Sans JP'", "sans-serif"],
+                "body": ["'Google Sans Text'", "'Noto Sans JP'", "sans-serif"]
+              },
+              borderRadius: {
+                "md3-sm": "8px",
+                "md3-md": "12px",
+                "md3-lg": "16px",
+                "md3-xl": "28px",
+                "md3-full": "9999px"
+              },
+              backgroundImage: {
+                'aurora': 'radial-gradient(circle at 50% 0%, rgba(66, 135, 245, 0.15) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 80%)',
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1C1B1F; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #49454F; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D0BCFF; 
+        }
+        .md3-card {
+            background-color: #25232a;transition: all 0.2s cubic-bezier(0.2, 0.0, 0, 1.0);
+        }
+        .md3-card:hover {
+             background-color: #302d36;box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+             transform: translateY(-2px);
+        }
+        .gemini-spark {
+            position: relative;
+            display: inline-flex;
+        }
+        .gemini-spark::after {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            right: -14px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #4aa5f0, #8e84f5, #e0889e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: spark-pulse 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 4px rgba(142, 132, 245, 0.5));
+        }
+        @keyframes spark-pulse {
+            0% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(15deg); opacity: 1; }
+            100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+        }
+        .gemini-glow-hover:hover .gemini-target {
+            background: linear-gradient(135deg, rgba(74, 165, 240, 0.1), rgba(142, 132, 245, 0.1), rgba(224, 136, 158, 0.1));
+            box-shadow: 0 0 30px rgba(142, 132, 245, 0.2);
+            border-color: rgba(142, 132, 245, 0.4);
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-md-sys-color-background font-display text-md-sys-color-on-background min-h-screen flex flex-col relative overflow-x-hidden selection:bg-md-sys-color-primary selection:text-md-sys-color-on-primary">
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[-10%] left-[20%] w-[60%] h-[60%] bg-[#4F378B]/20 blur-[120px] rounded-full mix-blend-screen opacity-30"></div>
+<div class="absolute top-[10%] right-[10%] w-[40%] h-[40%] bg-[#633B48]/20 blur-[100px] rounded-full mix-blend-screen opacity-20"></div>
+</div>
+<nav class="fixed top-0 left-0 right-0 z-50 w-full bg-md-sys-color-surface/90 backdrop-blur-md border-b border-md-sys-color-outline/10">
+<div class="max-w-[1440px] mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-md-sys-color-on-surface hover:bg-md-sys-color-on-surface/10 rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center size-8 bg-md-sys-color-primary-container rounded-md3-sm text-md-sys-color-on-primary-container">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<span class="text-xl font-medium tracking-tight text-md-sys-color-on-surface hidden sm:block">Tanasuke</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-1">
+<a class="px-4 py-2 rounded-full hover:bg-md-sys-color-on-surface/10 text-sm font-medium text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface transition-colors" href="#">自己紹介</a>
+<a class="px-4 py-2 rounded-full hover:bg-md-sys-color-on-surface/10 text-sm font-medium text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface transition-colors" href="#">プロジェクト</a>
+<a class="px-4 py-2 rounded-full hover:bg-md-sys-color-on-surface/10 text-sm font-medium text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface transition-colors" href="#">レジュメ</a>
+</div>
+<div class="flex items-center gap-2">
+<a class="px-4 py-2 rounded-full hover:bg-md-sys-color-on-surface/10 text-sm font-medium text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface transition-colors hidden sm:block" href="#">お問い合わせ</a>
+<button class="flex items-center justify-center rounded-full h-10 px-6 bg-md-sys-color-primary-container hover:bg-opacity-90 text-md-sys-color-on-primary-container text-sm font-medium transition-all shadow-sm hover:shadow-md">
+<span class="material-symbols-outlined text-[18px] mr-2">chat_bubble</span>
+                    話しましょう
+                </button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-md-sys-color-outline/20">
+<img alt="User profile small" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBua_e644b_YIoA5jy9QnjBtpMWEIx5s8YNhqQUF2c6CgNvvipmLBjfdd19VI5nyXpV7Ia-W7zPwRrimtc_edypH9NNR2PnxvR9oxaqwZsPEfw4xQyxNhKMCGDcDU0Ek64VGaQskHbidtXIoCRwu8rPr3Gat2ZkthI4s6FZDdoId-XSNf42P64OE4YUJ-xM9fvVUlMFZfUEzgKcqvi44PU70Up9qRSJGT-8S0k2x9v3Y0z4NxLTXHEhDG8gMyNiel-mIk7v75cg0-g"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow flex flex-col items-center relative z-10 pt-24 pb-12 w-full px-4 sm:px-6 max-w-[1200px] mx-auto gemini-glow-hover">
+<div class="flex flex-col w-full items-center justify-center gap-12 min-h-[calc(100vh-140px)]">
+<div class="flex flex-col items-center gap-8 text-center animate-fade-in-up w-full gemini-target transition-all duration-700 rounded-md3-xl p-8 border border-transparent">
+<div class="relative group cursor-pointer">
+<div class="absolute -inset-2 bg-gradient-to-r from-md-sys-color-primary to-md-sys-color-tertiary rounded-full blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+<div class="relative size-32 sm:size-40 rounded-full p-1.5 bg-md-sys-color-surface-variant/30 ring-1 ring-md-sys-color-outline/20 overflow-hidden">
+<img alt="Circular profile portrait of Tanasuke" class="w-full h-full object-cover rounded-full" data-alt="Profile portrait of Tanasuke in a modern circular frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBua_e644b_YIoA5jy9QnjBtpMWEIx5s8YNhqQUF2c6CgNvvipmLBjfdd19VI5nyXpV7Ia-W7zPwRrimtc_edypH9NNR2PnxvR9oxaqwZsPEfw4xQyxNhKMCGDcDU0Ek64VGaQskHbidtXIoCRwu8rPr3Gat2ZkthI4s6FZDdoId-XSNf42P64OE4YUJ-xM9fvVUlMFZfUEzgKcqvi44PU70Up9qRSJGT-8S0k2x9v3Y0z4NxLTXHEhDG8gMyNiel-mIk7v75cg0-g"/>
+</div>
+</div>
+<div class="flex flex-col gap-6 max-w-3xl">
+<h1 class="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight leading-[1.1] text-md-sys-color-on-surface">
+<span class="gemini-spark cursor-help" title="Gemini AI inspired design">こんにちは</span>、<span class="text-transparent bg-clip-text bg-gradient-to-r from-gemini-blue via-gemini-purple to-gemini-pink font-medium">タナスケです。</span>
+</h1>
+<div class="flex items-center justify-center flex-wrap gap-2 text-md-sys-color-on-surface-variant text-sm sm:text-base font-medium">
+<span class="px-3 py-1 rounded-md3-sm bg-md-sys-color-surface-variant/30">クリエイター</span>
+<span class="text-md-sys-color-outline/50">•</span>
+<span class="px-3 py-1 rounded-md3-sm bg-md-sys-color-surface-variant/30">エンジニア</span>
+<span class="text-md-sys-color-outline/50">•</span>
+<span class="px-3 py-1 rounded-md3-sm bg-md-sys-color-surface-variant/30">デザイナー</span>
+</div>
+<p class="mt-2 text-md-sys-color-on-surface-variant text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-normal">
+                        機能と美しさを融合させた、宇宙的なタッチのデジタル体験を構築します。MD3の原則に基づき、UIデザインとフロントエンドエンジニアリングに情熱を注いでいます。
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-md-sys-color-primary text-md-sys-color-on-primary text-base font-medium tracking-wide hover:shadow-lg hover:shadow-md-sys-color-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span>作品を見る</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 border border-md-sys-color-outline text-md-sys-color-primary hover:bg-md-sys-color-surface-variant/20 text-base font-medium transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span>レジュメを表示</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl mt-4 sm:mt-8">
+<div class="md3-card flex flex-col items-start p-6 rounded-md3-lg border border-md-sys-color-outline/10 h-full">
+<div class="mb-4 p-3 bg-md-sys-color-secondary-container text-md-sys-color-on-secondary-container rounded-md3-md">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="mt-auto">
+<p class="text-4xl font-normal text-md-sys-color-on-surface mb-1">4年+</p>
+<p class="text-md-sys-color-on-surface-variant text-sm font-medium">経験年数</p>
+</div>
+</div>
+<div class="md3-card flex flex-col items-start p-6 rounded-md3-lg border border-md-sys-color-outline/10 h-full">
+<div class="mb-4 p-3 bg-md-sys-color-tertiary-container text-md-sys-color-on-tertiary-container rounded-md3-md">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div class="mt-auto">
+<p class="text-4xl font-normal text-md-sys-color-on-surface mb-1">12件+</p>
+<p class="text-md-sys-color-on-surface-variant text-sm font-medium">プロジェクト完了</p>
+</div>
+</div>
+<div class="md3-card flex flex-col items-start p-6 rounded-md3-lg border border-md-sys-color-outline/10 h-full">
+<div class="mb-4 p-3 bg-md-sys-color-primary-container text-md-sys-color-on-primary-container rounded-md3-md">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</div>
+<div class="mt-auto">
+<p class="text-4xl font-normal text-md-sys-color-on-surface mb-1">100%</p>
+<p class="text-md-sys-color-on-surface-variant text-sm font-medium">顧客満足度</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-60 animate-bounce-slow hover:opacity-100 transition-opacity cursor-pointer">
+<div class="h-12 w-8 border-2 border-md-sys-color-outline rounded-full flex justify-center p-1">
+<div class="w-1 h-3 bg-md-sys-color-primary rounded-full animate-bounce"></div>
+</div>
+<span class="material-symbols-outlined text-md-sys-color-on-surface-variant">keyboard_arrow_down</span>
+</div>
+</div>
+</main>
+
+</body></html>

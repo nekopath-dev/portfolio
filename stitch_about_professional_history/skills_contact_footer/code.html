@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>スキルとコンタクト (日本語)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A8C7FA", 
+                        "on-primary": "#003355",
+                        "secondary": "#A8C7FA",
+                        "surface": "#101418",
+                        "surface-variant": "#444746",
+                        "background-light": "#f8f9fa", 
+                        "background-dark": "#131314", 
+                        "md-sys-color-primary-container": "#004A77",
+                        "md-sys-color-on-primary-container": "#CCE5FF",
+                        "google-blue": "#8AB4F8",
+                        "google-red": "#F28B82",
+                        "google-yellow": "#FDD663",
+                        "google-green": "#81C995",
+                    },
+                    fontFamily: {
+                        "display": ["Google Sans", "Inter", "sans-serif"],
+                        "body": ["Roboto", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "md3": "8px", 
+                        "pill": "9999px"
+                    },
+                    boxShadow: {
+                        "elevation-1": "0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15)",
+                        "elevation-2": "0px 1px 2px 0px rgba(0,0,0,0.3), 0px 2px 6px 2px rgba(0,0,0,0.15)",
+                        "fab": "0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0px rgba(0,0,0,0.3)"
+                    },
+                    backgroundImage: {
+                        'aurora-gradient': 'linear-gradient(135deg, rgba(66, 135, 245, 0.1) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%)',
+                        'gemini-gradient': 'linear-gradient(90deg, #4285F4 0%, #9B72CB 50%, #D96570 100%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444746;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A8C7FA;
+        }
+        .md3-chip {
+            transition: all 0.2s cubic-bezier(0.2, 0.0, 0, 1.0);
+        }
+        .md3-chip:hover {
+            background-color: rgba(232, 222, 248, 0.08); 
+        }
+        .md3-fab {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        .md3-fab:hover {
+            box-shadow: 0px 6px 10px 4px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.3);
+            background-color: #D3E3FD;}
+        .md3-fab:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col text-[#E3E3E3]">
+<div class="relative w-full flex-grow flex flex-col items-center justify-start pt-16 pb-24 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="layout-container flex flex-col w-full max-w-5xl px-6 md:px-12 z-10">
+<div class="mb-12 text-center md:text-left">
+<h2 class="text-[#E3E3E3] text-4xl md:text-5xl font-normal tracking-tight mb-4 font-display">
+                    技術スタック
+                </h2>
+<p class="text-[#C4C7C5] text-lg font-light tracking-wide max-w-2xl">
+                    デジタル体験を構築するためのツールキット。
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+<div class="flex flex-col gap-4 p-6 rounded-[24px] bg-[#1E1F20] border border-[#444746]/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-google-blue" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h3 class="text-[#E3E3E3] text-xl font-medium">開発</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">code</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Python</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">bolt</span>
+<span class="text-[#E3E3E3] text-sm font-medium">FastAPI</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">web</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Next.js</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">javascript</span>
+<span class="text-[#E3E3E3] text-sm font-medium">TypeScript</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">style</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Tailwind CSS</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">deployed_code</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Docker</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">database</span>
+<span class="text-[#E3E3E3] text-sm font-medium">PostgreSQL</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-6 rounded-[24px] bg-[#1E1F20] border border-[#444746]/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-transparent bg-clip-text bg-gemini-gradient" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
+<h3 class="text-[#E3E3E3] text-xl font-medium">AI &amp; 機械学習</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg bg-[#2D3135] border border-transparent px-3 hover:bg-[#3C4043] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-google-red">local_fire_department</span>
+<span class="text-[#E3E3E3] text-sm font-medium">PyTorch</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg bg-[#2D3135] border border-transparent px-3 hover:bg-[#3C4043] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">link</span>
+<span class="text-[#E3E3E3] text-sm font-medium">LangChain</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg bg-[#2D3135] border border-transparent px-3 hover:bg-[#3C4043] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-google-green">smart_toy</span>
+<span class="text-[#E3E3E3] text-sm font-medium">OpenAI API</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg bg-[#2D3135] border border-transparent px-3 hover:bg-[#3C4043] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-google-blue">image</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Stable Diffusion</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg bg-[#2D3135] border border-transparent px-3 hover:bg-[#3C4043] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-google-yellow">emoji_people</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Hugging Face</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-6 rounded-[24px] bg-[#1E1F20] border border-[#444746]/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-google-red" style="font-variation-settings: 'FILL' 1;">palette</span>
+<h3 class="text-[#E3E3E3] text-xl font-medium">デザイン</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-red">design_services</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Figma</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">draw</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Adobe XD</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">visibility</span>
+<span class="text-[#E3E3E3] text-sm font-medium">UI/UX Principles</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-yellow">animation</span>
+<span class="text-[#E3E3E3] text-sm font-medium">Motion Design</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-6 rounded-[24px] bg-[#1E1F20] border border-[#444746]/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-google-green" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<h3 class="text-[#E3E3E3] text-xl font-medium">ソフトスキル</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-green">lightbulb</span>
+<span class="text-[#E3E3E3] text-sm font-medium">問題解決力</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-blue">groups</span>
+<span class="text-[#E3E3E3] text-sm font-medium">チームリーダーシップ</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-[#C4C7C5]">article</span>
+<span class="text-[#E3E3E3] text-sm font-medium">テクニカルライティング</span>
+</div>
+<div class="md3-chip inline-flex h-[32px] items-center gap-2 rounded-lg border border-[#8E918F] px-3">
+<span class="material-symbols-outlined text-[18px] text-google-yellow">sync</span>
+<span class="text-[#E3E3E3] text-sm font-medium">アジャイル/スクラム</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="relative flex flex-col items-center justify-center pt-12 pb-8 bg-[#171717] w-full border-t border-[#444746]/50">
+<div class="relative z-10 flex flex-col items-center gap-6 px-4 text-center max-w-2xl">
+<h2 class="text-3xl md:text-4xl font-normal text-[#E3E3E3]">
+                未来を一緒に創りましょう
+            </h2>
+<p class="text-[#C4C7C5] text-base leading-relaxed">
+                お気軽にお問い合わせください。新しい機会、コラボレーション、あるいは技術やデザインについての雑談でも大歓迎です。
+            </p>
+<button class="md3-fab group relative mt-4 inline-flex h-[56px] items-center justify-center gap-3 rounded-[16px] bg-[#C2E7FF] px-6 text-[#001D35] shadow-fab transition-all duration-300">
+<span class="material-symbols-outlined text-[24px]">edit</span>
+<span class="text-base font-medium tracking-wide">メールを送る</span>
+</button>
+</div>
+<div class="w-full mt-16 bg-[#171717] border-t border-[#444746]/30">
+<div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-sm text-[#9AA0A6] gap-4">
+<div class="flex items-center gap-6">
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">日本</span>
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">Tanasuke について</span>
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">広告</span>
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">ビジネス</span>
+</div>
+<div class="flex items-center gap-6">
+<a aria-label="GitHub" class="hover:text-[#E3E3E3] transition-colors" href="#">GitHub</a>
+<a aria-label="X / Twitter" class="hover:text-[#E3E3E3] transition-colors" href="#">Twitter</a>
+<a aria-label="Zenn" class="hover:text-[#E3E3E3] transition-colors" href="#">Zenn</a>
+</div>
+</div>
+<div class="max-w-6xl mx-auto px-6 pb-4 flex flex-col md:flex-row justify-between items-center text-sm text-[#9AA0A6] gap-4">
+<div class="flex items-center gap-6">
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">プライバシー</span>
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">規約</span>
+<span class="hover:text-[#E3E3E3] cursor-pointer transition-colors">設定</span>
+</div>
+<div class="flex items-center gap-2 group cursor-pointer" title="インターネットがない？">
+<span class="material-symbols-outlined text-lg group-hover:animate-bounce">videogame_asset</span>
+<span class="text-xs group-hover:text-google-green transition-colors">I'm Feeling Lucky</span>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

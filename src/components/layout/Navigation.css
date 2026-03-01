@@ -27,11 +27,8 @@
 .logo-text {
     font-size: var(--font-size-title-large);
     font-weight: 700;
-    background: var(--gemini-gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
-    background-size: 200% auto;
+    color: var(--md-sys-color-on-surface);
+    letter-spacing: 0.5px;
 }
 
 .desktop-only {

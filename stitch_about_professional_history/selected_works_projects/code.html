@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="dark" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MD3 主要なプロジェクト (Google風)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "md-sys-color-primary": "#aecbfa",
+                        "md-sys-color-on-primary": "#083060",
+                        "md-sys-color-primary-container": "#14448d",
+                        "md-sys-color-on-primary-container": "#d6e3ff",
+                        "md-sys-color-surface": "#101318",
+                        "md-sys-color-surface-container": "#1d2025",
+                        "md-sys-color-surface-container-high": "#282a2f",
+                        "md-sys-color-on-surface": "#e2e2e6",
+                        "md-sys-color-on-surface-variant": "#c4c6d0",
+                        "md-sys-color-outline": "#8e9099",
+                        // Google Palette
+                        "google-blue": "#8ab4f8",
+                        "google-red": "#f28b82",
+                        "google-yellow": "#fdd663",
+                        "google-green": "#81c995",
+                    },
+                    fontFamily: {
+                        "display": ["Product Sans", "Roboto", "Noto Sans JP", "sans-serif"],
+                        "google-sans": ["Product Sans", "Roboto", "Noto Sans JP", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "2.5rem", "full": "9999px"},
+                    boxShadow: {
+                        'elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
+                        'elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
+                        'elevation-3': '0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .font-google-sans {
+                font-family: 'Product Sans', 'Roboto', 'Noto Sans JP', sans-serif;
+            }
+        }.ripple-surface {
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+        }
+        .ripple-surface::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        .ripple-surface:active::after {
+            transform: scale(0, 0);
+            opacity: .2;
+            transition: 0s;
+        }.state-layer {
+            position: absolute;
+            inset: 0;
+            background-color: currentColor;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        .group:hover .state-layer {
+            opacity: 0.08;
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f14] text-md-sys-color-on-surface font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-md-sys-color-primary selection:text-md-sys-color-on-primary">
+<header class="sticky top-0 z-50 w-full bg-[#0b0f14]/90 backdrop-blur-md border-b border-white/5">
+<div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-md-sys-color-surface-container-high flex items-center justify-center text-google-blue">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<h1 class="text-xl font-google-sans font-medium tracking-tight">Tanasuke</h1>
+</div>
+<nav class="hidden md:flex items-center gap-2 bg-md-sys-color-surface-container-high/50 p-1.5 rounded-full border border-white/5">
+<a class="px-4 py-2 text-sm font-medium hover:bg-white/5 rounded-full transition-colors text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface" href="#">ホーム</a>
+<a class="px-4 py-2 text-sm font-medium bg-md-sys-color-primary-container text-md-sys-color-on-primary-container rounded-full shadow-sm" href="#">プロジェクト</a>
+<a class="px-4 py-2 text-sm font-medium hover:bg-white/5 rounded-full transition-colors text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface" href="#">自己紹介</a>
+<a class="px-4 py-2 text-sm font-medium hover:bg-white/5 rounded-full transition-colors text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface" href="#">お問い合わせ</a>
+</nav>
+<button class="hidden md:flex h-10 px-6 items-center justify-center rounded-full bg-md-sys-color-primary text-md-sys-color-on-primary text-sm font-medium transition-all hover:shadow-elevation-1 hover:brightness-105">
+<span class="material-symbols-outlined mr-2 text-[18px]">description</span>
+                履歴書
+            </button>
+<button class="md:hidden p-2 text-md-sys-color-on-surface-variant hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-6 py-12">
+<div class="flex flex-col gap-8 mb-12">
+<div class="space-y-4 max-w-3xl">
+<h2 class="text-4xl md:text-5xl font-google-sans font-normal tracking-tight text-md-sys-color-on-surface pb-1">
+                    主要なプロジェクト
+                </h2>
+<p class="text-md-sys-color-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                    厳選されたデジタル体験、創造的な実験、そしてエンジニアリングの成果集。
+                </p>
+</div>
+<div class="flex flex-wrap gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex items-center gap-2 h-8 px-4 rounded-lg bg-md-sys-color-primary-container text-md-sys-color-on-primary-container text-sm font-medium border border-transparent transition-all hover:shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                    すべて
+                </button>
+<button class="flex items-center gap-2 h-8 px-4 rounded-lg bg-md-sys-color-surface border border-md-sys-color-outline/30 hover:bg-md-sys-color-surface-container-high text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface text-sm font-medium transition-all hover:border-md-sys-color-outline active:scale-95">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                    Web開発
+                </button>
+<button class="flex items-center gap-2 h-8 px-4 rounded-lg bg-md-sys-color-surface border border-md-sys-color-outline/30 hover:bg-md-sys-color-surface-container-high text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface text-sm font-medium transition-all hover:border-md-sys-color-outline active:scale-95">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+                    UI/UXデザイン
+                </button>
+<button class="flex items-center gap-2 h-8 px-4 rounded-lg bg-md-sys-color-surface border border-md-sys-color-outline/30 hover:bg-md-sys-color-surface-container-high text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface text-sm font-medium transition-all hover:border-md-sys-color-outline active:scale-95">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+                    ゲーム開発
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
+<div class="group relative md:col-span-2 lg:col-span-2 row-span-2 rounded-[24px] bg-md-sys-color-surface-container text-md-sys-color-on-surface overflow-hidden transition-all duration-300 hover:shadow-elevation-2 flex flex-col ripple-surface">
+<div class="state-layer text-white"></div>
+<div class="relative w-full h-80 md:h-96 overflow-hidden bg-black/20">
+<img alt="3D virtual campus rendering" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="3D virtual campus rendering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkXz80aQWewqT5a-2pocsoivykA6gfJX5_Ciq90svIMiwtvN_J1A-GohrjBUL473XtSV6PpeWQeJ5Y83ZEjZ6zoz12vXlX6MZv22yqm8JPADOM2AdZKMLdjRnMvDXNfWG6yJiGWpo7YmXvWbmbxhPe5l2RIx0Pc2O3I96eHHIOP0yll0whPMuCneaSF-_PUEzj9ztFHzchi8qhENkPXcvEmYzvpWF8pm4IdFOi-y60dzHNEbZwthWHZFmDnTASEF9DX40fb9gtNmI"/>
+<div class="absolute top-4 right-4 z-20">
+<span class="px-3 py-1.5 rounded-md bg-md-sys-color-primary-container text-md-sys-color-on-primary-container text-xs font-bold tracking-wide shadow-sm">注目</span>
+</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col flex-grow justify-between gap-4 relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="size-6 rounded-full bg-google-blue/20 flex items-center justify-center text-google-blue">
+<span class="material-symbols-outlined text-[14px]">code</span>
+</div>
+<span class="text-md-sys-color-on-surface-variant text-sm font-medium">Web開発</span>
+<span class="text-md-sys-color-outline mx-1">•</span>
+<span class="text-md-sys-color-on-surface-variant text-sm">2023</span>
+</div>
+<h3 class="text-3xl font-google-sans font-normal text-md-sys-color-on-surface mb-3 group-hover:text-google-blue transition-colors">バーチャル・オープンキャンパス</h3>
+<p class="text-md-sys-color-on-surface-variant leading-relaxed max-w-xl">
+                            入学希望者が世界中のどこからでも大学構内を探索できる、没入型3D Web体験。Three.jsとReact Fiberを使用して構築されました。
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-auto">
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-lg bg-google-blue/10 text-google-blue text-xs font-medium border border-google-blue/20">React</span>
+<span class="px-3 py-1 rounded-lg bg-google-red/10 text-google-red text-xs font-medium border border-google-red/20">Three.js</span>
+<span class="px-3 py-1 rounded-lg bg-google-yellow/10 text-google-yellow text-xs font-medium border border-google-yellow/20">WebGL</span>
+</div>
+<a class="flex items-center justify-center w-10 h-10 rounded-full bg-md-sys-color-surface-container-high text-md-sys-color-on-surface hover:bg-md-sys-color-primary hover:text-md-sys-color-on-primary transition-all transform" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group relative rounded-[24px] bg-md-sys-color-surface-container text-md-sys-color-on-surface overflow-hidden transition-all duration-300 hover:shadow-elevation-2 flex flex-col h-full ripple-surface">
+<div class="state-layer text-white"></div>
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-black/20">
+<img alt="Abstract colorful gradient palette" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract colorful gradient palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBI4mv3JQkVEmbRZCmAB21tWqgJcNfybxfacgXffNn1HS9ZjnkvNGmewjcd1IssCchrgJ-n0c3C7KtTs5BkcORt4SfYttoJBMf5_rpplkUHByjOCvL2SXOagfAwTAqUssjFjl0Q_nIHNpeHLsg1iQHxK8QtdSeNWlkPkZTKBqLXov-7aPSG8dDnpz9fMFBQN8LMN9ksvGVGD-fBu56ztDp5k_1q9FBJiZA15VdkYgXkXcoL1ISnJuFYIANdmJYWIj9IpAvZSregc0"/>
+</div>
+<div class="p-5 flex flex-col flex-grow relative z-10">
+<div class="mb-auto">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[16px] text-google-red">palette</span>
+<span class="text-md-sys-color-on-surface-variant text-xs font-bold tracking-wide uppercase">UI/UXデザイン</span>
+</div>
+<h3 class="text-xl font-google-sans font-normal text-md-sys-color-on-surface mb-2 group-hover:text-google-red transition-colors">Irodori (色彩)</h3>
+<p class="text-md-sys-color-on-surface-variant text-sm leading-relaxed mb-4">
+                            日本の伝統色にインスパイアされたカラーパレット生成アプリ。クリーンでミニマルなインターフェースが特徴です。
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2.5 py-1 rounded-lg bg-google-red/10 text-google-red text-xs font-medium">Figma</span>
+<span class="px-2.5 py-1 rounded-lg bg-google-blue/10 text-google-blue text-xs font-medium">Tailwind</span>
+</div>
+</div>
+</div>
+<div class="group relative rounded-[24px] bg-md-sys-color-surface-container text-md-sys-color-on-surface overflow-hidden transition-all duration-300 hover:shadow-elevation-2 flex flex-col h-full ripple-surface">
+<div class="state-layer text-white"></div>
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-black/20">
+<img alt="Stylized game character art" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Stylized game character art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe0B9a6esJYAnQGq62agFT1s5d164423C2VXVMdy-Zr-QaxMvhbcui6NeFTdvxkGOV4mw1QtHMMT_szKU95u8zdH7TFVcc4Cs1w2mKTcF4640iAZ7EFOGYYaS4m20ydJnUD1RsHKgQiw6L2DK53NLBdroyDQJfgH3TWwcabVFf5rVQdqqJJ7M4MsA0bFyWKEe4PqqKfeIR7VPeXCHJSAPxrNpw972F-3aCP8oROmey2WKP6dO2EKjNsIW4_k9FkzvifhcvmJxwBUg"/>
+<div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-xs">videogame_asset</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow relative z-10">
+<div class="mb-auto">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[16px] text-google-green">sports_esports</span>
+<span class="text-md-sys-color-on-surface-variant text-xs font-bold tracking-wide uppercase">ゲーム開発</span>
+</div>
+<h3 class="text-xl font-google-sans font-normal text-md-sys-color-on-surface mb-2 group-hover:text-google-green transition-colors">猫神様の言うとおり</h3>
+<p class="text-md-sys-color-on-surface-variant text-sm leading-relaxed mb-4">
+                            Unityで開発された、手描きアセットを使用した気まぐれなパズルプラットフォーマーゲーム。
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2.5 py-1 rounded-lg bg-google-green/10 text-google-green text-xs font-medium">Unity</span>
+<span class="px-2.5 py-1 rounded-lg bg-google-blue/10 text-google-blue text-xs font-medium">C#</span>
+</div>
+</div>
+</div>
+<div class="group relative rounded-[24px] bg-md-sys-color-surface-container-high text-md-sys-color-on-surface p-6 transition-all duration-300 hover:shadow-elevation-2 flex flex-col justify-between h-full ripple-surface border border-white/5">
+<div class="state-layer text-white"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div class="size-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg text-white">
+<span class="material-symbols-outlined">library_music</span>
+</div>
+<a class="text-md-sys-color-on-surface-variant hover:text-md-sys-color-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">north_east</span>
+</a>
+</div>
+<h3 class="text-lg font-google-sans font-normal text-md-sys-color-on-surface mb-2">Sonic Canvas</h3>
+<p class="text-md-sys-color-on-surface-variant text-sm leading-relaxed">
+                        Web Audio APIを使用したオーディオビジュアライゼーションの実験。
+                    </p>
+</div>
+<div class="mt-4 pt-4 border-t border-white/10 flex gap-2 relative z-10">
+<span class="px-2 py-1 bg-google-yellow/20 text-google-yellow text-[10px] font-mono rounded uppercase tracking-wider">Experimental</span>
+</div>
+</div>
+<div class="group relative rounded-[24px] bg-md-sys-color-surface-container text-md-sys-color-on-surface overflow-hidden transition-all duration-300 hover:shadow-elevation-2 flex flex-col h-full md:col-span-2 lg:col-span-1 ripple-surface">
+<div class="state-layer text-white"></div>
+<div class="relative w-full aspect-video lg:aspect-[4/3] overflow-hidden bg-black/20">
+<img alt="Dark mode dashboard interface" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dark mode dashboard interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXJ4KX7MpQteibX7UdPEE_vlnOcuLghir8b6Jld9fsaKnRAPC6XTnXKh2zmDi98SADB6BXF7RvImDjRPeS7K3ecygmiD3eXxzguvCrBv1binOf60hwBpCaGTmWHEGv0JOKbOPro5qwk7wN0nAjWFBtiZW51WWYJlR7pEddJKm91bOf37cKxxxHVaMRa6Tznf91QqEvg1mSgI00lAcfGhjhbK02liY_8GE8clDBXBw2wbvC53uD3vH-7dOSLlzBv63PMS8Ck6pH4Zw"/>
+</div>
+<div class="p-5 flex flex-col flex-grow relative z-10">
+<div class="mb-auto">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[16px] text-google-blue">widgets</span>
+<span class="text-md-sys-color-on-surface-variant text-xs font-bold tracking-wide uppercase">Webアプリ</span>
+</div>
+<h3 class="text-xl font-google-sans font-normal text-md-sys-color-on-surface mb-2 group-hover:text-google-blue transition-colors">TaskFlow Pro</h3>
+<p class="text-md-sys-color-on-surface-variant text-sm leading-relaxed mb-4">
+                            リモートチーム向けの生産性向上ダッシュボード。リアルタイムコラボレーション機能を搭載しています。
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2.5 py-1 rounded-lg bg-google-green/10 text-google-green text-xs font-medium">Vue.js</span>
+<span class="px-2.5 py-1 rounded-lg bg-google-yellow/10 text-google-yellow text-xs font-medium">Firebase</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16 mb-8">
+<button class="group flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-md-sys-color-outline hover:bg-md-sys-color-primary/10 text-md-sys-color-primary font-medium transition-all">
+<span>すべてのアーカイブを見る</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</main>
+<footer class="w-full border-t border-white/5 bg-[#0b0f14] py-12 px-6">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="flex items-center gap-2 text-md-sys-color-on-surface font-google-sans font-bold text-lg">
+<span class="material-symbols-outlined text-md-sys-color-primary">auto_awesome</span>
+                    Tanasuke
+                </div>
+<p class="text-md-sys-color-on-surface-variant text-sm">© 2024 Tanasuke. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-md-sys-color-on-surface-variant hover:text-md-sys-color-primary transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-md-sys-color-on-surface-variant hover:text-md-sys-color-primary transition-colors" href="#">
+<span class="sr-only">GitHub</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</footer>
+
+</body></html>

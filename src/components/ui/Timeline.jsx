@@ -33,7 +33,7 @@ const Timeline = () => {
         {
             date: '現在',
             title: '生成AI壁紙アプリ「Irodori」開発中',
-            description: 'Claude Codeを利用して開発。現在はクローズドベータテスト中。'
+            description: '法人登記前の「Fuwalief」という名義にて、Claude Codeを利用して開発。現在はクローズドベータテスト中。'
         },
         {
             date: '2026年 4月 (予定)',

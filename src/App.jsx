@@ -50,20 +50,7 @@ function App() {
       </main>
 
       <footer id="contact" className="footer">
-        <div className="footer-top">
-          <h2 className="footer-title">Let's Connect</h2>
-          <p className="footer-subtitle">
-            お気軽にお問い合わせください。新しい機会、コラボレーション、あるいは技術やデザインについての雑談でも大歓迎です。
-          </p>
-          <a href="#contact" className="footer-fab" onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
-            setActiveSection('contact');
-          }}>
-            <span className="material-symbols-outlined notranslate" translate="no">edit</span>
-            <span>メールを送る</span>
-          </a>
-        </div>
+
 
         <div className="footer-bottom">
           <div className="footer-row">

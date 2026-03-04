@@ -4,6 +4,7 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Projects from './components/sections/Projects';
 import Skills from './components/sections/Skills';
+import Contact from './components/sections/Contact';
 import confetti from 'canvas-confetti';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
 import './App.css';
@@ -45,6 +46,7 @@ function App() {
         <About />
         <Projects />
         <Skills />
+        <Contact />
       </main>
 
       <footer id="contact" className="footer">
@@ -55,10 +57,10 @@ function App() {
           </p>
           <a href="#contact" className="footer-fab" onClick={(e) => {
             e.preventDefault();
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('contact-form-section')?.scrollIntoView({ behavior: 'smooth' });
             setActiveSection('contact');
           }}>
-            <span className="material-symbols-outlined notranslate " translate="no" translate="no">edit</span>
+            <span className="material-symbols-outlined notranslate" translate="no">edit</span>
             <span>メールを送る</span>
           </a>
         </div>
@@ -106,7 +108,7 @@ function App() {
                 origin: { y: 0.6 }
               });
             }}>
-              <span className="material-symbols-outlined notranslate " translate="no" translate="no">videogame_asset</span>
+              <span className="material-symbols-outlined notranslate" translate="no">videogame_asset</span>
               <span>I'm Feeling Lucky</span>
             </div>
           </div>

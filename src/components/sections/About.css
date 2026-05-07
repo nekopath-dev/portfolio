@@ -229,3 +229,59 @@
     margin-bottom: 32px;
     font-weight: 400;
 }
+
+/* About Traits (Values, Personality, Strengths) */
+.about-traits {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.trait-item {
+    background: var(--md-sys-color-surface-container);
+    border-radius: var(--md-sys-shape-corner-large);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform var(--md-sys-motion-duration-short) ease;
+}
+
+.trait-item:hover {
+    transform: translateY(-2px);
+    background: var(--md-sys-color-surface-container-high);
+}
+
+.trait-title {
+    font-size: var(--font-size-title-large);
+    color: var(--md-sys-color-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.trait-subtitle {
+    font-size: var(--font-size-title-medium);
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.trait-text {
+    font-size: var(--font-size-body-large);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.6;
+}
+
+.trait-list {
+    padding-left: 24px;
+    margin: 0;
+}
+
+.trait-list li {
+    font-size: var(--font-size-body-large);
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}

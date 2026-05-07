@@ -63,10 +63,68 @@ const About = () => {
                         >
                             <h2 className="section-title">自己紹介</h2>
                             <p className="about-text">
-                                大学を卒業し、現在は<strong>法政大学大学院 情報科学研究科</strong>に所属しています。<br /><br />
-                                学部時代にはVRソーシャルサークル「HIT Metaverse」を自ら設立し、代表として数多くのイベント企画や組織運営を経験しました。
-                                また、Google AI Student Ambassador としての活動を通じ、リーダーシップや最新AI技術の活用にも関心を深めています。
+                                2003年生まれ。広島工業大学 情報学部 情報コミュニケーション学科から、2026年に<strong>法政大学大学院 情報科学研究科</strong>に進学。現在大学院1年生。<br /><br />
+                                学部1年のときに、全国初の大学メタバースサークル（自称）のHIT Metaverseを設立し、VIRTUAL OPEN CAMPUS主催で600名以上の来場者を記録する。<br />
+                                その他、全国大学メタバースサークル連盟（現：NUMA）やHIT Effectorという学生団体の設立を行う。<br /><br />
+                                現在は生成AIに非常に興味があり、複数の資格を取得。<br />
+                                Google AI学生アンバサダーでMVPを受賞したり、Claude Codeを使ったアプリ開発や、OpenClawによる自動化などに挑戦している。
                             </p>
+
+                            <div className="about-traits">
+                                <motion.div 
+                                    className="trait-item"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.1 }}
+                                >
+                                    <h4 className="trait-title">
+                                        <span className="material-symbols-outlined notranslate " translate="no">favorite</span>
+                                        価値観
+                                    </h4>
+                                    <h5 className="trait-subtitle">「後悔のない人生を生きる」「ないものは作ろう」</h5>
+                                    <p className="trait-text">
+                                        HIT Metaverseの成功を機に、自分に自信がつき、あらゆる選択肢を前にすると「自分の後悔のない選択肢はどれか」で判断をするようになりました。<br />
+                                        失敗は成功のもとであると考え、日々様々なことに挑戦をしています。
+                                    </p>
+                                </motion.div>
+
+                                <motion.div 
+                                    className="trait-item"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
+                                    <h4 className="trait-title">
+                                        <span className="material-symbols-outlined notranslate " translate="no">psychology</span>
+                                        性格
+                                    </h4>
+                                    <h5 className="trait-subtitle">「面倒見の良い」性格です。</h5>
+                                    <p className="trait-text">
+                                        ただの業務連絡だけでは、メンバーとの信頼は勝ち取れません。<br />
+                                        メンバーに積極的に連絡を取り、チームで活動するうえで報連相が滞らないよう、雑談や笑いも交えながら、相談しやすい、話しやすい雰囲気でいるように心がけています。
+                                    </p>
+                                </motion.div>
+
+                                <motion.div 
+                                    className="trait-item"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                >
+                                    <h4 className="trait-title">
+                                        <span className="material-symbols-outlined notranslate " translate="no">trending_up</span>
+                                        長所
+                                    </h4>
+                                    <ul className="trait-list">
+                                        <li>目標を設定し、実現のために粘り強く頑張れるところ</li>
+                                        <li>もしミスをしてしまっても、代替案をすぐに考え、行動するところ</li>
+                                        <li>明るい性格で、とにかくなんでも挑戦をしてみるところ</li>
+                                    </ul>
+                                </motion.div>
+                            </div>
                         </motion.div>
 
                         {/* Role Cards */}

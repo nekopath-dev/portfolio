@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
+import { FiBookOpen } from 'react-icons/fi';
 import Card from '../ui/Card';
 import Timeline from '../ui/Timeline';
 import './About.css';
@@ -36,14 +37,17 @@ const About = () => {
                             </p>
 
                             <div className="profile-links">
-                                <a href="https://github.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="GitHub">
+                                <a href="https://github.com/nekopath-dev" target="_blank" rel="noopener noreferrer" className="profile-link" title="GitHub">
                                     <SiGithub size={20} />
                                 </a>
-                                <a href="https://twitter.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="X (Twitter)">
+                                <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="profile-link" title="X (Twitter)">
                                     <SiX size={20} />
                                 </a>
-                                <a href="https://zenn.dev/Tanasuke" target="_blank" rel="noopener noreferrer" className="profile-link" title="Zenn">
+                                <a href="https://zenn.dev/lamne" target="_blank" rel="noopener noreferrer" className="profile-link" title="Zenn">
                                     <SiZenn size={20} />
+                                </a>
+                                <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="profile-link" title="Note">
+                                    <FiBookOpen size={20} />
                                 </a>
                             </div>
                         </motion.div>
@@ -86,9 +90,9 @@ const About = () => {
                                 <div className="role-icon-wrapper">
                                     <span className="material-symbols-outlined notranslate " translate="no" translate="no">military_tech</span>
                                 </div>
-                                <h4 className="role-title">Student Ambassador</h4>
+                                <h4 className="role-title">学生コミュニティアンバサダー</h4>
                                 <p className="role-org">Google AI</p>
-                                <p className="role-desc">Lead Ambassadorとして活動。Weekly Challenge MVPを獲得するなど、AIコミュニティを牽引。</p>
+                                <p className="role-desc">2026年4月より活動中。以前はLead AmbassadorとしてWeekly Challenge MVPを獲得するなどAIコミュニティを牽引。</p>
                             </div>
 
                             <div className="role-card yellow">

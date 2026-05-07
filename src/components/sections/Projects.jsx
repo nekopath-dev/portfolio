@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiExternalLink } from 'react-icons/fi';
 import Card from '../ui/Card';
 import Chip from '../ui/Chip';
+import ProjectModal from '../ui/ProjectModal';
 import './Projects.css';
 
 const Projects = () => {
+    const [selectedProject, setSelectedProject] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = (project) => {
+        setSelectedProject(project);
+        setIsModalOpen(true);
+    };
+
     const projects = [
         {
             id: 1,
             title: 'HIT Metaverse - VIRTUAL OPEN CAMPUS',
             description: '大学公認のメタバースサークルを設立し、毎年600名以上を動員するバーチャルオープンキャンパスを主催。clusterを活用したステージ企画やキャンパスツアーを実施。',
             tags: ['Leadership', 'Event Planning', 'cluster', 'VR'],
-            link: '#',
+            link: 'https://monocuro.wixstudio.com/hit-metaverse',
             featured: true,
+            details: {
+                background: '大学入学時にVRソーシャルサークル「HIT Metaverse」を自ら設立しました。\n全国初（自称）のメタバース・ソーシャルVRを舞台としたサークルで、現在40名ほどが在籍しています。',
+                impressions: '毎年7・8月にclusterを活用し、リアルでのVR体験会や、メタバース内でのパフォーマンスステージ、キャンパスツアー等を企画しています。',
+                links: [
+                    { url: 'https://monocuro.wixstudio.com/hit-metaverse', title: 'HIT Metaverse ホームページ（記録用）' }
+                ]
+            }
         },
         {
             id: 2,
@@ -22,17 +38,108 @@ const Projects = () => {
             tags: ['AI', 'App Development', 'Claude', 'Fuwalief'],
             link: '#',
             featured: false,
+            details: {
+                background: '現在、法人登記前の「Fuwalief」という名義にて、生成AI壁紙アプリ「Irodori」を開発しています。\nClaude Codeを利用して開発を進め、現在はクローズドベータテストの段階です。',
+            }
         },
         {
             id: 3,
             title: '猫神様の言うとおり',
             description: '2025年8月にサポーターズ主催ハッカソンにて2名で開発した自己啓発型Androidアプリ。Google Playにてリリース済み。',
             tags: ['Android', 'Kotlin', 'Hackathon'],
-            link: '#',
-            featured: false,
+            link: 'https://github.com/momoice/nekokami',
+            featured: true,
+            details: {
+                eventInfo: 'サポーターズ｜【技育CAMP2024】ハッカソン Vol.12 制作作品',
+                collaborators: 'momoice（ももあいす）',
+                background: '共同制作経験が必要だと感じ、株式会社サポーターズが主催する「【技育CAMP2024】ハッカソン Vol.12」に参加しました。\nスマホを操作して１日が終わるような日を無くすため、猫神様が毎日課題を自動で与えてくれるアプリを作成しました。\n「ところで君、人生変える覚悟ある？まあ、選択肢なんて無いんだけどね♪」\n毎日猫神様から出される課題をこなすと、なんだか人生が好転していくかも？',
+                impressions: '初めてAndroidアプリ＆共同制作を行い、とてもいい経験となりました。',
+                images: ['/assets/projects/nekokami.png'],
+                links: [
+                    { url: 'https://github.com/momoice/nekokami', title: 'GitHub Repository' },
+                    { url: 'https://docs.google.com/presentation/d/1qNaZEt9hDy2TX1t24dxWRoh6XAJCTA3CL-as3hb63Bg/preview?usp=sharing', title: '紹介スライド' },
+                    { url: 'https://www.notion.so/11642eb8fe3080c9b456d581f73a2a4f?pvs=21', title: 'クローズドベータテスト 参加方法' }
+                ]
+            }
         },
         {
             id: 4,
+            title: '自動車学校 予約空き自動通知システム',
+            description: '自動車学校の技能講習の予約空き状況を監視し、空きが出たらLINEへ自動通知するシステム。',
+            tags: ['Python', 'Azure', 'Selenium', 'Automation'],
+            link: 'https://github.com/nekopath-dev/e-license-Automatic-Notification-System',
+            featured: false,
+            details: {
+                background: '自動車学校に通っていた際、長期休暇中で予約が難しく、キャンセル待ちを狙うしかありませんでした。\nそこで、Microsoft Azureの仮想マシン上でVisual Studio Codeを使い、Pythonのコードを継続的に実行することで、予約の空きを見つけ次第LINEに通知してくれるシステムを構築しました。',
+                tools: ['Microsoft Azure (Virtual Machines)', 'Microsoft Visual Studio Code', 'Python', 'LINE Notify', 'selenium', 'chromedriver', 'requests', 'time'],
+                flow: [
+                    'Chromeを立ち上げる',
+                    'ログインページを開く',
+                    '教習生IDとパスワードを入力する',
+                    'ログインして、予約ページが開く',
+                    'ページソースを読み込み、空きの文字列（"status1"）を見つけ出す',
+                    'あった場合は、LINE Notifyを経由してLINEに通知',
+                    'なかった場合は、ブラウザを閉じる（あった場合も通知後、ブラウザを閉じる）',
+                    'これを5分ごとに繰り返す'
+                ],
+                impressions: '正直、このシステムで予約が格段に楽になりました。\n早期卒業を目指していたため、送迎バスや技能予約の待ち時間に1分おきに確認していましたが、それは非常に手間がかかりました。\nLINEで通知が来るようになり、わざわざページを開いて確認する必要がなくなりました。\nただし、キャンセルが出て30分ほど空きが続くと、6回も通知が来てしまう欠点があり、一度検知したらタイムインターバルを設定すればよかったと反省しています。',
+                future: '教習指導員にこのシステムについて説明すると、とても驚き、称賛されました。\n卒業後、システムの話が会社の上層部に伝わったようで、システム担当者から連絡がありオンラインミーティングを行いました。\nその際、「今後、仕事として何かお願いするかもしれません」と言われました。',
+                images: ['/assets/projects/driving-school.png'],
+                links: [
+                    { url: 'https://github.com/nekopath-dev/e-license-Automatic-Notification-System', title: 'GitHub Repository' }
+                ]
+            }
+        },
+        {
+            id: 5,
+            title: 'DXモンスターボール',
+            description: '実際に投げてポケモンを捕まえることができるIoTデバイス。M5StickCと各種センサーを使用。',
+            tags: ['Arduino', 'M5StickC', 'IoT', 'C++'],
+            link: 'https://github.com/nekopath-dev/dxmonsterball',
+            featured: false,
+            details: {
+                eventInfo: 'スイッチサイエンス主催「M5Stack Japan Creativity Contest 2024」出品作品',
+                background: '大学の「アプリケーションデザインB」という講義で、グループで自由に開発する最終課題がありました。\nグループ内で「どうせ作るのであれば、面白いものを作ろう」という話になり、投げたらポケモンを捕まえることができる「DXモンスターボール」を作ることになりました。',
+                tools: ['Arduino IDE 2.3.3', 'M5StickC', 'M5StickC追加パーツ（スピーカー、モーター）', 'Poke API', 'LINE Notify', 'ArduinoJson', 'M5GFX', 'M5Unified', 'ServoESP32'],
+                flow: [
+                    'M5StickCが入ったボールを投げる',
+                    'M5StickCが投げを検知する（加速度センサー）',
+                    '3回モーターが動き、ボールが振動する（ポケモンがボールに入った直後の揺れを再現）',
+                    '30%の確率で失敗し、「ブブー」と音がなる。同時にLINE Notifyで「逃げられてしまった…」と通知し、最初に戻る。',
+                    '60%で成功した場合は、M5StickCがWi-Fiを使ってPokeAPIにポケモンの名前をリクエスト。',
+                    'ポケモン名を取得できた場合は、LINE Notifyを使って「やった！〇〇（ポケモン名）を捕まえた！」と通知し、捕獲成功の音楽が鳴る。'
+                ],
+                impressions: '私はプログラム全般の開発を担当しました。途中で音楽とモーターを同時に動かす際に不具合が発生し解決に時間がかかりましたが、チームメンバーの協力のおかげで無事に完成させることができました。\n非常に面白いプロダクトを作り上げることができたと自負しており、友人たちも「伝説のポケモンが出るまでやる！」と熱中していました。',
+                images: ['/assets/projects/dx-monsterball.png'],
+                links: [
+                    { url: 'https://github.com/nekopath-dev/dxmonsterball', title: 'GitHub Repository' },
+                    { url: 'https://protopedia.net/prototype/5705', title: 'ProtoPedia' },
+                    { url: 'https://www.switch-science.com/pages/m5stack-japan-creativity-contest-2024', title: 'M5Stack Japan Creativity Contest 2024' }
+                ]
+            }
+        },
+        {
+            id: 6,
+            title: '学生番号記録システム',
+            description: 'NFCリーダーを用いて学生証から学生番号を読み取り、自動でExcelに記録する業務効率化システム。',
+            tags: ['Python', 'NFC', 'Excel Automation'],
+            link: 'https://github.com/nekopath-dev/Student-Number-Recording-System',
+            featured: false,
+            details: {
+                background: '大学で「ICTサポートセンター」のアルバイトをしています。\n個人用ブースの利用時に学生番号を手書きで記録する必要があり、この作業を自動化できないかと考え、学生証から学生番号を読み取り自動的に記録するシステムを構想しました。',
+                tools: ['Microsoft Visual Studio Code', 'Python', 'NFCリーダー', 're', 'pygame', 'time', 'openpyxl', 'datetime'],
+                flow: [
+                    '使用するPCにNFC通信リーダーを接続する',
+                    '学生証をかざす',
+                    '猫の鳴き声とともに、学生番号が指定されたExcelに出力される（Excel出力時は一番上から行を追加し、指定されたセルに書き込む）'
+                ],
+                links: [
+                    { url: 'https://github.com/nekopath-dev/Student-Number-Recording-System', title: 'GitHub Repository' }
+                ]
+            }
+        },
+        {
+            id: 7,
             title: 'MVSIA',
             description: 'メタバースの音楽ライブを盛り上げる団体の広報担当として、ポスター作成や広報デザインを担当。',
             tags: ['Design', 'PR', 'Metaverse'],
@@ -62,17 +169,28 @@ const Projects = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className={project.featured ? 'project-card-wrapper featured' : 'project-card-wrapper'}
                             >
-                                <Card className="project-card" hoverable={true}>
+                                <Card 
+                                    className="project-card" 
+                                    hoverable={true} 
+                                    onClick={() => openModal(project)}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <div className="project-image-container">
-                                        <span className="material-symbols-outlined notranslate " translate="no" translate="no">image</span>
+                                        {project.details?.images ? (
+                                            <img src={project.details.images[0]} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        ) : (
+                                            <span className="material-symbols-outlined notranslate" translate="no">image</span>
+                                        )}
                                     </div>
                                     <div className="project-content">
                                         <div className="project-header">
                                             <h3 className="project-title">{project.title}</h3>
                                             <div className="project-links">
-                                                <a href={project.link} target="_blank" rel="noreferrer">
-                                                    <span className="material-symbols-outlined notranslate " translate="no">arrow_outward</span>
-                                                </a>
+                                                {project.link !== '#' && (
+                                                    <a href={project.link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                                                        <span className="material-symbols-outlined notranslate" translate="no">arrow_outward</span>
+                                                    </a>
+                                                )}
                                             </div>
                                         </div>
 
@@ -90,6 +208,12 @@ const Projects = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <ProjectModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                project={selectedProject} 
+            />
         </section>
     );
 };

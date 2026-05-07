@@ -9,7 +9,7 @@ const Skills = () => {
         {
             title: "開発",
             icon: "code",
-            skills: ["React", "JavaScript/TypeScript", "Android (Kotlin)", "HTML/CSS", "Python"]
+            skills: ["C (学習中)", "Python (学習中)", "HTML/CSS"]
         },
         {
             title: "AI & 機械学習",

@@ -31,8 +31,8 @@ const About = () => {
                             </div>
 
                             <p className="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm mb-6">
-                                広島工業大学 情報学部<br />
-                                2026年4月〜 法政大学大学院
+                                法政大学大学院<br />
+                                情報科学研究科
                             </p>
 
                             <div className="profile-links">
@@ -59,9 +59,8 @@ const About = () => {
                         >
                             <h2 className="section-title">自己紹介</h2>
                             <p className="about-text">
-                                現在、広島工業大学 情報学部 情報コミュニケーション学科に在籍しており、
-                                来る2026年4月より<strong>法政大学大学院 情報科学研究科</strong>へ進学予定です。<br /><br />
-                                大学入学時にVRソーシャルサークル「HIT Metaverse」を自ら設立し、代表として数多くのイベント企画や組織運営を経験しました。
+                                大学を卒業し、現在は<strong>法政大学大学院 情報科学研究科</strong>に所属しています。<br /><br />
+                                学部時代にはVRソーシャルサークル「HIT Metaverse」を自ら設立し、代表として数多くのイベント企画や組織運営を経験しました。
                                 また、Google AI Student Ambassador としての活動を通じ、リーダーシップや最新AI技術の活用にも関心を深めています。
                             </p>
                         </motion.div>
@@ -78,9 +77,9 @@ const About = () => {
                                 <div className="role-icon-wrapper">
                                     <span className="material-symbols-outlined notranslate " translate="no" translate="no">school</span>
                                 </div>
-                                <h4 className="role-title">大学院進学予定</h4>
+                                <h4 className="role-title">大学院生</h4>
                                 <p className="role-org">法政大学大学院</p>
-                                <p className="role-desc">情報科学研究科にて、さらなる高度な情報技術と研究に2026年より従事予定。</p>
+                                <p className="role-desc">情報科学研究科にて、高度な情報技術の学習と研究活動に従事しています。</p>
                             </div>
 
                             <div className="role-card red">

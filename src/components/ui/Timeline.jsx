@@ -47,9 +47,9 @@ const Timeline = () => {
             description: '法人登記前の「Fuwalief」という名義にて、Claude Codeを利用して開発。現在はクローズドベータテスト中。'
         },
         {
-            date: '2026年 4月 (予定)',
-            title: '法政大学大学院 進学',
-            description: '情報科学研究科へ進学予定。'
+            date: '現在',
+            title: '法政大学大学院 在学中',
+            description: '情報科学研究科に所属。'
         }
     ];
 

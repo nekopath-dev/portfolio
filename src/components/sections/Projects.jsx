@@ -36,10 +36,13 @@ const Projects = () => {
             title: 'Irodori - AI Wallpaper App',
             description: '法人登記前の「Fuwalief」という名義で、Claude Codeを活用して開発した生成AI壁紙アプリ。ユーザーの好みに合わせたアートワークを生成。現在クローズドベータテスト中。',
             tags: ['AI', 'App Development', 'Claude', 'Fuwalief'],
-            link: '#',
+            link: 'https://fuwalief.com/',
             featured: false,
             details: {
                 background: '現在、法人登記前の「Fuwalief」という名義にて、生成AI壁紙アプリ「Irodori」を開発しています。\nClaude Codeを利用して開発を進め、現在はクローズドベータテストの段階です。',
+                links: [
+                    { url: 'https://fuwalief.com/', title: 'Fuwalief ホームページ' }
+                ]
             }
         },
         {

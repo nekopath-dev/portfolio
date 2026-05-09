@@ -137,7 +137,7 @@ const About = () => {
                         >
                             <div className="role-card"> {/* Default Blue */}
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">school</span>
+                                    <span className="material-symbols-outlined notranslate " translate="no">school</span>
                                 </div>
                                 <h4 className="role-title">大学院生</h4>
                                 <p className="role-org">法政大学大学院</p>
@@ -146,7 +146,7 @@ const About = () => {
 
                             <div className="role-card red">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">military_tech</span>
+                                    <span className="material-symbols-outlined notranslate " translate="no">military_tech</span>
                                 </div>
                                 <h4 className="role-title">学生コミュニティアンバサダー</h4>
                                 <p className="role-org">Google AI</p>
@@ -155,7 +155,7 @@ const About = () => {
 
                             <div className="role-card yellow">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">groups</span>
+                                    <span className="material-symbols-outlined notranslate " translate="no">groups</span>
                                 </div>
                                 <h4 className="role-title">サークル設立・代表</h4>
                                 <p className="role-org">HIT Metaverse</p>
@@ -164,7 +164,7 @@ const About = () => {
 
                             <div className="role-card green">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">code_blocks</span>
+                                    <span className="material-symbols-outlined notranslate " translate="no">code_blocks</span>
                                 </div>
                                 <h4 className="role-title">個人開発</h4>
                                 <p className="role-org">Fuwalief / Tanasuke</p>

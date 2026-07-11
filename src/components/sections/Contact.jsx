@@ -11,8 +11,7 @@ const Contact = () => {
 
         const formData = new FormData(e.target);
 
-        // --- Web3Forms Access Key ---
-        // TODO: Replace with your actual Access Key below!
+        // Web3Forms Access Key (クライアントサイド公開前提のキー)
         formData.append("access_key", "ba79b4d1-4a85-4602-a2d6-bbf3487e8983");
 
         try {
@@ -37,7 +36,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact-form-section" className="section contact-section">
+        <section id="contact" className="section contact-section">
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <motion.div
                     className="section-header"

@@ -42,14 +42,14 @@ function App() {
     <div className="app-container">
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} isAppLoaded={isAppLoaded} />
       <main>
-        <Hero onAnimationComplete={() => setIsAppLoaded(true)} isAppLoaded={isAppLoaded} />
+        <Hero onAnimationComplete={() => setIsAppLoaded(true)} />
         <About />
         <Projects />
         <Skills />
         <Contact />
       </main>
 
-      <footer id="contact" className="footer">
+      <footer className="footer">
 
 
         <div className="footer-bottom">

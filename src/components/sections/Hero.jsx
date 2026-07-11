@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { FiArrowDown } from 'react-icons/fi';
 import './Hero.css';
 
-const Hero = ({ onAnimationComplete, isAppLoaded }) => {
+// Array of icons to explode out
+const orbitIcons = [
+    { icon: "brush", angle: -30, distance: 120, delay: 0 },
+    { icon: "code", angle: 30, distance: 130, delay: 0.1 },
+    { icon: "search", angle: 150, distance: 120, delay: 0.2 },
+    { icon: "palette", angle: 210, distance: 130, delay: 0.3 }
+];
+
+const Hero = ({ onAnimationComplete }) => {
     const fullText = "Hello, I'm Tanasuke.";
     const [typedText, setTypedText] = useState("");
     const controls = useAnimation();
     const avatarControls = useAnimation();
     const [animationDone, setAnimationDone] = useState(false);
 
-    // Array of icons to explode out
-    const orbitIcons = [
-        { icon: "brush", angle: -30, distance: 120, delay: 0 },
-        { icon: "code", angle: 30, distance: 130, delay: 0.1 },
-        { icon: "search", angle: 150, distance: 120, delay: 0.2 },
-        { icon: "palette", angle: 210, distance: 130, delay: 0.3 }
-    ];
+    // Keep the latest callback without retriggering the animation effect
+    const onAnimationCompleteRef = useRef(onAnimationComplete);
+    useEffect(() => {
+        onAnimationCompleteRef.current = onAnimationComplete;
+    }, [onAnimationComplete]);
 
     useEffect(() => {
         const sequence = async () => {
@@ -52,9 +57,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
             });
 
             setAnimationDone(true);
-            if (onAnimationComplete) {
-                onAnimationComplete();
-            }
+            onAnimationCompleteRef.current?.();
         };
 
         sequence();
@@ -63,8 +66,6 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
     // Start typing animation only AFTER the explosion finishes
     useEffect(() => {
         if (!animationDone) return;
-
-        setTypedText(""); // Ensure it starts empty
 
         const typingInterval = setInterval(() => {
             setTypedText(prev => {
@@ -102,7 +103,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                             initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
                             className="orbit-icon"
                         >
-                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">{item.icon}</span>
+                            <span className="material-symbols-outlined notranslate" translate="no">{item.icon}</span>
                         </motion.div>
                     ))}
 
@@ -130,7 +131,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         style={{ cursor: "pointer" }}
                         title="Googleで「Tanasuke」を検索"
                     >
-                        <span className="material-symbols-outlined notranslate " translate="no">search</span>
+                        <span className="material-symbols-outlined notranslate" translate="no">search</span>
 
                         <h1 className="hero-title">
                             <span className="google-gradient-text">{typedText}</span>
@@ -138,8 +139,8 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         </h1>
 
                         <div className="search-icons-right">
-                            <span className="material-symbols-outlined notranslate " translate="no" title="音声検索">mic</span>
-                            <span className="material-symbols-outlined notranslate " translate="no" title="画像検索">center_focus_strong</span>
+                            <span className="material-symbols-outlined notranslate" translate="no" title="音声検索">mic</span>
+                            <span className="material-symbols-outlined notranslate" translate="no" title="画像検索">center_focus_strong</span>
                         </div>
                     </div>
 
@@ -153,7 +154,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">visibility</span>
+                            <span className="material-symbols-outlined notranslate" translate="no">visibility</span>
                             <span>作品を見る</span>
                         </motion.button>
 
@@ -166,7 +167,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                                 document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            <span className="material-symbols-outlined notranslate " translate="no" translate="no">description</span>
+                            <span className="material-symbols-outlined notranslate" translate="no">description</span>
                             <span>経歴を表示</span>
                         </motion.button>
                     </div>
@@ -199,7 +200,7 @@ const Hero = ({ onAnimationComplete, isAppLoaded }) => {
                         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                     />
                 </div>
-                <span className="material-symbols-outlined notranslate " translate="no">keyboard_arrow_down</span>
+                <span className="material-symbols-outlined notranslate" translate="no">keyboard_arrow_down</span>
             </motion.div>
         </section>
     );

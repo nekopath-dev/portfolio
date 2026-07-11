@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import Card from '../ui/Card';
 import Chip from '../ui/Chip';
 import './Projects.css';
@@ -64,16 +63,18 @@ const Projects = () => {
                             >
                                 <Card className="project-card" hoverable={true}>
                                     <div className="project-image-container">
-                                        <span className="material-symbols-outlined notranslate " translate="no" translate="no">image</span>
+                                        <span className="material-symbols-outlined notranslate" translate="no">image</span>
                                     </div>
                                     <div className="project-content">
                                         <div className="project-header">
                                             <h3 className="project-title">{project.title}</h3>
-                                            <div className="project-links">
-                                                <a href={project.link} target="_blank" rel="noreferrer">
-                                                    <span className="material-symbols-outlined notranslate " translate="no">arrow_outward</span>
-                                                </a>
-                                            </div>
+                                            {project.link && project.link !== '#' && (
+                                                <div className="project-links">
+                                                    <a href={project.link} target="_blank" rel="noreferrer">
+                                                        <span className="material-symbols-outlined notranslate" translate="no">arrow_outward</span>
+                                                    </a>
+                                                </div>
+                                            )}
                                         </div>
 
                                         <p className="project-description">{project.description}</p>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
-import Card from '../ui/Card';
 import Timeline from '../ui/Timeline';
 import './About.css';
 
@@ -26,7 +25,7 @@ const About = () => {
                             <h3 className="profile-name">Tanasuke</h3>
 
                             <div className="profile-badge">
-                                <span className="material-symbols-outlined notranslate " translate="no">verified</span>
+                                <span className="material-symbols-outlined notranslate" translate="no">verified</span>
                                 Google AI Student Ambassador
                             </div>
 
@@ -76,7 +75,7 @@ const About = () => {
                         >
                             <div className="role-card"> {/* Default Blue */}
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">school</span>
+                                    <span className="material-symbols-outlined notranslate" translate="no">school</span>
                                 </div>
                                 <h4 className="role-title">大学院進学予定</h4>
                                 <p className="role-org">法政大学大学院</p>
@@ -85,7 +84,7 @@ const About = () => {
 
                             <div className="role-card red">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">military_tech</span>
+                                    <span className="material-symbols-outlined notranslate" translate="no">military_tech</span>
                                 </div>
                                 <h4 className="role-title">Student Ambassador</h4>
                                 <p className="role-org">Google AI</p>
@@ -94,7 +93,7 @@ const About = () => {
 
                             <div className="role-card yellow">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">groups</span>
+                                    <span className="material-symbols-outlined notranslate" translate="no">groups</span>
                                 </div>
                                 <h4 className="role-title">サークル設立・代表</h4>
                                 <p className="role-org">HIT Metaverse</p>
@@ -103,7 +102,7 @@ const About = () => {
 
                             <div className="role-card green">
                                 <div className="role-icon-wrapper">
-                                    <span className="material-symbols-outlined notranslate " translate="no" translate="no">code_blocks</span>
+                                    <span className="material-symbols-outlined notranslate" translate="no">code_blocks</span>
                                 </div>
                                 <h4 className="role-title">個人開発</h4>
                                 <p className="role-org">Fuwalief / Tanasuke</p>

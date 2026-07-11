@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-import { motion } from 'framer-motion';
-=======
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink } from 'react-icons/fi';
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
 import Card from '../ui/Card';
 import Chip from '../ui/Chip';
 import ProjectModal from '../ui/ProjectModal';
@@ -206,43 +200,14 @@ const Projects = () => {
                                 className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
                                 onClick={() => setActiveCategory(category)}
                             >
-<<<<<<< HEAD
-                                <Card className="project-card" hoverable={true}>
-                                    <div className="project-image-container">
-                                        <span className="material-symbols-outlined notranslate" translate="no">image</span>
-                                    </div>
-                                    <div className="project-content">
-                                        <div className="project-header">
-                                            <h3 className="project-title">{project.title}</h3>
-                                            {project.link && project.link !== '#' && (
-                                                <div className="project-links">
-                                                    <a href={project.link} target="_blank" rel="noreferrer">
-                                                        <span className="material-symbols-outlined notranslate" translate="no">arrow_outward</span>
-                                                    </a>
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        <p className="project-description">{project.description}</p>
-
-                                        <div className="project-tags">
-                                            {project.tags.map(tag => (
-                                                <Chip key={tag} label={tag} className="project-tag" />
-                                            ))}
-                                        </div>
-                                    </div>
-                                </Card>
-                            </motion.div>
-=======
                                 {category}
                             </button>
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
                         ))}
                     </div>
 
                     <motion.div layout className="projects-grid">
                         <AnimatePresence>
-                            {filteredProjects.map((project, index) => (
+                            {filteredProjects.map((project) => (
                                 <motion.div
                                     layout
                                     initial={{ opacity: 0, scale: 0.9 }}

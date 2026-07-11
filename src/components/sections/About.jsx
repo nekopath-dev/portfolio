@@ -1,11 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
-<<<<<<< HEAD
-=======
 import { FiBookOpen } from 'react-icons/fi';
-import Card from '../ui/Card';
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
 import Timeline from '../ui/Timeline';
 import './About.css';
 
@@ -58,6 +54,26 @@ const About = () => {
 
                     {/* Right Content */}
                     <div className="about-content">
+                        {/* PHILOSOPHY Banner */}
+                        <motion.a
+                            href="https://tanasuke.my.canva.site/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="philosophy-banner"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            <div className="philosophy-banner-overlay" />
+                            <div className="philosophy-banner-content">
+                                <span className="philosophy-banner-text">PHILOSOPHY</span>
+                                <span className="material-symbols-outlined notranslate philosophy-banner-arrow" translate="no">arrow_forward</span>
+                            </div>
+                        </motion.a>
+
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -140,11 +156,7 @@ const About = () => {
                         >
                             <div className="role-card"> {/* Default Blue */}
                                 <div className="role-icon-wrapper">
-<<<<<<< HEAD
                                     <span className="material-symbols-outlined notranslate" translate="no">school</span>
-=======
-                                    <span className="material-symbols-outlined notranslate " translate="no">school</span>
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
                                 </div>
                                 <h4 className="role-title">大学院生</h4>
                                 <p className="role-org">法政大学大学院</p>
@@ -153,11 +165,7 @@ const About = () => {
 
                             <div className="role-card red">
                                 <div className="role-icon-wrapper">
-<<<<<<< HEAD
                                     <span className="material-symbols-outlined notranslate" translate="no">military_tech</span>
-=======
-                                    <span className="material-symbols-outlined notranslate " translate="no">military_tech</span>
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
                                 </div>
                                 <h4 className="role-title">学生コミュニティアンバサダー</h4>
                                 <p className="role-org">Google AI</p>
@@ -166,11 +174,7 @@ const About = () => {
 
                             <div className="role-card yellow">
                                 <div className="role-icon-wrapper">
-<<<<<<< HEAD
                                     <span className="material-symbols-outlined notranslate" translate="no">groups</span>
-=======
-                                    <span className="material-symbols-outlined notranslate " translate="no">groups</span>
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
                                 </div>
                                 <h4 className="role-title">サークル設立・代表</h4>
                                 <p className="role-org">HIT Metaverse</p>
@@ -179,11 +183,7 @@ const About = () => {
 
                             <div className="role-card green">
                                 <div className="role-icon-wrapper">
-<<<<<<< HEAD
                                     <span className="material-symbols-outlined notranslate" translate="no">code_blocks</span>
-=======
-                                    <span className="material-symbols-outlined notranslate " translate="no">code_blocks</span>
->>>>>>> 9fafb1a3e823e6782c961b9a3ae7bd55fcb43c2b
                                 </div>
                                 <h4 className="role-title">個人開発</h4>
                                 <p className="role-org">Fuwalief / Tanasuke</p>

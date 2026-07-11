@@ -37,9 +37,14 @@ const Timeline = () => {
             description: 'サポーターズ主催のハッカソンに2名で参加し開発。Google Playにて公開。'
         },
         {
-            date: '〜 2025年 12月',
+            date: '〜 2026年 3月',
             title: 'Google AI Student Ambassador (Lead)',
-            description: '広島工業大学のリードアンバサダーに就任し、「Weekly Challenge MVP」を獲得。'
+            description: 'リードアンバサダーに就任し、「Weekly Challenge MVP」を獲得。'
+        },
+        {
+            date: '2026年 4月 〜 現在',
+            title: 'Google AI学生コミュニティアンバサダー',
+            description: 'コミュニティアンバサダーに選出され、現在も活動中。'
         },
         {
             date: '現在',
@@ -47,9 +52,9 @@ const Timeline = () => {
             description: '法人登記前の「Fuwalief」という名義にて、Claude Codeを利用して開発。現在はクローズドベータテスト中。'
         },
         {
-            date: '2026年 4月 (予定)',
-            title: '法政大学大学院 進学',
-            description: '情報科学研究科へ進学予定。'
+            date: '現在',
+            title: '法政大学大学院 在学中',
+            description: '情報科学研究科に所属。'
         }
     ];
 

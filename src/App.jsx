@@ -7,6 +7,7 @@ import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
 import confetti from 'canvas-confetti';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
+import { FiBookOpen } from 'react-icons/fi';
 import './App.css';
 
 function App() {
@@ -67,9 +68,10 @@ function App() {
               }}>ビジネス</span>
             </div>
             <div className="footer-links">
-              <a href="https://github.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="GitHub"><SiGithub size={24} /></a>
-              <a href="https://twitter.com/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="X (Twitter)"><SiX size={24} /></a>
-              <a href="https://zenn.dev/Tanasuke" target="_blank" rel="noopener noreferrer" className="footer-link" title="Zenn"><SiZenn size={24} /></a>
+              <a href="https://github.com/nekopath-dev" target="_blank" rel="noopener noreferrer" className="footer-link" title="GitHub"><SiGithub size={24} /></a>
+              <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="footer-link" title="X (Twitter)"><SiX size={24} /></a>
+              <a href="https://zenn.dev/lamne" target="_blank" rel="noopener noreferrer" className="footer-link" title="Zenn"><SiZenn size={24} /></a>
+              <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="footer-link" title="Note"><FiBookOpen size={24} /></a>
             </div>
           </div>
           <div className="footer-row">

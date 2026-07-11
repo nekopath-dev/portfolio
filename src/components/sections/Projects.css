@@ -141,6 +141,40 @@
     padding: 4px 12px;
 }
 
+
+
+/* Filter Buttons */
+.projects-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: var(--md-sys-color-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: var(--font-size-label-large);
+    cursor: pointer;
+    transition: all var(--md-sys-motion-duration-short) ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+}
+
+.filter-btn.active {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border-color: var(--md-sys-color-primary);
+}
+
 .project-card.hoverable:hover .project-tag {
     background-color: rgba(208, 188, 255, 0.1) !important;
     /* primary/10 */

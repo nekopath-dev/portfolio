@@ -243,7 +243,9 @@ export const projectsData = [
     featured: false,
     icon: 'hub',
     accentColor: 'var(--google-green)',
+    logo: '/assets/projects/numa-logo.png',
     details: {
+      images: ['/assets/projects/numa-logo.png'],
       eventInfo: '活動期間: 2023年 - （設立後、次世代へ継承）',
       collaborators: '瑠奈（北海道大学メタバース研究会 設立代表）',
       background: '当時、「メタバース」という言葉はバズワードとして広まりつつあったものの、各大学にメタバースを主目的に活動する公認サークルはほとんど存在しない状況でした。\n自大学で「HIT Metaverse」をゼロから立ち上げた経験から、「他大学でサークルを作りたいがノウハウがない学生を支援したい」「大学の垣根を越えて情報交換し、全国規模の仲間を集めたい」という課題意識を抱き、全国規模の連合組織の設立を決意しました。',

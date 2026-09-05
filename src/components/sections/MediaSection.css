@@ -1,0 +1,111 @@
+.media-section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.media-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.media-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--google-blue);
+  background-color: rgba(138, 180, 248, 0.1);
+  border: 1px solid rgba(138, 180, 248, 0.2);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.media-section-title {
+  font-size: var(--font-size-headline-small, 24px);
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.media-section-subtitle {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Filter Chips */
+.media-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.media-filter-chip {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.media-filter-chip:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.media-filter-chip.active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: var(--md-sys-color-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(208, 188, 255, 0.2);
+}
+
+/* Media Display Area */
+.media-display-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Landscape (16:9) TV Cards: 2カラムグリッド */
+.media-landscape-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Portrait (9:16) Shorts & Reels Cards: 3カラムグリッド */
+.media-portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .media-landscape-grid {
+    grid-template-columns: 1fr;
+  }
+  .media-portrait-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .media-portrait-grid {
+    grid-template-columns: 1fr;
+  }
+}

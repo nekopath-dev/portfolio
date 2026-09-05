@@ -65,3 +65,16 @@
   gap: 12px;
   flex-wrap: wrap;
 }
+
+.home-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .home-media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

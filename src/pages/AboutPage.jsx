@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiZenn } from 'react-icons/si';
 import { FiBookOpen } from 'react-icons/fi';
 import Timeline from '../components/ui/Timeline';
+import MediaSection from '../components/sections/MediaSection';
 import '../components/sections/About.css';
 import './AboutPage.css';
 
@@ -162,6 +163,14 @@ const AboutPage = () => {
                 <p className="role-org">Fuwalief / Tanasuke</p>
                 <p className="role-desc">「Irodori」などのアプリケーション開発や、「猫神様」などのゲーム制作を個人で推進中。</p>
               </div>
+            </div>
+
+            {/* Media Coverage & Press */}
+            <div className="media-section-wrapper" style={{ marginTop: '48px' }}>
+              <MediaSection
+                title="Media Coverage & Press"
+                subtitle="地上波テレビ番組での取材や、大学公式メディアで取り上げられた客観的な活動実績・特集動画です。"
+              />
             </div>
 
             {/* Timeline */}

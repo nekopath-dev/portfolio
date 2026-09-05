@@ -1,0 +1,220 @@
+.media-card {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.28s cubic-bezier(0.2, 0, 0, 1);
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 180, 248, 0.1);
+}
+
+/* Thumbnail Wrapper */
+.media-thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #050608;
+}
+
+.landscape-card .media-thumbnail-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.portrait-card .media-thumbnail-wrapper {
+  aspect-ratio: 9 / 12; /* グリッド内でバランスよく見せるため 9:12 に調整 */
+}
+
+.media-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.media-card:hover .media-thumbnail-img {
+  transform: scale(1.04);
+}
+
+/* Badges Overlay */
+.media-badges-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.media-type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.media-platform-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background-color: rgba(15, 16, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Play Icon Overlay */
+.media-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.25s ease;
+  z-index: 1;
+}
+
+.media-card:hover .media-play-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.media-play-button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #121316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: scale(0.92);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), background-color 0.2s ease;
+}
+
+.media-play-button span {
+  font-size: 32px !important;
+  margin-left: 3px; /* 視覚的中央揃え */
+}
+
+.media-card:hover .media-play-button {
+  transform: scale(1.08);
+  background-color: #ffffff;
+}
+
+/* Card Body */
+.media-card-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+}
+
+.media-card-source {
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 500;
+}
+
+.media-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.media-card-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.media-card-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.media-highlight-tag {
+  font-size: 11px;
+  color: var(--google-blue);
+  background-color: rgba(138, 180, 248, 0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.media-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--md-sys-color-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.watch-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arrow-icon {
+  font-size: 18px !important;
+  transition: transform 0.2s ease;
+}
+
+.media-card:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Compact style for project detail / small widgets */
+.compact-card {
+  border-radius: 16px;
+}
+
+.compact-card .media-card-body {
+  padding: 14px 16px;
+  gap: 6px;
+}
+
+.compact-card .media-card-title {
+  font-size: 14px;
+}

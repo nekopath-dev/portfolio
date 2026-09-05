@@ -92,7 +92,8 @@ export const projectsData = [
       future: '▼ 成果や得られた学び\n【チームで作り上げた、累計600名超の来場という結果】\n2日間のイベントで累計600名以上の来場者を迎え、大盛況となりました。大学側にもその成果が認められ、学生企画としてリアルのVR体験会の実施にもつながり、大学公認のサークルとなることができました。\n\nこの経験を通して、「他者を巻き込む力」と「自ら考えて動く行動力」を大きく養うことができました。また、この成功体験が自信となり、その後の全国大学メタバースサークル連盟（NUMA）の共同設立や、学生団体「Effector」の立ち上げなど、さらなる挑戦への原動力となりました。\n現在VIRTUAL OPEN CAMPUSは後輩に運営を引き継ぎ、私がいなくなっても毎年開催されています。',
       links: [
         { url: 'https://monocuro.wixstudio.com/hit-metaverse', title: 'HIT Metaverse ホームページ（記録用）' }
-      ]
+      ],
+      relatedMediaIds: ['tv-metaverse', 'tv-kigyo']
     }
   },
   {
@@ -175,7 +176,8 @@ export const projectsData = [
       ],
       links: [
         { url: 'https://github.com/nekopath-dev/Student-Number-Recording-System', title: 'GitHub Repository' }
-      ]
+      ],
+      relatedMediaIds: ['reel-parttime', 'vlog-day']
     }
   },
   {

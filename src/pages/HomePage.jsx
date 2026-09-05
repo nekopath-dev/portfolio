@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Hero from '../components/sections/Hero';
 import Skills from '../components/sections/Skills';
 import Contact from '../components/sections/Contact';
+import MediaCard from '../components/ui/MediaCard';
+import MediaModal from '../components/ui/MediaModal';
 import { projectsData } from '../data/projectsData';
+import { mediaData } from '../data/mediaData';
 import './HomePage.css';
 
 const HomePage = ({ onAnimationComplete }) => {
+  const [selectedMedia, setSelectedMedia] = useState(null);
   // ピックアップ実績（featured なもの、または主要プロジェクト）
   const featuredProjects = projectsData.filter((p) => p.featured);
+  const featuredMedia = mediaData.filter((m) => m.featured);
 
   return (
     <motion.div
@@ -172,11 +177,51 @@ const HomePage = ({ onAnimationComplete }) => {
         </div>
       </section>
 
-      {/* 4. Skills Section */}
+      {/* 4. Media & TV Features Section */}
+      <section className="home-digest-section" style={{ paddingTop: '20px' }}>
+        <div className="container">
+          <div className="section-header-row">
+            <div className="section-heading-group">
+              <span className="section-eyebrow">
+                <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">verified</span>
+                Press & Social Proof
+              </span>
+              <h2 className="home-section-title">注目メディア掲載・TV取材</h2>
+              <p className="home-section-desc">
+                地上波テレビ番組での取材をはじめ、大学公式メディアで取り上げられた活動実績です。
+              </p>
+            </div>
+
+            <Link to="/about" className="m3-btn m3-btn-tonal">
+              <span>すべてのメディア掲載を見る（全{mediaData.length}件）</span>
+              <span className="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
+            </Link>
+          </div>
+
+          <div className="home-media-grid">
+            {featuredMedia.map((media) => (
+              <MediaCard
+                key={media.id}
+                media={media}
+                onClick={(m) => setSelectedMedia(m)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Skills Section */}
       <Skills />
 
-      {/* 5. Contact Section */}
+      {/* 6. Contact Section */}
       <Contact />
+
+      {/* Video Modal */}
+      <MediaModal
+        media={selectedMedia}
+        isOpen={Boolean(selectedMedia)}
+        onClose={() => setSelectedMedia(null)}
+      />
     </motion.div>
   );
 };

@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projectsData } from '../data/projectsData';
+import { mediaData } from '../data/mediaData';
 import Skeleton from '../components/ui/Skeleton';
+import MediaCard from '../components/ui/MediaCard';
+import MediaModal from '../components/ui/MediaModal';
 import './ProjectDetailPage.css';
 
 const ProjectDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [selectedMedia, setSelectedMedia] = useState(null);
 
   const currentIndex = projectsData.findIndex(
     (p) => p.id === id || String(p.numericId) === id
@@ -211,6 +215,30 @@ const ProjectDetailPage = () => {
           </div>
         )}
 
+        {/* Related Media Coverage & Videos */}
+        {project.details?.relatedMediaIds && project.details.relatedMediaIds.length > 0 && (
+          <div className="case-study-section project-related-media-section">
+            <h2 className="case-study-section-title">
+              <span className="material-symbols-outlined notranslate" translate="no">smart_display</span>
+              関連メディア・取材映像
+            </h2>
+            <p className="case-study-text" style={{ marginBottom: '20px' }}>
+              このプロジェクトに関連してテレビ番組や大学公式メディアで紹介された動画です。クリックするとその場で再生できます。
+            </p>
+            <div className="project-detail-media-grid">
+              {mediaData
+                .filter((m) => project.details.relatedMediaIds.includes(m.id))
+                .map((media) => (
+                  <MediaCard
+                    key={media.id}
+                    media={media}
+                    onClick={(m) => setSelectedMedia(m)}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
+
         {/* Prev / Next Navigation Footer */}
         <div className="detail-page-footer-nav">
           {prevProject ? (
@@ -228,6 +256,13 @@ const ProjectDetailPage = () => {
           )}
         </div>
       </div>
+
+      {/* Video Modal */}
+      <MediaModal
+        media={selectedMedia}
+        isOpen={Boolean(selectedMedia)}
+        onClose={() => setSelectedMedia(null)}
+      />
     </motion.div>
   );
 };

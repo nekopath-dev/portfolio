@@ -3,14 +3,14 @@
   padding-bottom: 80px;
 }
 
-/* 1. Hero Section */
+/* 1. Hero Section: 上部は完全クリア、下部のみ美しくグラデーション暗転 */
 .philosophy-hero {
   position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 90px;
+  width: 100%;
+  height: clamp(520px, 72vh, 800px);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .philosophy-hero-bg {
@@ -26,41 +26,76 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center top;
   display: block;
 }
 
+/* 
+ * 下のグラデーションで要素が変わるのは良いが、上が隠れないように:
+ * 0%〜55%は完全透明 (transparent) にし、上部の星空・流星・キャラクター・モニターを一切覆わない。
+ * 58%以降から緩やかに暗転し、最下部でページ背景 (#0E0E11) にシームレスに溶け込ませる。
+ */
 .philosophy-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(180deg, 
-      rgba(14, 14, 17, 0.5) 0%, 
-      rgba(14, 14, 17, 0.2) 30%, 
-      rgba(14, 14, 17, 0.85) 80%, 
-      #0E0E11 100%
-    ),
-    radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(14, 14, 17, 0.8) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 55%,
+    rgba(14, 14, 17, 0.35) 72%,
+    rgba(14, 14, 17, 0.85) 88%,
+    #0E0E11 100%
+  );
+  pointer-events: none;
 }
 
-.philosophy-hero-container {
+/* Top Back Navigation */
+.philosophy-hero-header {
   position: relative;
-  z-index: 1;
-  max-width: 860px;
+  z-index: 3;
+  padding: 84px clamp(20px, 4vw, 48px) 0;
 }
 
-.philosophy-nav-bar {
-  margin-bottom: 24px;
+.philosophy-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(14, 14, 17, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  color: var(--md-sys-color-on-surface);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.philosophy-hero-text {
-  text-align: center;
+.philosophy-back-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(-3px);
+  color: #ffffff;
 }
 
-.philosophy-eyebrow {
+/* Desktop Sky Title: 夕暮れの空（右上）にすっきり配置 */
+.philosophy-sky-text {
+  position: absolute;
+  top: clamp(96px, 16%, 160px);
+  right: clamp(24px, 6vw, 96px);
+  z-index: 2;
+  text-align: right;
+  max-width: 520px;
+  pointer-events: none;
+}
+
+.sky-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -68,66 +103,97 @@
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--google-blue);
-  background: rgba(66, 133, 244, 0.14);
-  padding: 6px 16px;
-  border-radius: var(--md-sys-shape-corner-full);
-  border: 1px solid rgba(138, 180, 248, 0.25);
-  margin-bottom: 16px;
-  backdrop-filter: blur(8px);
-}
-
-.philosophy-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: #ffffff;
+  background: rgba(14, 14, 17, 0.65);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(138, 180, 248, 0.3);
   margin-bottom: 12px;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.philosophy-hero-subtitle {
-  font-size: var(--font-size-body-large, 1.1rem);
-  color: var(--md-sys-color-on-surface-variant);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+.sky-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin: 0 0 10px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.sky-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  font-weight: 500;
 }
 
 /* 2. Content Section */
 .philosophy-content-section {
   position: relative;
   z-index: 2;
-  margin-top: -50px;
+  margin-top: -64px;
 }
 
 .philosophy-content-container {
-  max-width: 860px;
+  max-width: 840px;
 }
 
 .philosophy-card {
-  background: rgba(28, 27, 32, 0.85);
+  background: rgba(24, 25, 30, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
   padding: 64px 60px;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.1);
   position: relative;
+}
+
+/* Mobile Header (カード上部に表示) */
+.philosophy-mobile-header {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-hero-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #ffffff;
+  margin: 12px 0 8px;
+}
+
+.mobile-hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
 }
 
 .philosophy-quote-mark {
   position: absolute;
   top: 32px;
   left: 40px;
-  color: rgba(138, 180, 248, 0.18);
+  color: rgba(138, 180, 248, 0.16);
+  pointer-events: none;
 }
 
 .philosophy-quote-mark .material-symbols-outlined {
   font-size: 56px;
 }
 
+/* 
+ * 言葉の強調は最後だけに:
+ * 本文の段落は統一された落ち着いたトーンで、自然な読書体験を提供。
+ */
 .philosophy-prose {
   text-align: center;
   font-size: 1.125rem;
-  line-height: 2.2;
+  line-height: 2.25;
   color: var(--md-sys-color-on-surface);
   position: relative;
   z-index: 1;
@@ -139,61 +205,27 @@
 
 .prose-paragraph p {
   margin: 0;
+  color: rgba(255, 255, 255, 0.9);
   text-wrap: balance;
+  font-weight: 400;
 }
 
 .prose-break {
   margin-top: 48px;
 }
 
-.prose-accent-lead {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--google-blue);
-  margin-bottom: 6px !important;
-}
-
-.prose-emphasize {
-  color: #ffffff;
-  font-weight: 600;
-  margin-top: 10px !important;
-}
-
-/* Standout Quote Callout */
-.philosophy-callout {
-  background: linear-gradient(135deg, rgba(66, 133, 244, 0.12) 0%, rgba(197, 138, 249, 0.1) 100%);
-  border-left: 3px solid var(--google-blue);
-  border-radius: 16px;
-  padding: 24px 32px;
-  margin: 44px auto;
-  max-width: 580px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.callout-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.8;
-  margin: 0;
-}
-
-.prose-warm {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--google-yellow);
-  margin-top: 8px !important;
-}
-
-/* Grand Vision Statement */
+/* 
+ * Core Statement Banner:
+ * 言葉の協調（強調）はここ（最後）だけに集中させ、最も際立たせる
+ */
 .philosophy-statement-card {
-  background: radial-gradient(ellipse at 50% 50%, rgba(66, 133, 244, 0.15) 0%, rgba(28, 27, 32, 0.5) 80%);
-  border: 1px solid rgba(138, 180, 248, 0.3);
+  background: radial-gradient(ellipse at 50% 50%, rgba(66, 133, 244, 0.16) 0%, rgba(28, 27, 32, 0.6) 80%);
+  border: 1px solid rgba(138, 180, 248, 0.32);
   border-radius: 20px;
   padding: 48px 32px;
   margin: 56px 0 48px;
   text-align: center;
-  box-shadow: 0 12px 32px rgba(66, 133, 244, 0.12);
+  box-shadow: 0 16px 40px rgba(66, 133, 244, 0.15);
 }
 
 .statement-sub {
@@ -243,7 +275,7 @@
   gap: 6px;
   font-size: 13px;
   color: var(--md-sys-color-on-surface-variant);
-  opacity: 0.7;
+  opacity: 0.75;
   transition: all 0.2s ease;
   text-decoration: none;
 }
@@ -253,21 +285,43 @@
   color: var(--google-blue);
 }
 
-/* Responsive Rules */
+/* Utility Visibility Rules */
 .mobile-break {
   display: none;
 }
 
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
   .philosophy-hero {
-    min-height: 380px;
-    padding-bottom: 60px;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    min-height: 280px;
+    max-height: 400px;
+  }
+
+  .philosophy-hero-header {
+    padding: 72px 16px 0;
   }
 
   .philosophy-card {
-    padding: 40px 24px;
+    padding: 40px 20px;
     border-radius: 20px;
-    margin-top: -30px;
+    margin-top: -36px;
   }
 
   .philosophy-quote-mark {
@@ -276,26 +330,21 @@
   }
 
   .philosophy-quote-mark .material-symbols-outlined {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .philosophy-prose {
-    font-size: 1rem;
-    line-height: 2;
-  }
-
-  .philosophy-callout {
-    padding: 20px 20px;
-    margin: 32px auto;
-  }
-
-  .callout-text {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 2.1;
   }
 
   .philosophy-statement-card {
-    padding: 36px 20px;
-    margin: 40px 0 36px;
+    padding: 36px 16px;
+    margin: 40px 0 32px;
+  }
+
+  .statement-title {
+    font-size: 1.6rem;
   }
 
   .mobile-break {

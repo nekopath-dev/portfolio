@@ -1,4 +1,4 @@
-export const projectCategories = ['All', 'AI・自動化', 'アプリ・開発', 'コミュニティ・組織'];
+export const projectCategories = ['All', 'AI・アプリ開発', 'コミュニティ・組織'];
 
 export const projectsData = [
   {
@@ -8,7 +8,7 @@ export const projectsData = [
     shortTitle: 'Google AI Ambassador MVP',
     description: 'Google AI学生アンバサダーとして活動中、2025年9月に行われたSNS投稿部門（Weekly Challenge）においてMVPを受賞。',
     tags: ['Google AI', 'Award', 'Claude', 'Gemini'],
-    category: ['AI・自動化'],
+    category: ['AI・アプリ開発'],
     link: 'https://note.com/tanasuke_ai/n/n22c0ff9d68f7',
     featured: true,
     icon: 'military_tech',
@@ -28,7 +28,7 @@ export const projectsData = [
     shortTitle: '自動車学校 空き予約通知',
     description: '自動車学校の技能講習の予約空き状況を監視し、空きが出たらLINEへ自動通知するシステム。',
     tags: ['Python', 'Azure', 'Selenium', 'Automation'],
-    category: ['AI・自動化', 'アプリ・開発'],
+    category: ['AI・アプリ開発'],
     link: 'https://github.com/nekopath-dev/e-license-Automatic-Notification-System',
     featured: true,
     icon: 'directions_car',
@@ -61,7 +61,7 @@ export const projectsData = [
     shortTitle: 'Irodori (AI壁紙)',
     description: '法人登記前の「Fuwalief」という名義で、Claude Codeを活用して開発した生成AI壁紙アプリ。ユーザーの好みに合わせたアートワークを生成。現在クローズドベータテスト中。',
     tags: ['AI', 'App Development', 'Claude', 'Fuwalief'],
-    category: ['AI・自動化', 'アプリ・開発'],
+    category: ['AI・アプリ開発'],
     link: 'https://fuwalief.com/',
     featured: false,
     icon: 'palette',
@@ -103,7 +103,7 @@ export const projectsData = [
     shortTitle: '猫神様の言うとおり',
     description: '2025年8月にサポーターズ主催ハッカソンにて2名で開発した自己啓発型Androidアプリ。Google Playにてリリース済み。',
     tags: ['Android', 'Kotlin', 'Hackathon'],
-    category: ['アプリ・開発'],
+    category: ['AI・アプリ開発'],
     link: 'https://github.com/momoice/nekokami',
     featured: false,
     icon: 'pets',
@@ -128,7 +128,7 @@ export const projectsData = [
     shortTitle: 'DXモンスターボール',
     description: '実際に投げてポケモンを捕まえることができるIoTデバイス。M5StickCと各種センサーを使用。',
     tags: ['Arduino', 'M5StickC', 'IoT', 'C++'],
-    category: ['アプリ・開発'],
+    category: ['AI・アプリ開発'],
     link: 'https://github.com/nekopath-dev/dxmonsterball',
     featured: false,
     icon: 'sports_esports',
@@ -161,7 +161,7 @@ export const projectsData = [
     shortTitle: '学生番号記録システム',
     description: 'NFCリーダーを用いて学生証から学生番号を読み取り、自動でExcelに記録する業務効率化システム。',
     tags: ['Python', 'NFC', 'Excel Automation'],
-    category: ['AI・自動化', 'アプリ・開発'],
+    category: ['AI・アプリ開発'],
     link: 'https://github.com/nekopath-dev/Student-Number-Recording-System',
     featured: false,
     icon: 'badge',

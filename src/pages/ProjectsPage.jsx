@@ -37,8 +37,7 @@ const ProjectsPage = () => {
               onClick={() => setActiveCategory(category)}
             >
               {category === 'All' && <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">apps</span>}
-              {category === 'AI・自動化' && <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">smart_toy</span>}
-              {category === 'アプリ・開発' && <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">code</span>}
+              {category === 'AI・アプリ開発' && <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">code_blocks</span>}
               {category === 'コミュニティ・組織' && <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">groups</span>}
               <span>{category}</span>
             </button>

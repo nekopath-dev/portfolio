@@ -15,7 +15,7 @@ const Projects = () => {
         setIsModalOpen(true);
     };
 
-    const categories = ['All', 'AI・自動化', 'アプリ・開発', 'コミュニティ・組織'];
+    const categories = ['All', 'AI・アプリ開発', 'コミュニティ・組織'];
 
     const projects = [
         {

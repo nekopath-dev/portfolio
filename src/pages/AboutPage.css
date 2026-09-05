@@ -1,0 +1,16 @@
+.about-page {
+  padding: 100px 0 80px;
+  min-height: 85vh;
+}
+
+.about-page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about-bio-card {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--md-sys-shape-corner-large, 16px);
+  padding: 32px;
+}

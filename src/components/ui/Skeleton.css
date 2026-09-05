@@ -1,0 +1,32 @@
+.m3-skeleton {
+  background: var(--md-sys-color-surface-container, #1C1B1F);
+  border-radius: var(--md-sys-shape-corner-medium, 12px);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.m3-skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: m3-shimmer 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes m3-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

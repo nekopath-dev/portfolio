@@ -20,21 +20,29 @@
   --md-sys-color-error-container: #8C1D18;
   --md-sys-color-on-error-container: #F9DEDC;
 
-  /* Deep Gemini Dark Backgrounds */
-  --md-sys-color-background: #111114;
-  --md-sys-color-on-background: #E6E1E5;
-  --md-sys-color-surface: #111114;
-  --md-sys-color-on-surface: #E6E1E5;
+  /* Deep Gemini / M3 Dark Backgrounds & Surface Containers */
+  --md-sys-color-background: #0E0E11;
+  --md-sys-color-on-background: #E3E2E6;
+  --md-sys-color-surface: #0E0E11;
+  --md-sys-color-on-surface: #E3E2E6;
 
-  --md-sys-color-surface-variant: #49454F;
-  --md-sys-color-on-surface-variant: #CAC4D0;
+  --md-sys-color-surface-variant: #44474E;
+  --md-sys-color-on-surface-variant: #C4C6D0;
 
-  --md-sys-color-surface-container: #1C1B1F;
-  --md-sys-color-surface-container-high: #2B2D31;
-  --md-sys-color-surface-container-highest: #33353A;
+  /* M3 Surface Container Hierarchy */
+  --md-sys-color-surface-container-lowest: #090A0D;
+  --md-sys-color-surface-container-low: #17181C;
+  --md-sys-color-surface-container: #1B1D22;
+  --md-sys-color-surface-container-high: #26282E;
+  --md-sys-color-surface-container-highest: #31333A;
 
-  --md-sys-color-outline: #938F99;
-  --md-sys-color-outline-variant: #49454F;
+  --md-sys-color-outline: #8E9099;
+  --md-sys-color-outline-variant: #44474E;
+
+  /* M3 State Layers */
+  --md-sys-state-hover: rgba(255, 255, 255, 0.08);
+  --md-sys-state-focus: rgba(255, 255, 255, 0.12);
+  --md-sys-state-pressed: rgba(255, 255, 255, 0.16);
 
   /* Google Specific Accents */
   --google-blue: #8AB4F8;
@@ -185,3 +193,72 @@ button {
     background-position: 200% center;
   }
 }
+
+/* M3 Button Utilities */
+.m3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: var(--font-size-label-large);
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  transition: all var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.m3-btn-filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.m3-btn-filled:hover {
+  background-color: #e8def8;
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.m3-btn-tonal {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.m3-btn-tonal:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--google-blue);
+  border-color: var(--google-blue);
+}
+
+.m3-btn-outlined {
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+.m3-btn-outlined:hover {
+  background: var(--md-sys-state-hover);
+}
+
+/* Custom Scrollbar for modern desktop feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-sys-color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-surface-container-highest);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}

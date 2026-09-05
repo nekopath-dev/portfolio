@@ -74,6 +74,17 @@ const ProjectDetailPage = () => {
             )}
           </div>
 
+          {/* Brand Logo - タイトルの真上に大きく表示 */}
+          {project.logo && (
+            <div className="detail-hero-logo-wrapper">
+              <img
+                src={project.logo}
+                alt={`${project.title} logo`}
+                className="detail-hero-logo-img"
+              />
+            </div>
+          )}
+
           <h1 className="detail-title">{project.title}</h1>
           <p className="detail-lead">{project.description}</p>
 
@@ -116,9 +127,9 @@ const ProjectDetailPage = () => {
           )}
         </div>
 
-        {/* Media / Image Section with Skeleton */}
-        {project.details?.images && project.details.images.length > 0 && (
-          <div className={`detail-media-card ${project.details.images[0].includes('logo') ? 'logo-card-bg' : ''}`}>
+        {/* Media / Image Section with Skeleton (ロゴ以外のスクリーンショット等がある場合のみ表示) */}
+        {project.details?.images && project.details.images.filter(img => !img.includes('logo')).length > 0 && (
+          <div className="detail-media-card">
             {!imageLoaded && (
               <Skeleton
                 width="100%"
@@ -128,9 +139,9 @@ const ProjectDetailPage = () => {
               />
             )}
             <img
-              src={project.details.images[0]}
+              src={project.details.images.filter(img => !img.includes('logo'))[0]}
               alt={project.title}
-              className={`detail-media-img ${project.details.images[0].includes('logo') ? 'logo-img' : ''}`}
+              className="detail-media-img"
               onLoad={() => setImageLoaded(true)}
               style={{ opacity: imageLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
             />

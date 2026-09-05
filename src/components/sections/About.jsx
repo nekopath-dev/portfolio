@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SiGithub, SiX, SiZenn } from 'react-icons/si';
-import { FiBookOpen } from 'react-icons/fi';
+import { SiGithub, SiX } from 'react-icons/si';
+import NoteIcon from '../ui/NoteIcon';
 import Timeline from '../ui/Timeline';
 import './About.css';
 
@@ -42,11 +42,8 @@ const About = () => {
                                 <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="profile-link" title="X (Twitter)">
                                     <SiX size={20} />
                                 </a>
-                                <a href="https://zenn.dev/lamne" target="_blank" rel="noopener noreferrer" className="profile-link" title="Zenn">
-                                    <SiZenn size={20} />
-                                </a>
                                 <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="profile-link" title="Note">
-                                    <FiBookOpen size={20} />
+                                    <NoteIcon size={20} />
                                 </a>
                             </div>
                         </motion.div>

@@ -107,13 +107,13 @@
 
 .project-media-banner.logo-banner-bg {
   background: #ffffff;
-  padding: 24px;
+  padding: 14px 20px;
 }
 
 .project-media-banner img.project-logo-contain {
   object-fit: contain;
-  width: 85%;
-  height: 85%;
+  width: 95%;
+  height: 95%;
 }
 
 .project-icon-placeholder {

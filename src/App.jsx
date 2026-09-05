@@ -8,8 +8,8 @@ import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import AboutPage from './pages/AboutPage';
 import confetti from 'canvas-confetti';
-import { SiGithub, SiX, SiZenn } from 'react-icons/si';
-import { FiBookOpen } from 'react-icons/fi';
+import { SiGithub, SiX } from 'react-icons/si';
+import NoteIcon from './components/ui/NoteIcon';
 import './App.css';
 
 function App() {
@@ -99,11 +99,8 @@ function App() {
               <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="footer-link" title="X (Twitter)">
                 <SiX size={22} />
               </a>
-              <a href="https://zenn.dev/lamne" target="_blank" rel="noopener noreferrer" className="footer-link" title="Zenn">
-                <SiZenn size={22} />
-              </a>
               <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="footer-link" title="Note">
-                <FiBookOpen size={22} />
+                <NoteIcon size={22} />
               </a>
             </div>
           </div>

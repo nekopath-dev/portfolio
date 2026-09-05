@@ -168,9 +168,9 @@ button {
 /* Base Utility Classes */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 0 5vw;
+  padding: 0 clamp(20px, 3.5vw, 64px);
 }
 
 .section {

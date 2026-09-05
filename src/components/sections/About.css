@@ -218,7 +218,13 @@
 
 @media (min-width: 640px) {
     .role-cards {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .role-cards {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

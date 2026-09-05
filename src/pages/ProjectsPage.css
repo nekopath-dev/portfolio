@@ -28,7 +28,7 @@
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .m3-chip-filter {
@@ -43,6 +43,7 @@
   font-size: var(--font-size-label-large);
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
   transition: all var(--md-sys-motion-duration-short) ease;
 }
 
@@ -59,11 +60,30 @@
   box-shadow: var(--md-sys-elevation-1);
 }
 
+@media (max-width: 600px) {
+  .m3-filter-row {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .m3-chip-filter {
+    padding: 6px 12px;
+    font-size: 13px;
+    gap: 6px;
+  }
+}
+
 /* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 28px;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card-link {
@@ -156,7 +176,9 @@
   font-weight: 600;
   color: var(--md-sys-color-on-surface);
   margin-bottom: 8px;
-  line-height: 1.3;
+  line-height: 1.35;
+  line-break: strict;
+  word-break: auto-phrase;
 }
 
 .m3-card-desc {

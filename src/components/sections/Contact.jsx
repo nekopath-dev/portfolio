@@ -51,7 +51,7 @@ const Contact = () => {
                         <h2 className="section-title">Get in Touch</h2>
                     </div>
                     <p className="section-subtitle" style={{ maxWidth: '100%', marginTop: '16px' }}>
-                        プロジェクトのご相談、技術的な質問、または単なるご挨拶など、いつでもお気軽にご連絡ください。<br />
+                        プロジェクトのご相談、技術的な質問、または単なるご挨拶など、いつでもお気軽に<span className="keep-together">ご連絡ください。</span><br />
                         以下のフォームから直接メッセージをお送りいただけます。
                     </p>
                 </motion.div>

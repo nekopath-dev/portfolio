@@ -50,8 +50,8 @@ const HomePage = ({ onAnimationComplete }) => {
 
           <div className="home-about-digest-card">
             <p className="home-about-text">
-              2003年生まれ。広島工業大学から2026年に<strong>法政大学大学院 情報科学研究科</strong>に進学。<br />
-              学部1年で学内サークル「HIT Metaverse」を立ち上げ、600名規模のバーチャルオープンキャンパスを主催・成功させました。<br />
+              2003年生まれ。広島工業大学から2026年に<strong>法政大学大学院 情報科学研究科</strong>に進学。
+              学部1年で学内サークル「HIT Metaverse」を立ち上げ、600名規模のバーチャルオープンキャンパスを主催・成功させました。
               現在は生成AIと開発自動化に注力し、Google AI学生アンバサダー MVP受賞や Claude Code / OpenClaw を用いたアプリ制作を行っています。
             </p>
 
@@ -69,7 +69,9 @@ const HomePage = ({ onAnimationComplete }) => {
                 <div className="role-icon-wrapper">
                   <span className="material-symbols-outlined notranslate" translate="no">military_tech</span>
                 </div>
-                <h4 className="role-title">コミュニティアンバサダー</h4>
+                <h4 className="role-title">
+                  <span className="keep-together">コミュニティ</span><span className="keep-together">アンバサダー</span>
+                </h4>
                 <p className="role-org">Google AI</p>
                 <p className="role-desc">Weekly Challenge MVP受賞</p>
               </div>
@@ -78,7 +80,9 @@ const HomePage = ({ onAnimationComplete }) => {
                 <div className="role-icon-wrapper">
                   <span className="material-symbols-outlined notranslate" translate="no">groups</span>
                 </div>
-                <h4 className="role-title">サークル設立・代表</h4>
+                <h4 className="role-title">
+                  <span className="keep-together">サークル設立</span>・<span className="keep-together">代表</span>
+                </h4>
                 <p className="role-org">HIT Metaverse</p>
                 <p className="role-desc">40名組織 / 600名動員</p>
               </div>

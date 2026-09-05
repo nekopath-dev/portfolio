@@ -15,8 +15,8 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 clamp(20px, 3.5vw, 64px);
-  max-width: 1720px;
+  padding: 0 clamp(16px, 3.5vw, 32px);
+  max-width: 1200px;
   margin: 0 auto;
 }
 

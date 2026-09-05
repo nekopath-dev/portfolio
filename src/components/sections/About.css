@@ -6,14 +6,14 @@
 .about-grid {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 36px;
     align-items: flex-start;
 }
 
 @media (min-width: 1024px) {
     .about-grid {
         flex-direction: row;
-        gap: 64px;
+        gap: 40px;
     }
 }
 
@@ -26,10 +26,10 @@
 
 @media (min-width: 1024px) {
     .about-sidebar {
-        width: 350px;
+        width: 290px;
         flex-shrink: 0;
         position: sticky;
-        top: 100px;
+        top: 96px;
     }
 }
 
@@ -216,13 +216,13 @@
     gap: 16px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
     .role-cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1180px) {
     .role-cards {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -233,7 +233,6 @@
     border-radius: var(--md-sys-shape-corner-large);
     padding: 24px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    /* border-white/5 */
     transition: all var(--md-sys-motion-duration-short) ease;
 }
 
@@ -248,7 +247,6 @@
     height: 48px;
     border-radius: 12px;
     background-color: rgba(66, 133, 244, 0.1);
-    /* google-blue/10 */
     color: var(--google-blue);
     display: flex;
     align-items: center;
@@ -272,10 +270,13 @@
 }
 
 .role-title {
-    font-size: var(--font-size-title-large);
-    font-weight: 500;
+    font-size: clamp(1.05rem, 1.15vw, 1.25rem);
+    font-weight: 600;
     color: var(--md-sys-color-on-surface);
     margin-bottom: 4px;
+    line-height: 1.35;
+    line-break: strict;
+    word-break: auto-phrase;
 }
 
 .role-org {

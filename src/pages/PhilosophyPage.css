@@ -197,6 +197,8 @@
   color: var(--md-sys-color-on-surface);
   position: relative;
   z-index: 1;
+  line-break: strict;
+  word-break: auto-phrase;
 }
 
 .prose-paragraph {
@@ -208,6 +210,7 @@
   color: rgba(255, 255, 255, 0.9);
   text-wrap: balance;
   font-weight: 400;
+  line-break: strict;
 }
 
 .prose-break {
@@ -246,6 +249,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
+  line-break: strict;
+  word-break: auto-phrase;
 }
 
 /* Actions Section */

@@ -128,10 +128,11 @@ body {
   font-family: var(--font-family-sans);
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  line-break: strict; /* 日本語禁則処理：句読点や長音符・促音の行頭孤立を防止 */
 }
 
 h1,
@@ -141,7 +142,9 @@ h4,
 h5,
 h6 {
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.3;
+  line-break: strict;
+  word-break: auto-phrase; /* ブラウザが日本語の文節を考慮して自然に折り返す */
 }
 
 a {
@@ -165,12 +168,19 @@ button {
   background: none;
 }
 
-/* Base Utility Classes */
+/* Base Utility Classes - 任天堂スタイルの美しい中央寄せレイアウト */
 .container {
   width: 100%;
-  max-width: 1720px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 3.5vw, 64px);
+  padding: 0 clamp(16px, 3.5vw, 32px);
+}
+
+/* 単語やフレーズの途中改行を防止するユーティリティ */
+.keep-together,
+.nowrap-phrase {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .section {

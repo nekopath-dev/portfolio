@@ -142,7 +142,9 @@ const AboutPage = () => {
                 <div className="role-icon-wrapper">
                   <span className="material-symbols-outlined notranslate" translate="no">military_tech</span>
                 </div>
-                <h4 className="role-title">学生コミュニティアンバサダー</h4>
+                <h4 className="role-title">
+                  <span className="keep-together">学生コミュニティ</span><span className="keep-together">アンバサダー</span>
+                </h4>
                 <p className="role-org">Google AI</p>
                 <p className="role-desc">2026年4月より活動中。以前はLead AmbassadorとしてWeekly Challenge MVPを獲得するなどAIコミュニティを牽引。</p>
               </div>
@@ -151,7 +153,9 @@ const AboutPage = () => {
                 <div className="role-icon-wrapper">
                   <span className="material-symbols-outlined notranslate" translate="no">groups</span>
                 </div>
-                <h4 className="role-title">サークル設立・代表</h4>
+                <h4 className="role-title">
+                  <span className="keep-together">サークル設立</span>・<span className="keep-together">代表</span>
+                </h4>
                 <p className="role-org">HIT Metaverse</p>
                 <p className="role-desc">40名規模のVRサークルを設立・運営。VIRTUAL OPEN CAMPUSでは600名の動員を達成。</p>
               </div>

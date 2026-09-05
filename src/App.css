@@ -13,12 +13,12 @@ main {
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   background-color: var(--md-sys-color-background);
-  padding: 48px clamp(20px, 3.5vw, 64px) 24px;
+  padding: 48px clamp(16px, 3.5vw, 32px) 24px;
 }
 
 .footer-bottom {
   width: 100%;
-  max-width: 1720px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 16px;
   border-top: 1px solid rgba(68, 71, 70, 0.3);

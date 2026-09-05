@@ -184,9 +184,9 @@ const HomePage = ({ onAnimationComplete }) => {
                 <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">verified</span>
                 Press & Social Proof
               </span>
-              <h2 className="home-section-title">注目メディア掲載・TV取材</h2>
+              <h2 className="home-section-title">注目メディア掲載・取材実績</h2>
               <p className="home-section-desc">
-                地上波テレビ番組での取材をはじめ、大学公式メディアで取り上げられた活動実績です。
+                地上波テレビ取材やWEBメディア特集、公式プレスリリースなど、対外的に取り上げられた活動実績です。
               </p>
             </div>
 

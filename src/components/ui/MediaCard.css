@@ -120,6 +120,10 @@
   margin-left: 3px; /* 視覚的中央揃え */
 }
 
+.media-play-button.article-play-button span {
+  margin-left: 0; /* 本のアイコンは中央配置 */
+}
+
 .media-card:hover .media-play-button {
   transform: scale(1.08);
   background-color: #ffffff;

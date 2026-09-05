@@ -43,17 +43,29 @@ const MediaCard = ({ media, onClick, compact = false }) => {
           <span className="media-platform-badge">
             {media.type === 'instagram' ? (
               <SiInstagram size={14} color="#E1306C" />
+            ) : media.type === 'article' ? (
+              <span className="material-symbols-outlined notranslate" style={{ fontSize: '14px', color: 'var(--google-blue)' }} translate="no">
+                description
+              </span>
             ) : (
               <SiYoutube size={14} color="#FF0000" />
             )}
-            <span>{media.type === 'instagram' ? 'Instagram' : (isPortrait ? 'Shorts' : 'YouTube')}</span>
+            <span>
+              {media.type === 'instagram'
+                ? 'Instagram'
+                : media.type === 'article'
+                ? (media.badge?.includes('プレスリリース') ? 'Press' : 'Web Article')
+                : (isPortrait ? 'Shorts' : 'YouTube')}
+            </span>
           </span>
         </div>
 
-        {/* Hover Play Icon */}
+        {/* Hover Play / Read Icon */}
         <div className="media-play-overlay">
-          <div className="media-play-button">
-            <span className="material-symbols-outlined notranslate" translate="no">play_arrow</span>
+          <div className={`media-play-button ${media.type === 'article' ? 'article-play-button' : ''}`}>
+            <span className="material-symbols-outlined notranslate" translate="no">
+              {media.type === 'article' ? 'menu_book' : 'play_arrow'}
+            </span>
           </div>
         </div>
       </div>
@@ -80,9 +92,9 @@ const MediaCard = ({ media, onClick, compact = false }) => {
         <div className="media-card-footer">
           <span className="watch-prompt">
             <span className="material-symbols-outlined notranslate" style={{ fontSize: '18px' }} translate="no">
-              smart_display
+              {media.type === 'article' ? 'menu_book' : 'smart_display'}
             </span>
-            <span>動画を再生する</span>
+            <span>{media.type === 'article' ? '記事・詳細を見る' : '動画を再生する'}</span>
           </span>
           <span className="material-symbols-outlined notranslate arrow-icon" translate="no">
             arrow_forward

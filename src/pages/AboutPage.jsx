@@ -170,7 +170,7 @@ const AboutPage = () => {
             <div className="media-section-wrapper" style={{ marginTop: '48px' }}>
               <MediaSection
                 title="Media Coverage & Press"
-                subtitle="地上波テレビ番組での取材や、大学公式メディアで取り上げられた客観的な活動実績・特集動画です。"
+                subtitle="地上波テレビ番組での取材やWEBメディア特集、公式プレスリリースなど、メディアで取り上げられた客観的な活動実績・特集記事です。"
               />
             </div>
 

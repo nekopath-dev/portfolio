@@ -6,6 +6,8 @@ import { mediaData } from '../data/mediaData';
 import Skeleton from '../components/ui/Skeleton';
 import MediaCard from '../components/ui/MediaCard';
 import MediaModal from '../components/ui/MediaModal';
+import { SiGithub, SiX } from 'react-icons/si';
+import NoteIcon from '../components/ui/NoteIcon';
 import './ProjectDetailPage.css';
 
 const ProjectDetailPage = () => {
@@ -111,18 +113,31 @@ const ProjectDetailPage = () => {
                 </a>
               )}
 
-              {project.details?.links?.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="m3-btn m3-btn-tonal"
-                >
-                  <span className="material-symbols-outlined notranslate" translate="no">link</span>
-                  {item.title}
-                </a>
-              ))}
+              {project.details?.links?.map((item, idx) => {
+                const isX = item.url.includes('x.com') || item.url.includes('twitter.com');
+                const isNote = item.url.includes('note.com');
+                const isGithub = item.url.includes('github.com');
+                return (
+                  <a
+                    key={idx}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="m3-btn m3-btn-tonal"
+                  >
+                    {isX ? (
+                      <SiX size={14} style={{ marginRight: '6px' }} />
+                    ) : isNote ? (
+                      <NoteIcon size={14} style={{ marginRight: '6px' }} />
+                    ) : isGithub ? (
+                      <SiGithub size={14} style={{ marginRight: '6px' }} />
+                    ) : (
+                      <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
+                    )}
+                    {item.title}
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>
@@ -248,11 +263,11 @@ const ProjectDetailPage = () => {
         {project.details?.relatedMediaIds && project.details.relatedMediaIds.length > 0 && (
           <div className="case-study-section project-related-media-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">smart_display</span>
-              関連メディア・取材映像
+              <span className="material-symbols-outlined notranslate" translate="no">verified</span>
+              関連メディア・取材・プレスリリース
             </h2>
             <p className="case-study-text" style={{ marginBottom: '20px' }}>
-              このプロジェクトに関連してテレビ番組や大学公式メディアで紹介された動画です。クリックするとその場で再生できます。
+              この活動・プロジェクトに関連して、地上波テレビ番組やWEBメディア、公式プレスリリース等で取り上げられた実績です。クリックすると詳細や動画・記事をご確認いただけます。
             </p>
             <div className="project-detail-media-grid">
               {mediaData

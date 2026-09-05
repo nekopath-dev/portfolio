@@ -50,6 +50,11 @@ const MediaModal = ({ media, isOpen, onClose }) => {
                   {media.badge}
                 </span>
                 <span className="media-modal-source">{media.source}</span>
+                {media.date && (
+                  <span className="media-modal-date" style={{ fontSize: '12px', color: 'var(--md-sys-color-on-surface-variant)', opacity: 0.8 }}>
+                    • {media.date}
+                  </span>
+                )}
               </div>
               <button
                 type="button"
@@ -61,9 +66,34 @@ const MediaModal = ({ media, isOpen, onClose }) => {
               </button>
             </div>
 
-            {/* Video Player Frame */}
+            {/* Media Display Frame */}
             <div className={`media-modal-player-wrapper ${isPortrait ? 'portrait-frame' : 'landscape-frame'}`}>
-              {isInstagram ? (
+              {media.type === 'article' ? (
+                <div className="article-modal-view">
+                  <div className="article-preview-box">
+                    <img src={media.thumbnail} alt={media.title} className="article-preview-img" />
+                    <div className="article-overlay">
+                      <div className="article-icon-circle">
+                        <span className="material-symbols-outlined notranslate article-icon-large" translate="no">menu_book</span>
+                      </div>
+                      <p className="article-prompt-text">
+                        {media.badge?.includes('プレスリリース')
+                          ? '公式プレスリリース・ニュースメディア掲載記事'
+                          : 'WEBメディア特集・代表独占インタビュー記事'}
+                      </p>
+                      <a
+                        href={media.mediaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="m3-btn m3-btn-filled article-open-btn"
+                      >
+                        <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
+                        記事全文を読む（外部サイトへ）
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ) : isInstagram ? (
                 <div className="instagram-modal-view">
                   <div className="instagram-preview-box">
                     <img src={media.thumbnail} alt={media.title} className="instagram-preview-img" />
@@ -120,7 +150,7 @@ const MediaModal = ({ media, isOpen, onClose }) => {
                   className="m3-btn m3-btn-outlined"
                 >
                   <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
-                  元の動画を新しいタブで開く
+                  {media.type === 'article' ? '記事を新しいタブで開く' : '元の動画を新しいタブで開く'}
                 </a>
               </div>
             </div>

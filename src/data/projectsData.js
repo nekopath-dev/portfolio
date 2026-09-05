@@ -93,9 +93,12 @@ export const projectsData = [
       impressions: '▼ きっかけ・理由\n「せっかくなら、やってみよう」が全ての始まりでした。大学入学前、メタバース上で知り合った社会人の方から「せっかく大学生になるんだし、サークルを作ってみたら？」と声をかけてもらったのがきっかけです。\n\nサークルを立ち上げると決めてから、「遠くて大学に来られない人にも、このキャンパスの雰囲気を届けたい」というアイデアが浮かびました。私自身、広島に住んでいるわけではなかったので、遠方からわざわざ足を運ぶのが難しい高校生や保護者の方が多くいるのではないかと考えたためです。\n\n最終目標は、３つ設定しました。\n①来場者を300人以上にすること\n②VIRTUAL OPEN CAMPUSきっかけで入学した人を出すこと\n③大学公式で飾られた広報ではなく、学生が感じたままを伝えることで、少しでも高校生に安心感を与えること\n\nゼロの状態からのスタートでしたが、「自分たちにしかできないことをやっている」という感覚が行動を後押しし、仲間を巻き込みながら一歩ずつ形にしていきました。',
       future: '▼ 成果や得られた学び\n【チームで作り上げた、累計600名超の来場という結果】\n2日間のイベントで累計600名以上の来場者を迎え、大盛況となりました。大学側にもその成果が認められ、学生企画としてリアルのVR体験会の実施にもつながり、大学公認のサークルとなることができました。\n\nこの経験を通して、「他者を巻き込む力」と「自ら考えて動く行動力」を大きく養うことができました。また、この成功体験が自信となり、その後の全国大学メタバースサークル連盟（NUMA）の共同設立や、学生団体「Effector」の立ち上げなど、さらなる挑戦への原動力となりました。\n現在VIRTUAL OPEN CAMPUSは後輩に運営を引き継ぎ、私がいなくなっても毎年開催されています。',
       links: [
-        { url: 'https://monocuro.wixstudio.com/hit-metaverse', title: 'HIT Metaverse ホームページ（記録用）' }
+        { url: 'https://x.com/HIT_Metaverse', title: 'HIT Metaverse 公式X (@HIT_Metaverse)' },
+        { url: 'https://metacross.net/2023/08/01/%E5%BA%83%E5%B3%B6%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%E3%82%92%E3%83%A1%E3%82%BF%E3%83%90%E3%83%BC%E3%82%B9%E3%81%B8/', title: 'META CROSS NETWORK 特集取材（代表インタビュー）' },
+        { url: 'https://metapicks.jp/2023/07/hit-metaverse-virtual-open-campus-2023/', title: 'MetaPicks プレスリリース掲載（バーチャルOC）' },
+        { url: 'https://monocuro.wixstudio.com/hit-metaverse', title: 'HIT Metaverse 公式サイト（記録用アーカイブ）' }
       ],
-      relatedMediaIds: ['tv-metaverse', 'tv-kigyo']
+      relatedMediaIds: ['tv-metaverse', 'tv-kigyo', 'article-metacross', 'press-metapicks']
     }
   },
   {

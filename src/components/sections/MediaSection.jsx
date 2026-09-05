@@ -4,16 +4,16 @@ import MediaCard from '../ui/MediaCard';
 import MediaModal from '../ui/MediaModal';
 import './MediaSection.css';
 
-const MediaSection = ({ title = "Media Coverage & Features", subtitle = "地上波テレビ番組での取材や、大学公式メディアで取り上げられた活動実績です。" }) => {
+const MediaSection = ({ 
+  title = "Media Coverage & Features", 
+  subtitle = "地上波テレビ番組での取材やWEBメディア特集、公式プレスリリースなど、対外的に取り上げられた活動実績です。" 
+}) => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedMedia, setSelectedMedia] = useState(null);
 
   const filteredMedia = mediaData.filter((item) => {
     if (activeCategory === 'all') return true;
-    if (activeCategory === 'tv') return item.category === 'tv';
-    if (activeCategory === 'vlog-interview') return item.category === 'vlog-interview';
-    if (activeCategory === 'campus') return item.category === 'campus';
-    return true;
+    return item.category === activeCategory;
   });
 
   // 横長（TV）と縦長（Shorts/Reels）を綺麗に配置するためのレイアウト分類

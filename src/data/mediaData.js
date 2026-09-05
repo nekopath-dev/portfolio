@@ -4,6 +4,7 @@
 export const mediaCategories = [
   { id: 'all', label: 'すべて' },
   { id: 'tv', label: '📺 地上波TV取材' },
+  { id: 'web-press', label: '📰 WEB特集・プレスリリース' },
   { id: 'vlog-interview', label: '🎓 公式Vlog・インタビュー' },
   { id: 'campus', label: '🏫 キャンパス・学内バイト' },
 ];
@@ -42,6 +43,42 @@ export const mediaData = [
     thumbnail: '/assets/media/tv-metaverse.jpg',
     description: 'HIPPY氏が最先端の技術を学ぶ現場を訪れる番組にて、田中が設立・代表を務めたメタバースサークル「HIT Metaverse」が取材されました。「企業と連携 新しい商品開発も！」として活動成果が取り上げられました。',
     highlights: ['設立代表としての取り組み', '企業連携・新商品開発', 'VR/メタバース技術の実践'],
+    featured: true,
+    relatedProjectId: 'hit-metaverse-voc'
+  },
+  {
+    id: 'article-metacross',
+    title: '広島工業大学 オープンキャンパスをメタバースへ拡大 - META CROSS NETWORK',
+    shortTitle: 'META CROSS 特集取材',
+    badge: 'WEB特集・独占取材',
+    badgeColor: 'var(--google-blue)',
+    type: 'article',
+    format: 'landscape', // 16:9
+    category: 'web-press',
+    source: 'META CROSS NETWORK',
+    date: '2023.08.01',
+    mediaUrl: 'https://metacross.net/2023/08/01/%E5%BA%83%E5%B3%B6%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%E3%82%92%E3%83%A1%E3%82%BF%E3%83%90%E3%83%BC%E3%82%B9%E3%81%B8/',
+    thumbnail: '/assets/media/article-metacross.jpg',
+    description: 'メタバース・XRメディア「META CROSS NETWORK」によるHIT Metaverse代表らむね（田中）への独占特集インタビュー。バーチャルオープンキャンパス開催の舞台裏や、大学公認サークル立ち上げの経緯、学生主体でのメタバース活用の実態が深掘り取材されました。',
+    highlights: ['代表らむね（田中）独占インタビュー', 'バーチャルオープンキャンパスの舞台裏', '大学におけるメタバースサークルの実態'],
+    featured: true,
+    relatedProjectId: 'hit-metaverse-voc'
+  },
+  {
+    id: 'press-metapicks',
+    title: '広島工大キャンパスを体験できる「VIRTUAL OPEN CAMPUS 2023」開催 - MetaPicks',
+    shortTitle: 'MetaPicks プレスリリース掲載',
+    badge: '公式プレスリリース掲載',
+    badgeColor: 'var(--google-green)',
+    type: 'article',
+    format: 'landscape', // 16:9
+    category: 'web-press',
+    source: 'MetaPicks（メタバース・XR専門メディア）',
+    date: '2023.07',
+    mediaUrl: 'https://metapicks.jp/2023/07/hit-metaverse-virtual-open-campus-2023/',
+    thumbnail: '/assets/media/press-metapicks.jpg',
+    description: 'メタバース・XR専門ニュースメディア「MetaPicks」に掲載された公式プレスリリース。Cluster上の「バーチャル広島工大」で開催されたVIRTUAL OPEN CAMPUS 2023の企画内容（Meta Quest 2でのVR体験、音楽生演奏、模擬講義、リアルとメタバースを繋ぐバーチャルゲート）や全国大学メタバースサークル連盟の設立が広く報じられました。',
+    highlights: ['公式プレスリリース掲載', '600名超動員・VR体験＆ステージ企画', '全国大学メタバースサークル連盟発足'],
     featured: true,
     relatedProjectId: 'hit-metaverse-voc'
   },

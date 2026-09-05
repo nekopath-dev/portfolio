@@ -105,6 +105,17 @@
   object-fit: cover;
 }
 
+.project-media-banner.logo-banner-bg {
+  background: #ffffff;
+  padding: 24px;
+}
+
+.project-media-banner img.project-logo-contain {
+  object-fit: contain;
+  width: 85%;
+  height: 85%;
+}
+
 .project-icon-placeholder {
   display: flex;
   align-items: center;

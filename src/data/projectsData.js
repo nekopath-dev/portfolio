@@ -220,6 +220,7 @@ export const projectsData = [
       ],
       impressions: '【有志団体から大学公式の学生団体へ】\n学生有志からスタートした活動でしたが、その熱量と実績が大学に評価され、「大学公認の公式学生団体」へと昇格しました。\n現在も大学職員のサポートを受けながら後輩たちが運営を引き継ぎ、高頻度なSNS発信や新入生向けイベントの開催など、組織として自走し続けています。',
       future: '「自分が立ち上げた組織が、自分がいなくなっても大学の文化として定着し、発展していく」という貴重な組織マネジメントの成功体験となりました。',
+      images: ['/assets/projects/effector-logo.png'],
       links: [
         { url: 'https://www.instagram.com/hit.effector/', title: 'HIT Effector 公式Instagram' },
         { url: 'https://www.instagram.com/p/DDb_BxMPhRB/', title: '初の大規模イベント投稿（Instagram）' },

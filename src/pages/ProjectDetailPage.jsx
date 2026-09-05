@@ -38,6 +38,8 @@ const ProjectDetailPage = () => {
   const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
   const nextProject = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
 
+  const isCommunity = project.category?.includes('コミュニティ・組織');
+
   return (
     <motion.div
       className="project-detail-page"
@@ -94,7 +96,7 @@ const ProjectDetailPage = () => {
                   className="m3-btn m3-btn-filled"
                 >
                   <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
-                  プロジェクトを開く
+                  {isCommunity ? '公式ページを開く' : 'プロジェクトを開く'}
                 </a>
               )}
 
@@ -116,7 +118,7 @@ const ProjectDetailPage = () => {
 
         {/* Media / Image Section with Skeleton */}
         {project.details?.images && project.details.images.length > 0 && (
-          <div className="detail-media-card">
+          <div className={`detail-media-card ${project.details.images[0].includes('logo') ? 'logo-card-bg' : ''}`}>
             {!imageLoaded && (
               <Skeleton
                 width="100%"
@@ -128,19 +130,21 @@ const ProjectDetailPage = () => {
             <img
               src={project.details.images[0]}
               alt={project.title}
-              className="detail-media-img"
+              className={`detail-media-img ${project.details.images[0].includes('logo') ? 'logo-img' : ''}`}
               onLoad={() => setImageLoaded(true)}
               style={{ opacity: imageLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
             />
           </div>
         )}
 
-        {/* Collaborators */}
+        {/* Collaborators / Co-founders */}
         {project.details?.collaborators && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">people</span>
-              共同制作者
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'handshake' : 'people'}
+              </span>
+              {isCommunity ? '共同設立者・パートナー' : '共同制作者'}
             </h2>
             <p className="case-study-text">{project.details.collaborators}</p>
           </div>
@@ -150,24 +154,30 @@ const ProjectDetailPage = () => {
         {project.details?.background && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">lightbulb</span>
-              背景・動機・課題
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'rocket_launch' : 'lightbulb'}
+              </span>
+              {isCommunity ? '設立背景・立ち上げの想い' : '背景・動機・課題'}
             </h2>
-            <p className="case-study-text">{project.details.background}</p>
+            <p className="case-study-text" style={{ whiteSpace: 'pre-line' }}>{project.details.background}</p>
           </div>
         )}
 
-        {/* Tech Stack & Tools */}
+        {/* Tech Stack / Platform Tools */}
         {project.details?.tools && project.details.tools.length > 0 && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">build</span>
-              使用技術・ツール
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'hub' : 'build'}
+              </span>
+              {isCommunity ? '活用ツール・活動体制' : '使用技術・ツール'}
             </h2>
             <div className="tools-grid">
               {project.details.tools.map((tool, idx) => (
                 <div key={idx} className="tool-chip">
-                  <span className="material-symbols-outlined notranslate" style={{ fontSize: '16px' }} translate="no">terminal</span>
+                  <span className="material-symbols-outlined notranslate" style={{ fontSize: '16px' }} translate="no">
+                    {isCommunity ? 'tag' : 'terminal'}
+                  </span>
                   <span>{tool}</span>
                 </div>
               ))}
@@ -175,17 +185,21 @@ const ProjectDetailPage = () => {
           </div>
         )}
 
-        {/* Execution Flow */}
+        {/* Execution Flow / Activities */}
         {project.details?.flow && project.details.flow.length > 0 && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">schema</span>
-              動作フロー・処理の流れ
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'checklist' : 'schema'}
+              </span>
+              {isCommunity ? '主な活動内容・取り組み' : '動作フロー・処理の流れ'}
             </h2>
             <ul className="flow-steps-list">
               {project.details.flow.map((step, idx) => (
                 <li key={idx} className="flow-step-item">
-                  <span className="flow-step-number">{idx + 1}</span>
+                  <span className="flow-step-number" style={isCommunity ? { backgroundColor: 'var(--md-sys-color-primary-container)', color: 'var(--md-sys-color-on-primary-container)' } : {}}>
+                    {idx + 1}
+                  </span>
                   <span className="flow-step-content">{step}</span>
                 </li>
               ))}
@@ -197,10 +211,12 @@ const ProjectDetailPage = () => {
         {project.details?.impressions && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">psychology</span>
-              開発での工夫・反省・得られた気づき
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'diversity_3' : 'psychology'}
+              </span>
+              {isCommunity ? '組織運営での工夫・挑戦・得られた学び' : '開発での工夫・反省・得られた気づき'}
             </h2>
-            <p className="case-study-text">{project.details.impressions}</p>
+            <p className="case-study-text" style={{ whiteSpace: 'pre-line' }}>{project.details.impressions}</p>
           </div>
         )}
 
@@ -208,10 +224,12 @@ const ProjectDetailPage = () => {
         {project.details?.future && (
           <div className="case-study-section">
             <h2 className="case-study-section-title">
-              <span className="material-symbols-outlined notranslate" translate="no">trending_up</span>
-              成果・周囲からの反響・今後の展望
+              <span className="material-symbols-outlined notranslate" translate="no">
+                {isCommunity ? 'military_tech' : 'trending_up'}
+              </span>
+              {isCommunity ? '組織の成果・その後の発展と継承' : '成果・周囲からの反響・今後の展望'}
             </h2>
-            <p className="case-study-text">{project.details.future}</p>
+            <p className="case-study-text" style={{ whiteSpace: 'pre-line' }}>{project.details.future}</p>
           </div>
         )}
 

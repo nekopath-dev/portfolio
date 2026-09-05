@@ -129,6 +129,16 @@
   background: #000;
 }
 
+.detail-media-card.logo-card-bg {
+  background: #ffffff;
+  padding: 48px 32px;
+}
+
+.detail-media-img.logo-img {
+  background: transparent;
+  max-height: 240px;
+}
+
 /* Sections in Case Study */
 .case-study-section {
   background: var(--md-sys-color-surface-container);

@@ -58,9 +58,14 @@ const ProjectsPage = () => {
               >
                 <Link to={`/projects/${project.id}`} className="project-card-link">
                   <div className="m3-project-card">
-                    <div className="project-media-banner">
+                    <div className={`project-media-banner ${project.details?.images?.[0]?.includes('logo') ? 'logo-banner-bg' : ''}`}>
                       {project.details?.images ? (
-                        <img src={project.details.images[0]} alt={project.title} loading="lazy" />
+                        <img
+                          src={project.details.images[0]}
+                          alt={project.title}
+                          className={project.details.images[0].includes('logo') ? 'project-logo-contain' : ''}
+                          loading="lazy"
+                        />
                       ) : (
                         <div className="project-icon-placeholder" style={{ color: project.accentColor }}>
                           <span className="material-symbols-outlined notranslate" style={{ fontSize: '36px' }} translate="no">

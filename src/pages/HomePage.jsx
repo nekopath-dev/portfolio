@@ -23,7 +23,7 @@ const HomePage = ({ onAnimationComplete }) => {
       <Hero onAnimationComplete={onAnimationComplete} />
 
       {/* 2. About Digest Section */}
-      <section className="home-digest-section">
+      <section id="home-about" className="home-digest-section">
         <div className="container">
           <div className="section-header-row">
             <div className="section-heading-group">

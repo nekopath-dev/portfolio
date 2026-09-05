@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import './Hero.css';
 
@@ -79,6 +80,8 @@ const Hero = ({ onAnimationComplete }) => {
 
         return () => clearInterval(typingInterval);
     }, [animationDone]);
+    const navigate = useNavigate();
+
     return (
         <section id="hero" className="hero-section">
             {/* Background Blur Orbs */}
@@ -151,7 +154,7 @@ const Hero = ({ onAnimationComplete }) => {
                             whileTap={{ scale: 0.95 }}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                                navigate('/projects');
                             }}
                         >
                             <span className="material-symbols-outlined notranslate" translate="no">visibility</span>
@@ -164,7 +167,7 @@ const Hero = ({ onAnimationComplete }) => {
                             whileTap={{ scale: 0.95 }}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                                navigate('/about');
                             }}
                         >
                             <span className="material-symbols-outlined notranslate" translate="no">description</span>
@@ -188,7 +191,7 @@ const Hero = ({ onAnimationComplete }) => {
 
             <motion.div
                 className="scroll-indicator-wrapper"
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('home-about')?.scrollIntoView({ behavior: 'smooth' })}
                 initial={{ opacity: 0 }}
                 animate={animationDone ? { opacity: 0.6 } : { opacity: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}

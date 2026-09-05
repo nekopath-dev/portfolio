@@ -8,6 +8,26 @@
   text-align: center;
 }
 
+.about-page-header .page-title {
+  font-size: var(--font-size-headline-large, 2rem);
+  font-weight: 700;
+  color: var(--md-sys-color-on-background);
+  margin-bottom: 12px;
+}
+
+.about-page-header .page-subtitle {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--font-size-body-large, 1rem);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+.about-page-header .page-subtitle span {
+  display: inline-block;
+}
+
 .about-bio-card {
   background: var(--md-sys-color-surface-container);
   border: 1px solid rgba(255, 255, 255, 0.07);

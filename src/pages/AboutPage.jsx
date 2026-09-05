@@ -20,7 +20,9 @@ const AboutPage = () => {
         <header className="about-page-header">
           <h1 className="page-title">About Me & History</h1>
           <p className="page-subtitle">
-            プロフィール、大切にしている価値観、学生コミュニティ・サークル立ち上げの歴史
+            <span>プロフィール、</span>
+            <span>大切にしている価値観、</span>
+            <span>学生コミュニティ・サークル立ち上げの歴史</span>
           </p>
         </header>
 

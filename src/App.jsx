@@ -8,7 +8,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import AboutPage from './pages/AboutPage';
 import confetti from 'canvas-confetti';
-import { SiGithub, SiX } from 'react-icons/si';
+import { SiGithub, SiX, SiLinkedin } from 'react-icons/si';
 import NoteIcon from './components/ui/NoteIcon';
 import './App.css';
 
@@ -98,6 +98,9 @@ function App() {
               </a>
               <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="footer-link" title="X (Twitter)">
                 <SiX size={22} />
+              </a>
+              <a href="https://www.linkedin.com/in/tanaka-yosuke/" target="_blank" rel="noopener noreferrer" className="footer-link" title="LinkedIn">
+                <SiLinkedin size={22} />
               </a>
               <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="footer-link" title="Note">
                 <NoteIcon size={22} />

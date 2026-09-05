@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SiGithub, SiX } from 'react-icons/si';
+import { SiGithub, SiX, SiLinkedin } from 'react-icons/si';
 import NoteIcon from '../ui/NoteIcon';
 import Timeline from '../ui/Timeline';
 import './About.css';
@@ -41,6 +41,9 @@ const About = () => {
                                 </a>
                                 <a href="https://x.com/tanasuke_fw" target="_blank" rel="noopener noreferrer" className="profile-link" title="X (Twitter)">
                                     <SiX size={20} />
+                                </a>
+                                <a href="https://www.linkedin.com/in/tanaka-yosuke/" target="_blank" rel="noopener noreferrer" className="profile-link" title="LinkedIn">
+                                    <SiLinkedin size={20} />
                                 </a>
                                 <a href="https://note.com/lamne_blog" target="_blank" rel="noopener noreferrer" className="profile-link" title="Note">
                                     <NoteIcon size={20} />

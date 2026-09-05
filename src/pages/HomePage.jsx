@@ -104,7 +104,7 @@ const HomePage = ({ onAnimationComplete }) => {
                 rel="noopener noreferrer"
                 className="m3-btn m3-btn-outlined"
               >
-                <span>PHILOSOPHY（哲学資料）</span>
+                <span>PHILOSOPHY</span>
                 <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
               </a>
             </div>

@@ -61,10 +61,6 @@ function App() {
                 Tanasuke について
               </Link>
 
-              <Link to="/projects" className="footer-link cursor-pointer transition-colors hover:text-white">
-                実績一覧
-              </Link>
-
               <span
                 className="footer-link cursor-pointer transition-colors hover:text-white"
                 onClick={() => {

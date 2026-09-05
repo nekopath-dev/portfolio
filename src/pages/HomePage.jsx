@@ -98,15 +98,13 @@ const HomePage = ({ onAnimationComplete }) => {
                 <span>生い立ち・価値観・タイムラインを読む</span>
                 <span className="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
               </Link>
-              <a
-                href="https://tanasuke.my.canva.site/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/philosophy"
                 className="m3-btn m3-btn-outlined"
               >
                 <span>PHILOSOPHY</span>
-                <span className="material-symbols-outlined notranslate" translate="no">open_in_new</span>
-              </a>
+                <span className="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
+              </Link>
             </div>
           </div>
         </div>

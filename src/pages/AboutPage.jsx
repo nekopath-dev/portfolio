@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiLinkedin } from 'react-icons/si';
 import NoteIcon from '../components/ui/NoteIcon';
@@ -65,10 +66,8 @@ const AboutPage = () => {
           {/* Right Content */}
           <div className="about-content">
             {/* PHILOSOPHY Banner */}
-            <a
-              href="https://tanasuke.my.canva.site/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/philosophy"
               className="philosophy-banner"
             >
               <div className="philosophy-banner-overlay" />
@@ -76,7 +75,7 @@ const AboutPage = () => {
                 <span className="philosophy-banner-text">PHILOSOPHY</span>
                 <span className="material-symbols-outlined notranslate philosophy-banner-arrow" translate="no">arrow_forward</span>
               </div>
-            </a>
+            </Link>
 
             {/* Self Introduction */}
             <div className="about-bio-card">

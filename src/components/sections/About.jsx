@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SiGithub, SiX, SiLinkedin } from 'react-icons/si';
 import NoteIcon from '../ui/NoteIcon';
 import Timeline from '../ui/Timeline';
 import './About.css';
+
+const MotionLink = motion.create(Link);
 
 const About = () => {
     return (
@@ -55,10 +58,8 @@ const About = () => {
                     {/* Right Content */}
                     <div className="about-content">
                         {/* PHILOSOPHY Banner */}
-                        <motion.a
-                            href="https://tanasuke.my.canva.site/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <MotionLink
+                            to="/philosophy"
                             className="philosophy-banner"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +73,7 @@ const About = () => {
                                 <span className="philosophy-banner-text">PHILOSOPHY</span>
                                 <span className="material-symbols-outlined notranslate philosophy-banner-arrow" translate="no">arrow_forward</span>
                             </div>
-                        </motion.a>
+                        </MotionLink>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

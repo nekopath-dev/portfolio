@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import AboutPage from './pages/AboutPage';
+import PhilosophyPage from './pages/PhilosophyPage';
 import confetti from 'canvas-confetti';
 import { SiGithub, SiX, SiLinkedin } from 'react-icons/si';
 import NoteIcon from './components/ui/NoteIcon';
@@ -35,6 +36,7 @@ function App() {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:id" element={<ProjectDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/philosophy" element={<PhilosophyPage />} />
             <Route
               path="*"
               element={<HomePage onAnimationComplete={() => setIsAppLoaded(true)} />}

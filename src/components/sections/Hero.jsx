@@ -11,12 +11,16 @@ const orbitIcons = [
     { icon: "palette", angle: 210, distance: 130, delay: 0.3 }
 ];
 
+// Module-level flag so opening animation plays only once per session
+let hasPlayedOpeningAnimation = false;
+
 const Hero = ({ onAnimationComplete }) => {
+    const isReturning = hasPlayedOpeningAnimation;
     const fullText = "Hello, I'm Tanasuke.";
     const [typedText, setTypedText] = useState("");
     const controls = useAnimation();
     const avatarControls = useAnimation();
-    const [animationDone, setAnimationDone] = useState(false);
+    const [animationDone, setAnimationDone] = useState(isReturning);
 
     // Keep the latest callback without retriggering the animation effect
     const onAnimationCompleteRef = useRef(onAnimationComplete);
@@ -25,6 +29,12 @@ const Hero = ({ onAnimationComplete }) => {
     }, [onAnimationComplete]);
 
     useEffect(() => {
+        if (hasPlayedOpeningAnimation) {
+            setAnimationDone(true);
+            onAnimationCompleteRef.current?.();
+            return;
+        }
+
         const sequence = async () => {
             // 1. Avatar starts large and in center (done via initial props)
             await new Promise(resolve => setTimeout(resolve, 500)); // Initial pause
@@ -57,6 +67,7 @@ const Hero = ({ onAnimationComplete }) => {
                 transition: { duration: 0.8, ease: "easeInOut" }
             });
 
+            hasPlayedOpeningAnimation = true;
             setAnimationDone(true);
             onAnimationCompleteRef.current?.();
         };
@@ -94,11 +105,11 @@ const Hero = ({ onAnimationComplete }) => {
                 {/* Profile Avatar and Orbit Wrapper */}
                 <motion.div
                     style={{ position: 'relative', zIndex: 20 }}
-                    initial={{ y: "25vh", scale: 1.2 }}
+                    initial={isReturning ? { y: 0, scale: 1 } : { y: "25vh", scale: 1.2 }}
                     animate={avatarControls}
                 >
-                    {/* Orbiting Icons */}
-                    {orbitIcons.map((item, index) => (
+                    {/* Orbiting Icons - Only on first visit */}
+                    {!isReturning && orbitIcons.map((item, index) => (
                         <motion.div
                             key={index}
                             custom={index}
@@ -112,9 +123,9 @@ const Hero = ({ onAnimationComplete }) => {
 
                     <motion.div
                         className="hero-avatar-wrapper"
-                        initial={{ opacity: 0 }}
+                        initial={{ opacity: isReturning ? 1 : 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: isReturning ? 0 : 0.8 }}
                     >
                         <div className="hero-avatar-inner">
                             <img src="/face.png" alt="Tanasuke Avatar" className="hero-avatar" />
@@ -123,9 +134,9 @@ const Hero = ({ onAnimationComplete }) => {
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={isReturning ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                     animate={animationDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: isReturning ? 0.3 : 0.8, ease: "easeOut" }}
                     className="hero-text-wrapper"
                 >
                     <div

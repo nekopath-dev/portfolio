@@ -70,7 +70,7 @@ const AboutPage = () => {
             >
               <div className="philosophy-banner-overlay" />
               <div className="philosophy-banner-content">
-                <span className="philosophy-banner-text">PHILOSOPHY（私の哲学・信念）</span>
+                <span className="philosophy-banner-text">PHILOSOPHY</span>
                 <span className="material-symbols-outlined notranslate philosophy-banner-arrow" translate="no">arrow_forward</span>
               </div>
             </a>

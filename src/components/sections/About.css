@@ -145,43 +145,51 @@
     box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     text-decoration: none;
+    container-type: inline-size;
 }
 
 .philosophy-banner-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.45) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.5) 100%);
     transition: background var(--md-sys-motion-duration-short) ease;
 }
 
 .philosophy-banner:hover .philosophy-banner-overlay {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.55) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .philosophy-banner-content {
     position: absolute;
-    right: clamp(20px, 4vw, 40px);
+    right: clamp(16px, 4cqi, 44px);
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: clamp(8px, 2cqi, 16px);
     color: #fff;
     z-index: 2;
+    white-space: nowrap;
+    max-width: 90%;
 }
 
 .philosophy-banner-text {
-    font-size: clamp(1.4rem, 4vw, 2.5rem);
+    font-size: clamp(1.3rem, 3.8vw, 2.6rem);
+    font-size: clamp(1.3rem, 5.2cqi, 2.6rem);
     font-weight: 800;
     letter-spacing: 0.08em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 .philosophy-banner-arrow {
-    font-size: clamp(1.6rem, 4vw, 2.75rem) !important;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    font-size: clamp(1.4rem, 4vw, 2.8rem) !important;
+    font-size: clamp(1.4rem, 5.8cqi, 2.8rem) !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
     transition: transform var(--md-sys-motion-duration-short) ease;
+    flex-shrink: 0;
 }
 
 .philosophy-banner:hover .philosophy-banner-arrow {

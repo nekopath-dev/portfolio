@@ -3,13 +3,57 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import './Hero.css';
 
-// Array of icons to explode out
-const orbitIcons = [
-    { icon: "brush", angle: -30, distance: 120, delay: 0 },
-    { icon: "code", angle: 30, distance: 130, delay: 0.1 },
-    { icon: "search", angle: 150, distance: 120, delay: 0.2 },
-    { icon: "palette", angle: 210, distance: 130, delay: 0.3 }
+// 4 Icons representing identity and Google colors (2 on left, 2 on right)
+const horizontalIcons = [
+    {
+        id: "dev",
+        icon: "code",
+        side: "left",
+        level: "outer", // 一番左
+        color: "#4285F4", // Google Blue
+        bgGlow: "rgba(66, 133, 244, 0.35)",
+        delay: 0.05,
+        title: "Engineering"
+    },
+    {
+        id: "ai",
+        icon: "auto_awesome",
+        side: "left",
+        level: "inner", // アバターのすぐ左
+        color: "#EA4335", // Google Red
+        bgGlow: "rgba(234, 67, 53, 0.35)",
+        delay: 0.12,
+        title: "Google AI"
+    },
+    {
+        id: "design",
+        icon: "palette",
+        side: "right",
+        level: "inner", // アバターのすぐ右
+        color: "#FBBC05", // Google Yellow
+        bgGlow: "rgba(251, 188, 5, 0.35)",
+        delay: 0.12,
+        title: "Design"
+    },
+    {
+        id: "metaverse",
+        icon: "rocket_launch",
+        side: "right",
+        level: "outer", // 一番右
+        color: "#34A853", // Google Green
+        bgGlow: "rgba(52, 168, 83, 0.35)",
+        delay: 0.05,
+        title: "Metaverse & Innovation"
+    }
 ];
+
+// Helper to calculate target horizontal offset from center
+const getTargetX = (item, isMobile) => {
+    const innerDist = isMobile ? 66 : 108;
+    const outerDist = isMobile ? 120 : 180;
+    const dist = item.level === "inner" ? innerDist : outerDist;
+    return item.side === "left" ? -dist : dist;
+};
 
 // Module-level flag so opening animation plays only once per session
 let hasPlayedOpeningAnimation = false;
@@ -18,7 +62,9 @@ const Hero = ({ onAnimationComplete }) => {
     const isReturning = hasPlayedOpeningAnimation;
     const fullText = "Hello, I'm Tanasuke.";
     const [typedText, setTypedText] = useState("");
-    const controls = useAnimation();
+    const iconControls = useAnimation();
+    const glyphControls = useAnimation();
+    const ringControls = useAnimation();
     const avatarControls = useAnimation();
     const [animationDone, setAnimationDone] = useState(isReturning);
 
@@ -35,36 +81,85 @@ const Hero = ({ onAnimationComplete }) => {
             return;
         }
 
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
         const sequence = async () => {
-            // 1. Avatar starts large and in center (done via initial props)
-            await new Promise(resolve => setTimeout(resolve, 500)); // Initial pause
+            // 1. Initial short pause with avatar appearing in center
+            await new Promise(resolve => setTimeout(resolve, 400));
 
-            // 2. Explode icons out
-            await controls.start(i => ({
-                opacity: 1,
-                x: Math.cos((orbitIcons[i].angle * Math.PI) / 180) * orbitIcons[i].distance,
-                y: Math.sin((orbitIcons[i].angle * Math.PI) / 180) * orbitIcons[i].distance,
-                scale: 1,
-                transition: { type: "spring", stiffness: 200, damping: 15, delay: orbitIcons[i].delay }
-            }));
+            // 2. Explode icons out horizontally to form a straight row
+            await Promise.all([
+                iconControls.start(i => ({
+                    opacity: 1,
+                    x: getTargetX(horizontalIcons[i], isMobile),
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                        type: "spring",
+                        stiffness: 280,
+                        damping: 20,
+                        delay: horizontalIcons[i].delay
+                    }
+                })),
+                glyphControls.start(i => ({
+                    scale: [0.3, 1.2, 1],
+                    rotate: [horizontalIcons[i].side === "left" ? -35 : 35, 0],
+                    transition: {
+                        duration: 0.45,
+                        delay: horizontalIcons[i].delay + 0.05,
+                        ease: "easeOut"
+                    }
+                }))
+            ]);
 
-            // 3. Hold briefly
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // 3. Forming Animation (Holds & forms for ~1 second with Google-style pulse & micro-motion)
+            await Promise.all([
+                ringControls.start(i => ({
+                    scale: [0.8, 1.35, 1],
+                    opacity: [0.2, 0.85, 0.4],
+                    transition: {
+                        duration: 1.0,
+                        ease: "easeInOut"
+                    }
+                })),
+                glyphControls.start(i => ({
+                    scale: [1, 1.15, 1],
+                    filter: [
+                        `drop-shadow(0 0 2px ${horizontalIcons[i].color})`,
+                        `drop-shadow(0 0 10px ${horizontalIcons[i].color})`,
+                        `drop-shadow(0 0 3px ${horizontalIcons[i].color})`
+                    ],
+                    transition: {
+                        duration: 1.0,
+                        ease: "easeInOut"
+                    }
+                }))
+            ]);
 
-            // 4. Implode icons back in
-            await controls.start(i => ({
+            // 4. Implode icons back into avatar center (Google Account style collapse)
+            await iconControls.start(i => ({
                 opacity: 0,
                 x: 0,
                 y: 0,
-                scale: 0.5,
-                transition: { type: "spring", stiffness: 300, damping: 25, delay: orbitIcons[i].delay * 0.5 }
+                scale: 0.2,
+                transition: {
+                    duration: 0.35,
+                    ease: [0.4, 0, 0.2, 1],
+                    delay: horizontalIcons[i].level === "outer" ? 0 : 0.08
+                }
             }));
+
+            // Avatar absorbs icons with a subtle spring bounce
+            await avatarControls.start({
+                scale: [1.15, 1.22, 1.15],
+                transition: { duration: 0.25, ease: "easeOut" }
+            });
 
             // 5. Move Avatar up to standard position
             await avatarControls.start({
                 y: 0,
                 scale: 1,
-                transition: { duration: 0.8, ease: "easeInOut" }
+                transition: { duration: 0.75, ease: [0.2, 0, 0, 1] }
             });
 
             hasPlayedOpeningAnimation = true;
@@ -73,9 +168,9 @@ const Hero = ({ onAnimationComplete }) => {
         };
 
         sequence();
-    }, [controls, avatarControls]);
+    }, [iconControls, glyphControls, ringControls, avatarControls]);
 
-    // Start typing animation only AFTER the explosion finishes
+    // Start typing animation only AFTER the opening finishes
     useEffect(() => {
         if (!animationDone) return;
 
@@ -102,22 +197,47 @@ const Hero = ({ onAnimationComplete }) => {
             </div>
 
             <div className="container hero-content">
-                {/* Profile Avatar and Orbit Wrapper */}
+                {/* Profile Avatar and Horizontal Icons Center Stage */}
                 <motion.div
                     style={{ position: 'relative', zIndex: 20 }}
-                    initial={isReturning ? { y: 0, scale: 1 } : { y: "25vh", scale: 1.2 }}
+                    initial={isReturning ? { y: 0, scale: 1 } : { y: "22vh", scale: 1.15 }}
                     animate={avatarControls}
+                    className="hero-avatar-center-stage"
                 >
-                    {/* Orbiting Icons - Only on first visit */}
-                    {!isReturning && orbitIcons.map((item, index) => (
+                    {/* Horizontal 4 Icons (Left 2, Right 2) - Only on first visit */}
+                    {!isReturning && horizontalIcons.map((item, index) => (
                         <motion.div
-                            key={index}
+                            key={item.id}
                             custom={index}
-                            animate={controls}
-                            initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
-                            className="orbit-icon"
+                            animate={iconControls}
+                            initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
+                            className={`opening-h-icon opening-h-icon-${item.level} opening-h-icon-${item.side}`}
+                            style={{
+                                borderColor: `${item.color}50`,
+                                boxShadow: `0 4px 20px ${item.bgGlow}`
+                            }}
+                            title={item.title}
                         >
-                            <span className="material-symbols-outlined notranslate" translate="no">{item.icon}</span>
+                            {/* Forming Pulse Ring */}
+                            <motion.div
+                                className="opening-icon-ring"
+                                custom={index}
+                                animate={ringControls}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                style={{ borderColor: item.color }}
+                            />
+
+                            {/* Material Symbol with Glow Formation */}
+                            <motion.span
+                                className="material-symbols-outlined notranslate opening-icon-glyph"
+                                custom={index}
+                                animate={glyphControls}
+                                initial={{ scale: 0.4 }}
+                                style={{ color: item.color }}
+                                translate="no"
+                            >
+                                {item.icon}
+                            </motion.span>
                         </motion.div>
                     ))}
 
@@ -125,7 +245,7 @@ const Hero = ({ onAnimationComplete }) => {
                         className="hero-avatar-wrapper"
                         initial={{ opacity: isReturning ? 1 : 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: isReturning ? 0 : 0.8 }}
+                        transition={{ duration: isReturning ? 0 : 0.6 }}
                     >
                         <div className="hero-avatar-inner">
                             <img src="/face.png" alt="Tanasuke Avatar" className="hero-avatar" />

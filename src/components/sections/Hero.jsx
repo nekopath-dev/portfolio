@@ -246,6 +246,7 @@ const Hero = ({ onAnimationComplete }) => {
     const ringControls = useAnimation();
     const avatarControls = useAnimation();
     const [animationDone, setAnimationDone] = useState(isReturning);
+    const [typingSettled, setTypingSettled] = useState(isReturning);
 
     // Keep the latest callback without retriggering the animation effect
     const onAnimationCompleteRef = useRef(onAnimationComplete);
@@ -256,6 +257,7 @@ const Hero = ({ onAnimationComplete }) => {
     useEffect(() => {
         if (hasPlayedOpeningAnimation) {
             setAnimationDone(true);
+            setTypingSettled(true);
             onAnimationCompleteRef.current?.();
             return;
         }
@@ -404,12 +406,16 @@ const Hero = ({ onAnimationComplete }) => {
         const typingInterval = setInterval(() => {
             setTypedText(prev => {
                 if (prev.length < fullText.length) {
-                    return fullText.slice(0, prev.length + 1);
+                    const next = fullText.slice(0, prev.length + 1);
+                    if (next.length === fullText.length) {
+                        setTypingSettled(true);
+                    }
+                    return next;
                 }
                 clearInterval(typingInterval);
                 return prev;
             });
-        }, 100);
+        }, 80);
 
         return () => clearInterval(typingInterval);
     }, [animationDone]);
@@ -503,12 +509,16 @@ const Hero = ({ onAnimationComplete }) => {
                         style={{ cursor: "pointer" }}
                         title="Googleで「Tanasuke」を検索"
                     >
-                        <span className="material-symbols-outlined notranslate" translate="no">search</span>
+                        <span className="material-symbols-outlined notranslate search-icon" translate="no">search</span>
 
-                        <h1 className="hero-title">
-                            <span className="google-gradient-text">{typedText}</span>
-                            <span className="typing-cursor"></span>
-                        </h1>
+                        <div className="hero-search-input-area">
+                            <h1 className="hero-title">
+                                <span className={`google-gradient-text ${isReturning ? 'settled' : typingSettled ? 'flow-settle' : ''}`}>
+                                    {typedText}
+                                </span>
+                                <span className="typing-cursor"></span>
+                            </h1>
+                        </div>
 
                         <div className="search-icons-right">
                             <span className="material-symbols-outlined notranslate" translate="no" title="音声検索">mic</span>

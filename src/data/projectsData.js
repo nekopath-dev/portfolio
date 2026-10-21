@@ -69,7 +69,8 @@ export const projectsData = [
     details: {
       background: '現在、法人登記前の「Fuwalief」という名義にて、生成AI壁紙アプリ「Irodori」を開発しています。\nClaude Codeを利用して開発を進め、現在はクローズドベータテストの段階です。',
       links: [
-        { url: 'https://fuwalief.com/', title: 'Fuwalief ホームページ' }
+        { url: 'https://fuwalief.com/', title: 'Fuwalief ホームページ' },
+        { url: 'https://fuwalief.com/irodori.html', title: 'Irodori 公式ページ' }
       ]
     }
   },
@@ -106,7 +107,7 @@ export const projectsData = [
     numericId: 3,
     title: '猫神様の言うとおり',
     shortTitle: '猫神様の言うとおり',
-    description: '2025年8月にサポーターズ主催ハッカソンにて2名で開発した自己啓発型Androidアプリ。Google Playにてリリース済み。',
+    description: 'サポーターズ主催「技育CAMP2024 ハッカソン Vol.12」にて2名で開発した自己啓発型Androidアプリ。Google Playにてリリース済み。',
     tags: ['Android', 'Kotlin', 'Hackathon'],
     category: ['AI・アプリ開発'],
     link: 'https://github.com/momoice/nekokami',
@@ -117,7 +118,9 @@ export const projectsData = [
       eventInfo: 'サポーターズ｜【技育CAMP2024】ハッカソン Vol.12 制作作品',
       collaborators: 'momoice（ももあいす）',
       background: '共同制作経験が必要だと感じ、株式会社サポーターズが主催する「【技育CAMP2024】ハッカソン Vol.12」に参加しました。\nスマホを操作して１日が終わるような日を無くすため、猫神様が毎日課題を自動で与えてくれるアプリを作成しました。\n「ところで君、人生変える覚悟ある？まあ、選択肢なんて無いんだけどね♪」\n毎日猫神様から出される課題をこなすと、なんだか人生が好転していくかも？',
-      impressions: '初めてAndroidアプリ＆共同制作を行い、とてもいい経験となりました。',
+      tools: ['Android Studio', 'Kotlin'],
+      impressions: '私はシステム（バックエンド）を担当しました。Android Studio／Kotlinは初めて触りましたが、2日間で完成させることができました。\n初めてAndroidアプリ＆共同制作を行い、とてもいい経験となりました。',
+      future: '2024年10月4日にクローズドテストを開始し、2024年11月6日にGoogle Playでリリースしました。\nリリース後の実績は、累計ダウンロード約30件、継続利用ユーザー約7名です。',
       images: ['/assets/projects/nekokami.png'],
       links: [
         { url: 'https://github.com/momoice/nekokami', title: 'GitHub Repository' },
@@ -147,10 +150,11 @@ export const projectsData = [
         'M5StickCが投げを検知する（加速度センサー）',
         '3回モーターが動き、ボールが振動する（ポケモンがボールに入った直後の揺れを再現）',
         '30%の確率で失敗し、「ブブー」と音がなる。同時にLINE Notifyで「逃げられてしまった…」と通知し、最初に戻る。',
-        '60%で成功した場合は、M5StickCがWi-Fiを使ってPokeAPIにポケモンの名前をリクエスト。',
+        '70%で成功した場合は、M5StickCがWi-Fiを使ってPokeAPIにポケモンの名前をリクエスト。',
         'ポケモン名を取得できた場合は、LINE Notifyを使って「やった！〇〇（ポケモン名）を捕まえた！」と通知し、捕獲成功の音楽が鳴る。'
       ],
-      impressions: '私はプログラム全般の開発を担当しました。途中で音楽とモーターを同時に動かす際に不具合が発生し解決に時間がかかりましたが、チームメンバーの協力のおかげで無事に完成させることができました。\n非常に面白いプロダクトを作り上げることができたと自負しており、友人たちも「伝説のポケモンが出るまでやる！」と熱中していました。',
+      impressions: '私はプログラム全般の開発を担当しました。途中で音楽とモーターを同時に動かす際に不具合が発生し解決に時間がかかりましたが、チームメンバーの協力のおかげで無事に完成させることができました。\n非常に面白いプロダクトを作り上げることができたと自負しており、アルバイト先の仲間たちも「伝説のポケモンが出るまでやる！」と熱中していました。',
+      future: '講義「アプリケーションデザインB」にて、作品最優秀賞を受賞しました。',
       images: ['/assets/projects/dx-monsterball.png'],
       links: [
         { url: 'https://github.com/nekopath-dev/dxmonsterball', title: 'GitHub Repository' },
@@ -264,6 +268,71 @@ export const projectsData = [
         { url: 'https://numa-meta.com/', title: '全日本大学メタバース連盟（NUMA）公式HP' },
         { url: 'https://numa-meta.com/members', title: '加盟団体一覧（全国20団体）' }
       ]
+    }
+  },
+  {
+    id: 'moodle-quiz-review-cleaner',
+    numericId: 11,
+    title: 'Moodleクイズレビュークリーナー（Chrome拡張）',
+    shortTitle: 'Moodle復習用Chrome拡張',
+    description: 'Moodle小テストのレビュー画面で、回答・正誤アイコン・フィードバックをF2キーで非表示／表示切り替えし、解き直し→答え合わせができるChrome拡張機能。',
+    tags: ['Chrome Extension', 'JavaScript', 'Manifest V3', 'Moodle'],
+    category: ['AI・アプリ開発'],
+    link: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension',
+    featured: false,
+    icon: 'extension',
+    accentColor: 'var(--google-yellow)',
+    details: {
+      eventInfo: '開発期間: 2024年10月 - 2024年11月',
+      background: 'Moodleの小テストは受験後にレビュー画面で振り返ることができますが、自分の回答・正誤アイコン・フィードバックが最初から表示されているため、答えが見えた状態でしか見直せず、解き直しの復習になりませんでした。\n「答えを隠して、もう一度自分の力で解きたい」と考え、自分の試験勉強のためにこの拡張機能を作りました。生成AIとのペアプログラミングで開発しました。',
+      tools: ['JavaScript', 'Chrome Extension (Manifest V3)', '生成AI（ペアプログラミング）'],
+      flow: [
+        'Moodleで受験済みの小テストのレビュー画面を開く',
+        'F2キーを押すと、回答・正誤アイコン・フィードバックが非表示になる',
+        '自分の力で問題を解き直す',
+        'もう一度F2キーを押すと元の回答と正誤が表示され、そのまま答え合わせができる'
+      ],
+      future: '最初はラジオボタン式の問題に対応し、v2.1（2024年11月）でプルダウン式の問題にも対応しました。\n友人にも配布したところ、感謝してもらえました。',
+      links: [
+        { url: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension', title: 'GitHub Repository' }
+      ]
+    }
+  },
+  {
+    id: 'madobe',
+    numericId: 12,
+    title: 'Madobe - キャラクターが住む壁紙アプリ',
+    shortTitle: 'Madobe',
+    description: 'Fuwalief名義（法人登記準備中）で開発したAndroidアプリ。「スマホの中に、キャラクターが住んでいる」。カスタマイズしたキャラクターが時間帯・天気・季節に連動して壁紙の中で暮らし、AIが壁紙を自動生成。',
+    tags: ['Android', 'AI', 'App Development', 'Fuwalief'],
+    category: ['AI・アプリ開発'],
+    link: 'https://fuwalief.com/madobe.html',
+    featured: false,
+    icon: 'wallpaper',
+    accentColor: 'var(--gemini-pink)',
+    details: {
+      background: '「スマホの中に、キャラクターが住んでいる」\nFuwalief名義（法人登記準備中）で開発したAndroidアプリです。\n外見・服装・性格をカスタマイズしたキャラクターが、時間帯・天気・季節に連動して壁紙の中で暮らします。壁紙はAIが自動生成します。\n料金体系は、クレジット制＋月額980円（税込）のプレミアムプランです。',
+      links: [
+        { url: 'https://fuwalief.com/madobe.html', title: 'Madobe 公式ページ' }
+      ]
+    }
+  },
+  {
+    id: 'hita-chatbot',
+    numericId: 13,
+    title: 'HITA - 大学情報AIチャットボット',
+    shortTitle: 'HITA (大学情報AIチャットボット)',
+    description: '学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット。LINE公式アカウント（Messaging API）×Google Cloud（Vertex AI）で個人開発。',
+    tags: ['LINE Messaging API', 'Google Cloud', 'Vertex AI', 'Generative AI'],
+    category: ['AI・アプリ開発'],
+    link: '#',
+    featured: false,
+    icon: 'smart_toy',
+    accentColor: 'var(--google-green)',
+    details: {
+      background: '大学の規程・案内・サポート情報が複数の場所に分散しており、探すのに毎回時間がかかっていました。\nそこで、学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット「HITA」を開発しました。キャンパスガイド・規定集・大学ドメインのHPの内容・シラバスを学習させています。\n個人開発で、全工程を担当しました。',
+      tools: ['LINE公式アカウント（Messaging API）', 'Google Cloud', 'Vertex AI'],
+      links: []
     }
   }
 ];

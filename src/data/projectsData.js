@@ -330,7 +330,7 @@ export const projectsData = [
     icon: 'smart_toy',
     accentColor: 'var(--google-green)',
     details: {
-      background: '大学の規程・案内・サポート情報が複数の場所に分散しており、探すのに毎回時間がかかっていました。\nそこで、学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット「HITA」を開発しました。キャンパスガイド・規定集・大学ドメインのHPの内容・シラバスを学習させています。\n個人開発で、全工程を担当しました。',
+      background: '大学の規程・案内・サポート情報が複数の場所に分散しており、探すのに毎回時間がかかっていました。\nそこで、学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット「HITA」を開発しました。キャンパスガイド・規定集・大学ドメインのHPの内容・シラバスを検索して回答するRAG構成です。\n個人開発で、全工程を担当しました。',
       tools: ['LINE公式アカウント（Messaging API）', 'Google Cloud', 'Vertex AI'],
       links: []
     }

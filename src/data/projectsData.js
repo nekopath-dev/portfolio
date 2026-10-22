@@ -84,25 +84,6 @@ export const projectsData = [
     }
   },
   {
-    id: 'madobe',
-    numericId: 12,
-    title: 'Madobe - キャラクターが住む壁紙アプリ',
-    shortTitle: 'Madobe',
-    description: 'Fuwalief名義（法人登記準備中）で開発したAndroidアプリ。「スマホの中に、キャラクターが住んでいる」。カスタマイズしたキャラクターが時間帯・天気・季節に連動して壁紙の中で暮らし、AIが壁紙を自動生成。',
-    tags: ['Android', 'AI', 'App Development', 'Fuwalief'],
-    category: ['AI・アプリ開発'],
-    link: 'https://fuwalief.com/madobe.html',
-    featured: false,
-    icon: 'wallpaper',
-    accentColor: 'var(--gemini-pink)',
-    details: {
-      background: '「スマホの中に、キャラクターが住んでいる」\nFuwalief名義（法人登記準備中）で開発したAndroidアプリです。\n外見・服装・性格をカスタマイズしたキャラクターが、時間帯・天気・季節に連動して壁紙の中で暮らします。壁紙はAIが自動生成します。\n料金体系は、クレジット制＋月額980円（税込）のプレミアムプランです。',
-      links: [
-        { url: 'https://fuwalief.com/madobe.html', title: 'Madobe 公式ページ' }
-      ]
-    }
-  },
-  {
     id: 'hita-chatbot',
     numericId: 13,
     title: 'HITA - 大学情報AIチャットボット',
@@ -142,7 +123,7 @@ export const projectsData = [
     accentColor: 'var(--gemini-pink)',
     details: {
       eventInfo: '制作期間: 2026年2月 - 3月',
-      background: 'アプリ公開に必要なプライバシーポリシー等の掲載先として、また事業としての信頼性（会社の顔）をつくるために制作しました。\nミッション「優しいテクノロジーで不安を取り除く」、プロダクト紹介（Irodori／Madobe）、お問い合わせフォーム、各アプリのプライバシーポリシー・利用規約・AI倫理ポリシー・アカウント削除ページを掲載しています。',
+      background: 'アプリ公開に必要なプライバシーポリシー等の掲載先として、また事業としての信頼性（会社の顔）をつくるために制作しました。\nミッション「優しいテクノロジーで不安を取り除く」、プロダクト紹介、お問い合わせフォーム、各アプリのプライバシーポリシー・利用規約・AI倫理ポリシー・アカウント削除ページを掲載しています。',
       tools: ['HTML / CSS / JavaScript', 'Google Stitch', 'Claude Code', 'Antigravity', '独自ドメイン（fuwalief.com）'],
       impressions: 'Google Stitchでデザイン案を作り、Claude CodeとAntigravityで実装しました。',
       links: [

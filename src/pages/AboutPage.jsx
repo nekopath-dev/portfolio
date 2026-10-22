@@ -167,7 +167,7 @@ const AboutPage = () => {
                 </div>
                 <h4 className="role-title">個人開発</h4>
                 <p className="role-org">Fuwalief / Tanasuke</p>
-                <p className="role-desc">生成AIアプリ「Irodori」「Madobe」を個人で開発中。</p>
+                <p className="role-desc">生成AI壁紙アプリ「Irodori」などのアプリやWebサイトを個人で開発。</p>
               </div>
             </div>
 

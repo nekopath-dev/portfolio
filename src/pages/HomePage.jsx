@@ -52,7 +52,7 @@ const HomePage = ({ onAnimationComplete }) => {
             <p className="home-about-text">
               2003年生まれ。広島工業大学から2026年に<strong>法政大学大学院 情報科学研究科</strong>に進学。
               学部1年で学内サークル「HIT Metaverse」を立ち上げ、600名規模のバーチャルオープンキャンパスを主催・成功させました。
-              現在は生成AIと開発自動化に注力し、Google AI学生アンバサダー MVP受賞や Claude Code / OpenClaw を用いたアプリ制作を行っています。
+              現在は生成AIと開発自動化に注力し、Google AI学生アンバサダー MVP受賞や Claude Code を用いたアプリ制作、PdMとしての長期インターンに取り組んでいます。
             </p>
 
             <div className="role-cards">
@@ -84,7 +84,7 @@ const HomePage = ({ onAnimationComplete }) => {
                   <span className="keep-together">サークル設立</span>・<span className="keep-together">代表</span>
                 </h4>
                 <p className="role-org">HIT Metaverse</p>
-                <p className="role-desc">40名組織 / 600名動員</p>
+                <p className="role-desc">約50名組織 / 600名動員</p>
               </div>
 
               <div className="role-card green">

@@ -85,7 +85,8 @@ const AboutPage = () => {
                 学部1年のときに、全国初の大学メタバースサークル（自称）のHIT Metaverseを設立し、VIRTUAL OPEN CAMPUS主催で600名以上の来場者を記録する。<br />
                 その他、全国大学メタバースサークル連盟（現：NUMA）やHIT Effectorという学生団体の設立を行う。<br /><br />
                 現在は生成AIに非常に興味があり、複数の資格を取得。<br />
-                Google AI学生アンバサダーでMVPを受賞したり、Claude Codeを使ったアプリ開発や、OpenClawによる自動化などに挑戦している。
+                Google AI学生アンバサダーでMVPを受賞したり、Claude Codeを使ったアプリ開発などに挑戦している。<br />
+                2026年からは長期インターンとして、プロダクトマネージャーの立場からAIプロダクトの改善にも携わっている。
               </p>
 
               <div className="about-traits">
@@ -157,7 +158,7 @@ const AboutPage = () => {
                   <span className="keep-together">サークル設立</span>・<span className="keep-together">代表</span>
                 </h4>
                 <p className="role-org">HIT Metaverse</p>
-                <p className="role-desc">40名規模のVRサークルを設立・運営。VIRTUAL OPEN CAMPUSでは600名の動員を達成。</p>
+                <p className="role-desc">約50名規模のメタバースサークルを設立・運営。VIRTUAL OPEN CAMPUSでは600名以上の動員を達成。</p>
               </div>
 
               <div className="role-card green">

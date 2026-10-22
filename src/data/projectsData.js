@@ -47,7 +47,7 @@ export const projectsData = [
         'これを5分ごとに繰り返す'
       ],
       impressions: '正直、このシステムで予約が格段に楽になりました。\n早期卒業を目指していたため、送迎バスや技能予約の待ち時間に1分おきに確認していましたが、それは非常に手間がかかりました。\nLINEで通知が来るようになり、わざわざページを開いて確認する必要がなくなりました。\nただし、キャンセルが出て30分ほど空きが続くと、6回も通知が来てしまう欠点があり、一度検知したらタイムインターバルを設定すればよかったと反省しています。',
-      future: '教習指導員にこのシステムについて説明すると、とても驚き、称賛されました。\n卒業後、システムの話が会社の上層部に伝わったようで、システム担当者から連絡がありオンラインミーティングを行いました。\nその際、「今後、仕事として何かお願いするかもしれません」と言われました。',
+      future: '本システムの稼働開始から約1か月で教習を修了し、早期卒業を達成しました。\n教習指導員にこのシステムについて説明すると、とても驚き、称賛されました。\n卒業後、システムの話が会社の上層部に伝わったようで、システム担当者から連絡がありオンラインミーティングで実装内容を直接ヒアリングされました。\nその際、「今後、仕事として何かお願いするかもしれません」と打診を受けました（その後の連絡には至っていません）。',
       images: ['/assets/projects/driving-school.png'],
       links: [
         { url: 'https://github.com/nekopath-dev/e-license-Automatic-Notification-System', title: 'GitHub Repository' }
@@ -59,18 +59,95 @@ export const projectsData = [
     numericId: 2,
     title: 'Irodori - AI Wallpaper App',
     shortTitle: 'Irodori (AI壁紙)',
-    description: '法人登記前の「Fuwalief」という名義で、Claude Codeを活用して開発した生成AI壁紙アプリ。ユーザーの好みに合わせたアートワークを生成。現在クローズドベータテスト中。',
-    tags: ['AI', 'App Development', 'Claude', 'Fuwalief'],
+    description: '法人登記準備中の「Fuwalief」名義で、Claude Codeを使い込みながら個人開発した生成AI壁紙Androidアプリ。テキストやテンプレートから自分好みの壁紙を生成。クローズドベータテストまで実施。',
+    tags: ['Flutter', 'Dart', 'Generative AI', 'Claude Code', 'Fuwalief'],
     category: ['AI・アプリ開発'],
-    link: 'https://fuwalief.com/',
+    link: 'https://fuwalief.com/irodori.html',
     featured: false,
     icon: 'palette',
     accentColor: 'var(--gemini-purple)',
     details: {
-      background: '現在、法人登記前の「Fuwalief」という名義にて、生成AI壁紙アプリ「Irodori」を開発しています。\nClaude Codeを利用して開発を進め、現在はクローズドベータテストの段階です。',
+      eventInfo: '開発期間: 2026年1月ごろ - 約半年（クローズドベータテストまで実施）',
+      background: '法人登記準備中の「Fuwalief」という名義にて、生成AIで自分好みの壁紙を作れるAndroidアプリ「Irodori」を開発しました。\n「AIコーディングツールを使い、個人で本当に動くプロダクトをリリースまで持っていく」ことを目標に、Claude Codeを有料プランで継続利用しながら開発を進めました。',
+      tools: ['Flutter', 'Dart', '画像生成API（nanobanana pro 等）', 'Claude Code'],
+      flow: [
+        'AI壁紙生成：テキストを入力するだけで壁紙を生成（高速モード／高品質モードを選択可能）',
+        'テンプレート＆ランダム生成：テンプレートから選ぶか、ランダム生成で気軽に体験',
+        '自動更新：好みの時刻に壁紙を自動生成・設定（バックグラウンド動作）',
+        'クレジット制：初回ウェルカムボーナス＋リワード広告視聴でクレジットを獲得（高速生成1／高品質生成2クレジット）'
+      ],
+      impressions: '一番苦労したのは、画像生成APIのコストと、ユーザーに配るクレジット、リワード広告のバランスです。\n無料でも楽しめることと、運営を続けられることを両立させるため、初回ボーナスとリワード広告でクレジットを獲得する仕組みを設計しました。\nストア公開に向けて、プライバシーポリシー・利用規約・AI倫理ポリシー・特定商取引法に基づく表記・アカウント削除ページも自分で整備しました。',
       links: [
-        { url: 'https://fuwalief.com/', title: 'Fuwalief ホームページ' },
-        { url: 'https://fuwalief.com/irodori.html', title: 'Irodori 公式ページ' }
+        { url: 'https://fuwalief.com/irodori.html', title: 'Irodori 公式ページ（Fuwalief）' },
+        { url: 'https://fuwalief.com/', title: 'Fuwalief ホームページ' }
+      ]
+    }
+  },
+  {
+    id: 'madobe',
+    numericId: 12,
+    title: 'Madobe - キャラクターが住む壁紙アプリ',
+    shortTitle: 'Madobe',
+    description: 'Fuwalief名義（法人登記準備中）で開発したAndroidアプリ。「スマホの中に、キャラクターが住んでいる」。カスタマイズしたキャラクターが時間帯・天気・季節に連動して壁紙の中で暮らし、AIが壁紙を自動生成。',
+    tags: ['Android', 'AI', 'App Development', 'Fuwalief'],
+    category: ['AI・アプリ開発'],
+    link: 'https://fuwalief.com/madobe.html',
+    featured: false,
+    icon: 'wallpaper',
+    accentColor: 'var(--gemini-pink)',
+    details: {
+      background: '「スマホの中に、キャラクターが住んでいる」\nFuwalief名義（法人登記準備中）で開発したAndroidアプリです。\n外見・服装・性格をカスタマイズしたキャラクターが、時間帯・天気・季節に連動して壁紙の中で暮らします。壁紙はAIが自動生成します。\n料金体系は、クレジット制＋月額980円（税込）のプレミアムプランです。',
+      links: [
+        { url: 'https://fuwalief.com/madobe.html', title: 'Madobe 公式ページ' }
+      ]
+    }
+  },
+  {
+    id: 'hita-chatbot',
+    numericId: 13,
+    title: 'HITA - 大学情報AIチャットボット',
+    shortTitle: 'HITA（大学情報チャットボット）',
+    description: '大学の規程・案内・シラバスなどを検索して回答するRAG型AIチャットボット。LINEから24時間質問でき、大学の生成AI活用チームの会議で副学長を含む職員の前でデモを実施。',
+    tags: ['Google Cloud', 'Vertex AI', 'RAG', 'LINE Messaging API'],
+    category: ['AI・アプリ開発'],
+    link: '#',
+    featured: false,
+    icon: 'smart_toy',
+    accentColor: 'var(--google-blue)',
+    details: {
+      eventInfo: '開発期間: 2024年2月 - 約半年（個人開発）',
+      background: '大学の規程や案内、サポート情報が複数の場所に散らばっていて、必要な情報を探すのに毎回時間がかかることが開発のきっかけです。\nGoogle Cloud上で、大学関連のドキュメント群を検索して回答するRAG型のチャットボット「HITA（ヒタ）」を構築しました。学生が普段から使っていて気軽に質問できるよう、窓口にはLINEを選んでいます。',
+      tools: ['LINE公式アカウント（Messaging API）', 'Google Cloud', 'Vertex AI'],
+      flow: [
+        'キャンパスガイド・規定集・大学ドメインのHP・シラバスを自分で集めて整理',
+        'それらを検索対象としたRAG構成をVertex AIで構築',
+        'LINE公式アカウントから質問すると、該当情報をもとに生成AIが24時間365日回答'
+      ],
+      impressions: '苦労したのは生成AIのハルシネーションです。誤回答のフィードバックを集めて手動で修正し、回答精度を高めました。\n個人開発のため、企画から実装・改善まですべて自分で行いました。',
+      future: '友人や学生に実際に使ってもらったほか、大学の生成AI活用チームの会議に招かれ、副学長を含む職員の前でデモを行いました。\n※非公開情報を含むため、ソースコード・URLは公開していません。',
+      links: []
+    }
+  },
+  {
+    id: 'fuwalief-website',
+    numericId: 15,
+    title: 'Fuwalief 公式サイト',
+    shortTitle: 'Fuwalief 公式サイト',
+    description: '法人登記準備中の「株式会社Fuwalief」のコーポレートサイト。プロダクト紹介や、各アプリのプライバシーポリシー・利用規約・AI倫理ポリシーなどを掲載。',
+    tags: ['HTML/CSS', 'JavaScript', 'Google Stitch', 'Claude Code'],
+    category: ['AI・アプリ開発'],
+    link: 'https://fuwalief.com/',
+    featured: false,
+    icon: 'language',
+    accentColor: 'var(--gemini-pink)',
+    details: {
+      eventInfo: '制作期間: 2026年2月 - 3月',
+      background: 'アプリ公開に必要なプライバシーポリシー等の掲載先として、また事業としての信頼性（会社の顔）をつくるために制作しました。\nミッション「優しいテクノロジーで不安を取り除く」、プロダクト紹介（Irodori／Madobe）、お問い合わせフォーム、各アプリのプライバシーポリシー・利用規約・AI倫理ポリシー・アカウント削除ページを掲載しています。',
+      tools: ['HTML / CSS / JavaScript', 'Google Stitch', 'Claude Code', 'Antigravity', '独自ドメイン（fuwalief.com）'],
+      impressions: 'Google Stitchでデザイン案を作り、Claude CodeとAntigravityで実装しました。',
+      links: [
+        { url: 'https://fuwalief.com/', title: 'Fuwalief 公式サイト' },
+        { url: 'https://github.com/nekopath-dev/fuwalief-hp', title: 'GitHub Repository' }
       ]
     }
   },
@@ -79,7 +156,7 @@ export const projectsData = [
     numericId: 1,
     title: 'HIT Metaverse - VIRTUAL OPEN CAMPUS',
     shortTitle: 'HIT Metaverse VOC',
-    description: '大学公認のメタバースサークルを設立し、毎年600名以上を動員するバーチャルオープンキャンパスを主催。clusterを活用したステージ企画やキャンパスツアーを実施。',
+    description: '大学公認のメタバースサークルを設立し、初年度のバーチャルオープンキャンパスで600名以上を動員。clusterを活用したステージ企画やキャンパスツアーを実施。後輩へ継承し、現在も毎年開催。',
     tags: ['Leadership', 'Event Planning', 'cluster', 'VR'],
     category: ['コミュニティ・組織'],
     link: 'https://monocuro.wixstudio.com/hit-metaverse',
@@ -89,10 +166,10 @@ export const projectsData = [
     logo: '/assets/projects/hit-metaverse-logo.png',
     details: {
       images: ['/assets/projects/hit-metaverse-logo.png'],
-      eventInfo: '活動期間: 2022年04月 - 2025年03月',
-      background: '【広島工業大学 VIRTUAL OPEN CAMPUS】\n広島工業大学の学内サークル「HIT Metaverse」の設立を行い、リーダーとして、40名ほどのメンバーと共にメタバース上でのオープンキャンパスを企画・運営しました。\n\n▼ 取り組んだこと\nメタバース（仮想）空間上に大学のキャンパスを再現し、遠方に住んでいてリアルなオープンキャンパスに来られない高校生や保護者の方に、大学の雰囲気を体感してもらえるイベントを企画しました。\nリアルのオープンキャンパスと日程を合わせて7月・8月の2回開催し、様々な企画を組み合わせてイベント内容を充実させることに注力しました。準備段階では「何をどうすれば良いのか」が全くわからない状態からスタートし、自分たちが高校生の時にどんな発見があればこの大学に行きたいと思えるか意見出しを行い、実現可能性ともすり合わせながら、課題を一つ一つ整理して進めました。',
+      eventInfo: '活動期間: 2022年夏（設立） - 2025年03月',
+      background: '【広島工業大学 VIRTUAL OPEN CAMPUS】\n広島工業大学の学内サークル「HIT Metaverse」の設立を行い、初代リーダーとして、設立当初30名ほど（のちに約50名規模）のメンバーと共にメタバース上でのオープンキャンパスを企画・運営しました。\n\n▼ 取り組んだこと\nメタバース（仮想）空間上に大学のキャンパスを再現し、遠方に住んでいてリアルなオープンキャンパスに来られない高校生や保護者の方に、大学の雰囲気を体感してもらえるイベントを企画しました。\nリアルのオープンキャンパスと日程を合わせて7月・8月の2回開催し、様々な企画を組み合わせてイベント内容を充実させることに注力しました。準備段階では「何をどうすれば良いのか」が全くわからない状態からスタートし、自分たちが高校生の時にどんな発見があればこの大学に行きたいと思えるか意見出しを行い、実現可能性ともすり合わせながら、課題を一つ一つ整理して進めました。',
       impressions: '▼ きっかけ・理由\n「せっかくなら、やってみよう」が全ての始まりでした。大学入学前、メタバース上で知り合った社会人の方から「せっかく大学生になるんだし、サークルを作ってみたら？」と声をかけてもらったのがきっかけです。\n\nサークルを立ち上げると決めてから、「遠くて大学に来られない人にも、このキャンパスの雰囲気を届けたい」というアイデアが浮かびました。私自身、広島に住んでいるわけではなかったので、遠方からわざわざ足を運ぶのが難しい高校生や保護者の方が多くいるのではないかと考えたためです。\n\n最終目標は、３つ設定しました。\n①来場者を300人以上にすること\n②VIRTUAL OPEN CAMPUSきっかけで入学した人を出すこと\n③大学公式で飾られた広報ではなく、学生が感じたままを伝えることで、少しでも高校生に安心感を与えること\n\nゼロの状態からのスタートでしたが、「自分たちにしかできないことをやっている」という感覚が行動を後押しし、仲間を巻き込みながら一歩ずつ形にしていきました。',
-      future: '▼ 成果や得られた学び\n【チームで作り上げた、累計600名超の来場という結果】\n2日間のイベントで累計600名以上の来場者を迎え、大盛況となりました。大学側にもその成果が認められ、学生企画としてリアルのVR体験会の実施にもつながり、大学公認のサークルとなることができました。\n\nこの経験を通して、「他者を巻き込む力」と「自ら考えて動く行動力」を大きく養うことができました。また、この成功体験が自信となり、その後の全国大学メタバースサークル連盟（NUMA）の共同設立や、学生団体「Effector」の立ち上げなど、さらなる挑戦への原動力となりました。\n現在VIRTUAL OPEN CAMPUSは後輩に運営を引き継ぎ、私がいなくなっても毎年開催されています。',
+      future: '▼ 成果や得られた学び\n【チームで作り上げた、累計600名超の来場という結果】\n初年度のVIRTUAL OPEN CAMPUS 2022では累計600名以上の来場者を迎え、大盛況となりました。大学側にもその成果が認められ、学生企画としてリアルのVR体験会の実施にもつながり、大学公認のサークルとなることができました。\n\nまた、広島県廿日市市の実証実験に協力し、国指定重要文化財「安井家母屋」のメタバース再現と連携イベントの運営にリーダーとして関わるなど、学外との連携にも活動を広げました。\n\nこの経験を通して、「他者を巻き込む力」と「自ら考えて動く行動力」を大きく養うことができました。また、この成功体験が自信となり、その後の全国大学メタバースサークル連盟（NUMA）の共同設立や、学生団体「Effector」の立ち上げなど、さらなる挑戦への原動力となりました。\n現在VIRTUAL OPEN CAMPUSは後輩に運営を引き継ぎ、私がいなくなっても毎年開催されています（VOC 2025も約400名が参加）。',
       links: [
         { url: 'https://x.com/HIT_Metaverse', title: 'HIT Metaverse 公式X (@HIT_Metaverse)' },
         { url: 'https://metacross.net/2023/08/01/%E5%BA%83%E5%B3%B6%E5%B7%A5%E6%A5%AD%E5%A4%A7%E5%AD%A6-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%E3%82%92%E3%83%A1%E3%82%BF%E3%83%90%E3%83%BC%E3%82%B9%E3%81%B8/', title: 'META CROSS NETWORK 特集取材（代表インタビュー）' },
@@ -107,10 +184,10 @@ export const projectsData = [
     numericId: 3,
     title: '猫神様の言うとおり',
     shortTitle: '猫神様の言うとおり',
-    description: 'サポーターズ主催「技育CAMP2024 ハッカソン Vol.12」にて2名で開発した自己啓発型Androidアプリ。Google Playにてリリース済み。',
+    description: '技育CAMP2024 ハッカソン Vol.12にて2名・2日間で開発した自己啓発型Androidアプリ。2024年11月にGoogle Playでリリースし、累計DL約30件。',
     tags: ['Android', 'Kotlin', 'Hackathon'],
     category: ['AI・アプリ開発'],
-    link: 'https://github.com/momoice/nekokami',
+    link: 'https://play.google.com/store/apps/details?id=com.nekopath.nekokami&hl=ja',
     featured: false,
     icon: 'pets',
     accentColor: 'var(--google-red)',
@@ -119,13 +196,13 @@ export const projectsData = [
       collaborators: 'momoice（ももあいす）',
       background: '共同制作経験が必要だと感じ、株式会社サポーターズが主催する「【技育CAMP2024】ハッカソン Vol.12」に参加しました。\nスマホを操作して１日が終わるような日を無くすため、猫神様が毎日課題を自動で与えてくれるアプリを作成しました。\n「ところで君、人生変える覚悟ある？まあ、選択肢なんて無いんだけどね♪」\n毎日猫神様から出される課題をこなすと、なんだか人生が好転していくかも？',
       tools: ['Android Studio', 'Kotlin'],
-      impressions: '私はシステム（バックエンド）を担当しました。Android Studio／Kotlinは初めて触りましたが、2日間で完成させることができました。\n初めてAndroidアプリ＆共同制作を行い、とてもいい経験となりました。',
-      future: '2024年10月4日にクローズドテストを開始し、2024年11月6日にGoogle Playでリリースしました。\nリリース後の実績は、累計ダウンロード約30件、継続利用ユーザー約7名です。',
+      impressions: '私はシステム系をすべて担当し、もう1人にはアイデアと画面デザインを担当してもらいました。\nKotlinもAndroid Studioも初めてでしたが、生成AIの出力を何度も直しながら組み上げ、徹夜で2日間のうちに完成させました。初めてのAndroidアプリ＆共同制作で、とてもいい経験となりました。\nこの経験から、「自分の成長を優先するなら、同じくらいのレベル同士でチームを組むほうがよい」という自分なりのハッカソン観も持つようになりました。',
+      future: 'ハッカソンのあと、2024年10月からクローズドテストを経て、2024年11月にGoogle Playでリリースしました。\n累計DL約30件、継続利用ユーザー約7名に使っていただきました。',
       images: ['/assets/projects/nekokami.png'],
       links: [
+        { url: 'https://play.google.com/store/apps/details?id=com.nekopath.nekokami&hl=ja', title: 'Google Play' },
         { url: 'https://github.com/momoice/nekokami', title: 'GitHub Repository' },
-        { url: 'https://docs.google.com/presentation/d/1qNaZEt9hDy2TX1t24dxWRoh6XAJCTA3CL-as3hb63Bg/preview?usp=sharing', title: '紹介スライド' },
-        { url: 'https://www.notion.so/11642eb8fe3080c9b456d581f73a2a4f?pvs=21', title: 'クローズドベータテスト 参加方法' }
+        { url: 'https://docs.google.com/presentation/d/1qNaZEt9hDy2TX1t24dxWRoh6XAJCTA3CL-as3hb63Bg/preview?usp=sharing', title: '紹介スライド' }
       ]
     }
   },
@@ -142,19 +219,19 @@ export const projectsData = [
     icon: 'sports_esports',
     accentColor: 'var(--google-red)',
     details: {
-      eventInfo: 'スイッチサイエンス主催「M5Stack Japan Creativity Contest 2024」出品作品',
-      background: '大学の「アプリケーションデザインB」という講義で、グループで自由に開発する最終課題がありました。\nグループ内で「どうせ作るのであれば、面白いものを作ろう」という話になり、投げたらポケモンを捕まえることができる「DXモンスターボール」を作ることになりました。',
+      eventInfo: '講義「アプリケーションデザインB」作品最優秀賞 / スイッチサイエンス主催「M5Stack Japan Creativity Contest 2024」出品作品',
+      background: '大学の「アプリケーションデザインB」という講義で、グループで自由に開発する最終課題がありました。\n3名のチームで、企画は全員で考案し、私はプログラム全般を担当しました（開発期間：約2週間）。\nグループ内で「どうせ作るのであれば、面白いものを作ろう」という話になり、投げたらポケモンを捕まえることができる「DXモンスターボール」を作ることになりました。',
       tools: ['Arduino IDE 2.3.3', 'M5StickC', 'M5StickC追加パーツ（スピーカー、モーター）', 'Poke API', 'LINE Notify', 'ArduinoJson', 'M5GFX', 'M5Unified', 'ServoESP32'],
       flow: [
         'M5StickCが入ったボールを投げる',
         'M5StickCが投げを検知する（加速度センサー）',
         '3回モーターが動き、ボールが振動する（ポケモンがボールに入った直後の揺れを再現）',
         '30%の確率で失敗し、「ブブー」と音がなる。同時にLINE Notifyで「逃げられてしまった…」と通知し、最初に戻る。',
-        '70%で成功した場合は、M5StickCがWi-Fiを使ってPokeAPIにポケモンの名前をリクエスト。',
-        'ポケモン名を取得できた場合は、LINE Notifyを使って「やった！〇〇（ポケモン名）を捕まえた！」と通知し、捕獲成功の音楽が鳴る。'
+        '70%で成功した場合は、M5StickCがWi-Fiを使ってPokeAPIにポケモンの名前をリクエスト（取得できるまで最大3回再試行し、そのたびにボールが揺れる）。',
+        'ポケモン名を取得できた場合は、LINE Notifyを使って「やった！〇〇（ポケモン名）を捕まえた！」と通知し、捕獲成功の音楽が鳴る。3回で取得できなかった場合は失敗として扱う。'
       ],
-      impressions: '私はプログラム全般の開発を担当しました。途中で音楽とモーターを同時に動かす際に不具合が発生し解決に時間がかかりましたが、チームメンバーの協力のおかげで無事に完成させることができました。\n非常に面白いプロダクトを作り上げることができたと自負しており、アルバイト先の仲間たちも「伝説のポケモンが出るまでやる！」と熱中していました。',
-      future: '講義「アプリケーションデザインB」にて、作品最優秀賞を受賞しました。',
+      impressions: '私はプログラム全般の開発を担当しました。途中で音楽とモーターを同時に動かす際に不具合が発生し解決に時間がかかりましたが、一人で抱え込まずにチームに共有し、メンバーがコードをコメントアウトして原因箇所を切り分けてくれたことで、無事に期限内に完成させることができました。\n「一人で悩むよりチームに頼ったほうが早い、そして楽しい」と実感した経験です。\n非常に面白いプロダクトを作り上げることができたと自負しており、アルバイト先の仲間たちも「伝説のポケモンが出るまでやる！」と熱中していました。',
+      future: '講義「アプリケーションデザインB」で作品最優秀賞を受賞しました。\nM5Stack Japan Creativity Contest 2024にも出品しました（受賞・入選なし）。',
       images: ['/assets/projects/dx-monsterball.png'],
       links: [
         { url: 'https://github.com/nekopath-dev/dxmonsterball', title: 'GitHub Repository' },
@@ -183,10 +260,69 @@ export const projectsData = [
         '学生証をかざす',
         '猫の鳴き声とともに、学生番号が指定されたExcelに出力される（Excel出力時は一番上から行を追加し、指定されたセルに書き込む）'
       ],
+      impressions: '読み取り時の猫の鳴き声は、画面を見なくても読み取り成功がわかる合図であり、利用者もスタッフも楽しくなる遊び心でもあります。',
+      future: '自分の勤務時に数日間試験運用した結果、紙の手書きと所要時間がほとんど変わらないうえ、利用者に学生証を出してもらう手間が増えると判断し、本導入は見送りました。「手段の目的化」を初めて実感した経験です。\nこの反省から、代替案として紙マニュアルのデジタル化を自ら起案し、「ICTサポートセンター Notion導入プロジェクト」につなげました。',
       links: [
         { url: 'https://github.com/nekopath-dev/Student-Number-Recording-System', title: 'GitHub Repository' }
       ],
       relatedMediaIds: ['reel-parttime', 'vlog-day']
+    }
+  },
+  {
+    id: 'ict-notion-adoption',
+    numericId: 14,
+    title: 'ICTサポートセンター Notion導入プロジェクト',
+    shortTitle: 'ICTサポセン Notion導入',
+    description: '学生スタッフ約50名の学内アルバイト先で、紙マニュアルのデジタル化を自ら起案・推進。Notionをナレッジベースとして導入し、検索ですぐ情報にたどり着ける運用へ移行。',
+    tags: ['Notion', 'Project Lead', 'Knowledge Management', 'DX'],
+    category: ['コミュニティ・組織'],
+    link: '#',
+    featured: false,
+    icon: 'menu_book',
+    accentColor: 'var(--google-green)',
+    details: {
+      eventInfo: '広島工業大学 ICTサポートセンター（学生スタッフ約50名・職員2名）',
+      background: 'ICTサポートセンターでは長らく、業務手順や対応ノウハウが紙のマニュアルに依存しており、必要な情報を探すコストが高い状態でした。\n「学生番号記録システム」の試験運用で「何でもデジタルにすれば便利になるわけではない」と学んだうえで、本当に効果のあるデジタル化として、マニュアルのデジタル化を自ら起案しました。',
+      tools: ['Notion'],
+      flow: [
+        '職員2名から企画の許可を取得',
+        '学生スタッフ全体（約50名）へプレゼンし、全員の合意を形成',
+        '推進チーム（7名）を立ち上げ、リーダーとして主導',
+        '各トラブルの対応事例・新機能・ノウハウをNotionページとして記録し、検索できるナレッジベースを整備'
+      ],
+      impressions: '並行して教育リーダーとして、新人スタッフを一人前に育てるための手順・教え方をマニュアル化し、役割分担を仕組み化することで、全員が同じクオリティで教育できる体制を作りました。',
+      future: 'メンバーから「探す時間が減った」と感謝される水準で業務効率が改善し、過去事例をもとにトラブル対応できる状態になりました。\n個人の暗黙知をチームの形式知へ変換し、属人化を解消する仕組みとして定着しています。',
+      links: [],
+      relatedMediaIds: ['reel-parttime']
+    }
+  },
+  {
+    id: 'moodle-quiz-review-cleaner',
+    numericId: 11,
+    title: 'Moodleクイズレビュークリーナー（Chrome拡張）',
+    shortTitle: 'Moodle復習用Chrome拡張',
+    description: 'Moodleの小テストのレビュー画面で、自分の回答・正誤・フィードバックをF2キーで隠したり表示したりできるChrome拡張機能。解き直しから答え合わせまでワンキーで完結。',
+    tags: ['JavaScript', 'Chrome Extension', 'Manifest V3'],
+    category: ['AI・アプリ開発'],
+    link: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension',
+    featured: false,
+    icon: 'extension',
+    accentColor: 'var(--google-yellow)',
+    details: {
+      eventInfo: '開発期間: 2024年10月（初版） - 11月（v2.1）',
+      background: 'Moodleの小テストを見直そうとしても、レビュー画面に自分の回答・正誤アイコン・フィードバックがすべて表示されてしまい、もう一度自力で解き直す「復習」になりませんでした。\nそこで、まずは自分の試験勉強のために、回答を隠して解き直せるChrome拡張機能「Moodleクイズレビュークリーナー」を作りました。',
+      tools: ['JavaScript', 'Chrome拡張機能（Manifest V3：manifest.json / content.js / background.js）'],
+      flow: [
+        'F2キーで、選択した回答・正誤アイコン・フィードバック・結果表示を非表示にする',
+        'ラジオボタン形式：選択済みのチェック状態を一時保存して外す',
+        'プルダウン形式（v2.1で対応）：選択済み項目のテキストを一時保存して消す',
+        'もう一度F2を押すと元の回答が戻り、そのまま答え合わせができる'
+      ],
+      impressions: '答えを消すだけでなく、F2でもう一度表示できるようにして、解き直しから答え合わせまでをワンキーで完結させたことがこだわりです。生成AIとのペアプログラミングで開発しました。',
+      future: '自分の試験対策で活用したうえで友人にも配布し、感謝されました。',
+      links: [
+        { url: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension', title: 'GitHub Repository' }
+      ]
     }
   },
   {
@@ -243,7 +379,7 @@ export const projectsData = [
     numericId: 10,
     title: '全国大学メタバースサークル連盟（現：NUMA）- 共同設立',
     shortTitle: '全日本大学メタバース連盟',
-    description: '全国の大学メタバースサークルを繋ぎ支援するため、北海道大学メタバース研究会と共に共同設立。全国約30名のネットワークを築き、現在は「NUMA」として約20団体が加盟。',
+    description: '全国の大学メタバースサークルを繋ぎ支援するため、北海道大学メタバース研究会と共に共同設立。約10大学規模のネットワークを築き、現在は「NUMA」として約20団体が加盟。',
     tags: ['Co-founder', 'Metaverse', 'Alliance', 'Community', 'VR'],
     category: ['コミュニティ・組織'],
     link: 'https://numa-meta.com/',
@@ -268,71 +404,6 @@ export const projectsData = [
         { url: 'https://numa-meta.com/', title: '全日本大学メタバース連盟（NUMA）公式HP' },
         { url: 'https://numa-meta.com/members', title: '加盟団体一覧（全国20団体）' }
       ]
-    }
-  },
-  {
-    id: 'moodle-quiz-review-cleaner',
-    numericId: 11,
-    title: 'Moodleクイズレビュークリーナー（Chrome拡張）',
-    shortTitle: 'Moodle復習用Chrome拡張',
-    description: 'Moodle小テストのレビュー画面で、回答・正誤アイコン・フィードバックをF2キーで非表示／表示切り替えし、解き直し→答え合わせができるChrome拡張機能。',
-    tags: ['Chrome Extension', 'JavaScript', 'Manifest V3', 'Moodle'],
-    category: ['AI・アプリ開発'],
-    link: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension',
-    featured: false,
-    icon: 'extension',
-    accentColor: 'var(--google-yellow)',
-    details: {
-      eventInfo: '開発期間: 2024年10月 - 2024年11月',
-      background: 'Moodleの小テストは受験後にレビュー画面で振り返ることができますが、自分の回答・正誤アイコン・フィードバックが最初から表示されているため、答えが見えた状態でしか見直せず、解き直しの復習になりませんでした。\n「答えを隠して、もう一度自分の力で解きたい」と考え、自分の試験勉強のためにこの拡張機能を作りました。生成AIとのペアプログラミングで開発しました。',
-      tools: ['JavaScript', 'Chrome Extension (Manifest V3)', '生成AI（ペアプログラミング）'],
-      flow: [
-        'Moodleで受験済みの小テストのレビュー画面を開く',
-        'F2キーを押すと、回答・正誤アイコン・フィードバックが非表示になる',
-        '自分の力で問題を解き直す',
-        'もう一度F2キーを押すと元の回答と正誤が表示され、そのまま答え合わせができる'
-      ],
-      future: '最初はラジオボタン式の問題に対応し、v2.1（2024年11月）でプルダウン式の問題にも対応しました。\n友人にも配布したところ、感謝してもらえました。',
-      links: [
-        { url: 'https://github.com/nekopath-dev/Moodle-Problem-Review-Extension', title: 'GitHub Repository' }
-      ]
-    }
-  },
-  {
-    id: 'madobe',
-    numericId: 12,
-    title: 'Madobe - キャラクターが住む壁紙アプリ',
-    shortTitle: 'Madobe',
-    description: 'Fuwalief名義（法人登記準備中）で開発したAndroidアプリ。「スマホの中に、キャラクターが住んでいる」。カスタマイズしたキャラクターが時間帯・天気・季節に連動して壁紙の中で暮らし、AIが壁紙を自動生成。',
-    tags: ['Android', 'AI', 'App Development', 'Fuwalief'],
-    category: ['AI・アプリ開発'],
-    link: 'https://fuwalief.com/madobe.html',
-    featured: false,
-    icon: 'wallpaper',
-    accentColor: 'var(--gemini-pink)',
-    details: {
-      background: '「スマホの中に、キャラクターが住んでいる」\nFuwalief名義（法人登記準備中）で開発したAndroidアプリです。\n外見・服装・性格をカスタマイズしたキャラクターが、時間帯・天気・季節に連動して壁紙の中で暮らします。壁紙はAIが自動生成します。\n料金体系は、クレジット制＋月額980円（税込）のプレミアムプランです。',
-      links: [
-        { url: 'https://fuwalief.com/madobe.html', title: 'Madobe 公式ページ' }
-      ]
-    }
-  },
-  {
-    id: 'hita-chatbot',
-    numericId: 13,
-    title: 'HITA - 大学情報AIチャットボット',
-    shortTitle: 'HITA (大学情報AIチャットボット)',
-    description: '学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット。LINE公式アカウント（Messaging API）×Google Cloud（Vertex AI）で個人開発。',
-    tags: ['LINE Messaging API', 'Google Cloud', 'Vertex AI', 'Generative AI'],
-    category: ['AI・アプリ開発'],
-    link: '#',
-    featured: false,
-    icon: 'smart_toy',
-    accentColor: 'var(--google-green)',
-    details: {
-      background: '大学の規程・案内・サポート情報が複数の場所に分散しており、探すのに毎回時間がかかっていました。\nそこで、学内の情報をLINEで質問でき、生成AIが24時間応答するチャットボット「HITA」を開発しました。キャンパスガイド・規定集・大学ドメインのHPの内容・シラバスを検索して回答するRAG構成です。\n個人開発で、全工程を担当しました。',
-      tools: ['LINE公式アカウント（Messaging API）', 'Google Cloud', 'Vertex AI'],
-      links: []
     }
   }
 ];

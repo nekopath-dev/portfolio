@@ -555,15 +555,15 @@ const Hero = ({ onAnimationComplete }) => {
                     </div>
 
                     <div className="hero-tags">
-                        <span className="hero-tag">クリエイター</span>
-                        <span className="hero-tag-dot">•</span>
                         <span className="hero-tag">エンジニア</span>
                         <span className="hero-tag-dot">•</span>
-                        <span className="hero-tag">デザイナー</span>
+                        <span className="hero-tag">PdM</span>
+                        <span className="hero-tag-dot">•</span>
+                        <span className="hero-tag">クリエイター</span>
                     </div>
 
                     <p className="hero-subtitle" style={{ display: 'none' }}>
-                        機能と美しさを融合させた、モダンなデジタル体験を構築します。MD3の原則に基づき、UIデザインとフロントエンドエンジニアリングに情熱を注いでいます。
+                        人を笑顔にする"面白いもの"を、技術でつくる。エンジニアとして力をつけ、プロダクトマネージャーとして事業を育てることを目指しています。
                     </p>
                 </motion.div>
             </div>

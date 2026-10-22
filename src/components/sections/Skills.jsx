@@ -9,22 +9,22 @@ const Skills = () => {
         {
             title: "開発",
             icon: "code",
-            skills: ["C (学習中)", "Python (学習中)", "HTML/CSS"]
+            skills: ["C", "Python", "Kotlin", "Dart / Flutter", "JavaScript", "React / Vite", "HTML/CSS", "Arduino (M5Stack)"]
         },
         {
-            title: "AI & 機械学習",
+            title: "AI & クラウド",
             icon: "smart_toy",
-            skills: ["Claude Code", "Generative AI", "Cursor", "Git/GitHub", "Vite"]
+            skills: ["Claude Code", "Antigravity", "Gemini", "Vertex AI (RAG)", "NotebookLM", "Cursor", "Google Cloud", "Microsoft Azure", "Git/GitHub"]
         },
         {
             title: "デザイン",
             icon: "draw",
-            skills: ["UI/UX", "Material Design", "Figma", "Poster Graphic Design"]
+            skills: ["UI/UX", "Material Design", "Google Stitch", "Figma", "Poster Graphic Design"]
         },
         {
             title: "ソフトスキル",
             icon: "groups",
-            skills: ["Leadership", "Event Planning", "Public Relations", "Community Management"]
+            skills: ["Product Management", "Leadership", "Event Planning", "Public Relations", "Community Management"]
         }
     ];
 
